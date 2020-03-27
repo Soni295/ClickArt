@@ -22,19 +22,19 @@
           <form name="myForm" action="" onsubmit="return crear_cuenta()" class="sign-up" method="post">
             <div class="form-group">
               <label for="usuario">Nombre de Usuario:</label> 
-              <input id="usuario"  name="usuario" placeholder="Perdro210" type="text" aria-describedby="UserHelpBlock"  class="form-control"> 
+              <input id="usuario"  name="usuario" placeholder="Perdro210" type="text" aria-describedby="UserHelpBlock" required class="form-control"> 
             </div>
             <div class="form-group">
               <label for="email">E-mail:</label> 
-              <input id="email" name="email" placeholder="pedrosanchez@hotmail.com" type="email"  class="form-control">
+              <input id="email" name="email" placeholder="pedrosanchez@hotmail.com" type="email" required class="form-control">
             </div>
             <div class="form-group">
               <label for="contrasena">Contraseña:</label> 
-              <input id="contrasena" name="contrasena" placeholder="**********" type="password"  class="form-control">
+              <input id="contrasena" name="contrasena" placeholder="**********" type="password" required class="form-control">
             </div>
             <div class="form-group">
               <label for="contrasena2">Confirmar Contraseña:</label> 
-              <input id="contrasena2" name="contrasena2" placeholder="**********" type="password" class="form-control" >
+              <input id="contrasena2" name="contrasena2" placeholder="**********" type="password" required class="form-control" >
             </div>
 
  
@@ -49,7 +49,7 @@
               </div>
             </div> 
             <div class="form-group">
-              <input type="checkbox" id="Term" name="Term" value="Yes">
+              <input type="checkbox" id="Term" name="Term" required value="Yes">
               <label for="Term"> Acepto terminos y condiciones</label>         
             </div>
             <p>¿Ya tienes cuenta?

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
   <head><!-- -->
     <meta charset="UTF-8">
     <title>ClickART</title>
@@ -8,76 +7,109 @@
     <link rel="stylesheet" href="../../../vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"  href="../../../css/style.css">
     <link rel="stylesheet"  href="../../../css/artist.css">
-    
-  </head> 
-    
+  </head>     
   <body>
     <header id="nav1"></header>    
-    <!-- barra de navegacion --> 
+    
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col margin">
+          <p id="nombre" class="dato">Armando esteban quito</p>
+          <p id="area" class="dato">Artista conseptual</p>
+        </div>
+        <div class="col">
+          <img src="../../../images/patata/icon.jpg" class="img-perfil" alt="icono">
+        </div>
+        <div class="col margin">            
+          <p class="dato">Idiomas: Ingles/Español/aleman</p>
+          <p class="dato">Buenos Aires,Arg</p>
+          <p class="dato">banquito@hotmail.com</p>
+        </div>
+      </div>
+    </div>
+    
+
+
     <nav class="desc">
       <ul>
-        <li><a class="seleccion" onclick="vistaPag('bio')" href="#">Acerca de mi</a></li>
         <li><a class="seleccion" onclick="vistaPag('galeria')" id="porDefecto" href="#">Galeria</a></li>
-        <li><a class="seleccion" onclick="vistaPag('concursos')" href="#">Concursos</a></li>
+        <!--    <li><a class="seleccion" onclick="vistaPag('concursos')" href="#">Concursos</a></li>
         <li><a class="seleccion" onclick="vistaPag('mechandarsing')" href="#">Mechandarsing</a></li>
+        <li><a class="seleccion" onclick="vistaPag('siguiendo')" href="#">Siguiendo</a></li>
+        <li><a class="seleccion" onclick="vistaPag('seguidores')" href="#">Seguidores</a></li>
+        <li><a class="seleccion" onclick="vistaPag('favoritos')" href="#">Favoritos</a></li> -->
+        <li><a class="seleccion" onclick="vistaPag('envio')" href="#">Contacto</a></li>
       </ul>
     </nav>
 
 
 
 
-    <div id="bio" class="ventana">
-      <div>
-        <form action="">
-          <div>
-            <input type="text" value="Tu nombre" style="text-align: center;">
-          </div>
-        <input type="text" value="Experciencia laboral">
-        <input type="text" value="Email">
-        <textarea name="comment" rows="5" cols="40"></textarea>
-        <input type="text">
-        <input type="text">
-        <input type="text">
-        </form>
 
+    <main>
+
+      <div id="galeria" class="ventana">
+        <div class="container-fluid">
+          <div class="row">            
+            <div class="column">
+              <a href=""><img src="../../../images/patata/0022.png" alt=""></a>
+            </div>
+            <div class="column">
+              <a href=""><img src="../../../images/patata/0022.png" alt=""></a>
+            </div>
+            <div class="column">
+              <a href=""><img src="../../../images/patata/0022.png" alt=""></a>
+            </div>
+            <div class="column">
+              <a href=""><img src="../../../images/patata/0022.png" alt=""></a>
+            </div>
+            <div class="column">
+              <a href=""><img src="../../../images/patata/0022.png" alt=""></a>
+            </div>
+            <div class="column">
+              <a href=""><img src="../../../images/patata/0022.png" alt=""></a>
+            </div>
+          </div>
+
+
+        </div>
+      </div> <!--  
+      <div id="concursos" class="ventana">
+        <p>Aca en los concursos que participo</p>
+      </div>    
+      <div id="mechandarsing" class="ventana">
+        <p>Aca los shushos que vende</p>      
+      </div>
+      <div id="siguiendo" class="ventana">
+        <p>Aca van los que sigue</p>
+      </div>
+      <div id="seguidores" class="ventana">
+        <p>Aca van los seguidores</p>
+      </div>
+      <div id="favoritos" class="ventana">
+        <p>Aca van los favoritos</p>
+      </div>-->
+      <div id="envio" class="ventana">
+        <div class="container-fluid">
+          <div class="row">            
+            <div class="column">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
+                . Vero voluptates cupiditate quisquam deleniti dolore optio, ra
+                tione sint saepe sequi iste. Ipsam delectus doloribus sit consequatur earum v
+                oluptatibus. Asperiores, vel facilis?</p>
+            </div>
+            <div class="column">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
+                . Vero voluptates cupiditate quisquam deleniti dolore optio, ra
+                tione sint saepe sequi iste. Ipsam delectus doloribus sit consequatur earum v
+                oluptatibus. Asperiores, vel facilis?</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="galeria" class="ventana">
-
-    </div>
     
-    <div id="concursos" class="ventana">
-    
-    </div>
-    
-    <div id="mechandarsing" class="ventana">
-      
-    </div>
-
-
+  </main>
 
 
 
