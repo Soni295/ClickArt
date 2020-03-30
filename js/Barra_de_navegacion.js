@@ -1,25 +1,20 @@
 function generador(){// nav0,nav1,lin0,lin1
 
-  let bnav0, bnav1, pie0, pie1, palabra;
+  let palabra;
+  const distancia= { uno:'', dos:'../../'};
 
-  let distancia= { uno:'', dos:'../../' }
-
-  bnav0=document.getElementById("nav0");
-  bnav1=document.getElementById("nav1");
-  pie0=document.getElementById("lin0");
-  pie1=document.getElementById("lin1");
+  let bnav0=document.getElementById("nav0");
+  let bnav1=document.getElementById("nav1");
+  let pie0=document.getElementById("lin0");
+  let pie1=document.getElementById("lin1");
 
 
   if(bnav0){
-
     palabra=distancia.uno;
-
-  }else 
-
-  if(bnav1){
-
+  }
+  
+  else if(bnav1){
     palabra=distancia.dos;
-
   }
 
   let barra=`
