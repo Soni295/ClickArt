@@ -40,11 +40,6 @@ datos.Usuarios[(datos.Usuarios).length] ={
 
 //agregar("armando","patata@hotmail.com","dieeego","dieeego",3);
 
-
-
-
-
-
 var dato={
     "ID":null,
     "Usuario":null,
@@ -65,5 +60,5 @@ var dato={
 
   datos.Usuarios[(datos.Usuarios).length]= dato
 
-console.log(datos)  */
+console.log(datos)
 

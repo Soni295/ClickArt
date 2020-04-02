@@ -60,3 +60,4 @@ function validar_contrasena(contra1,contra2) {
   else{return true;}
   
 }
+

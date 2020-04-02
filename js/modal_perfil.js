@@ -1,16 +1,15 @@
 function vistaPag(Nombre){
-
-  var i, ventana, seleccion;
+  var ventana, seleccion;
 
   ventana =document.getElementsByClassName("ventana");
 
-  for(i=0; i < ventana.length;i++){
+  for(let i=0; i < ventana.length; i++){
     ventana[i].style.display="none";
   }
 
   seleccion = document.getElementsByClassName("seleccion");
 
-  for (i = 0; i < seleccion.length; i++) {
+  for (let i = 0; i < seleccion.length; i++) {
     seleccion[i].style.backgroundColor = "";
   }
   
