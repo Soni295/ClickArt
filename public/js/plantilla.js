@@ -19,7 +19,7 @@ let barra=`
 
     <!-- icon -->
     <a class="navbar-brand" href="${palabra}index.html"><!--***************************************-->
-      <img src="${palabra}../images/hi.png" height="30px" alt=""><!--***************************************-->
+      <img src="${palabra}../../images/hi.png" height="30px" alt=""><!--***************************************-->
     </a>      
 
     <!-- responsive -->
@@ -34,7 +34,7 @@ let barra=`
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">Subida</a><!--***************************************-->
+          <a class="nav-link" href="${palabra}subida.html">Subida</a><!--***************************************-->
         </li>
       </ul>
 
@@ -55,7 +55,7 @@ let barra=`
           <a class="nav-link" onclick="document.getElementById('id01').style.display='block'" href="#">Conectarse</a>
         
           <div id="id01" class="modal">
-            <form class="modal-content animate" action="/action_page.php" method="post">
+            <form class="modal-content animate my-form" action="/action_page.php" method="post">
               <div class="imgcontainer">
                 <span onclick="document.getElementById('id01').style.display='none'" 
                 class="close" title="Close Modal">&times;</span>
@@ -95,10 +95,10 @@ let barra=`
           </a>
 
           <!-- deplegador de opciones -->   
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu menu-deplegable" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Action</a><!--***************************************-->
-            <a class="dropdown-item" href="#">Another action</a><!--***************************************-->
-            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="Users/patata/imagen.html">Another action</a><!--***************************************-->
+            <div class="dropdown-divider separador"></div>
             <a class="dropdown-item" href="Users/patata/artist.html">Cuenta Prueba</a><!--***************************************-->
           </div>
         </li>

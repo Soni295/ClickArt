@@ -1,6 +1,5 @@
 function vistaPag(Nombre){
   var ventana, seleccion;
-
   ventana =document.getElementsByClassName("ventana");
 
   for(let i=0; i < ventana.length; i++){

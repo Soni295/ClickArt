@@ -1,105 +1,89 @@
-*{
-  padding: 0px;
-  margin: 0px;
-}
+/*-------------------------------Cosas generales--------------------------------*/
 body{
-  font-family:'Nanum Gothic', sans-serif;                /*letra gotica*/
-  background:#333;                                     /*fondo general*/
-}
-.bienvenida{                                             /*debe desaparecer*/
-  color: #B172FF;                                      /*color de la letar*/
-  text-align: center;                                    /*Centro el texto*/
-  border: 2px solid #575757;                           /*le pongo*/
-  background: #000000;                                 /*le cambio el fondo al h1*/
-  padding: 14px 30px;                                    /*determino lo interno*/
-  margin: 10px 25% 10px 25%;                             /*determino los margenes en proporcion al exterior*/
+  font-family:'Nanum Gothic', sans-serif;         /*letra gotica*/
+  background:#333;                              /*fondo general*/
 }
 a{
-  text-decoration: none;                                 /*le quito la linea de abajo*/
-  color: #ffffff;                                      /*lo hago blanco*/
+  text-decoration: none;                          /*le quito la linea de abajo*/
+  color: #ffffff;                               /*Letra=blanco*/
 }
-a:hover{                                                 /*sirve para cuando pasas el mouse por ensima*/
-  text-decoration: none;                                 /*le quito la linea de abajo*/
-  color: #A6A6A6;                                      /*el color de la letra*/
+a:hover{                                          /*hover actua cuando pasas el mouse por ensima*/
+  text-decoration: none;                          /*le quito la linea de abajo*/
+  color: #A6A6A6;                               /*el color de la letra*/
 }
 li{
-  list-style-type: none;                                 /*le quito los puntos a la listas*/
-  display: inline-block;
-  color: white;                                        /*le cambie el color a los elementos de la lista*/
+ /* list-style-type: none;                        /*le quito los puntos a la listas*/
+  display: inline-block;                          /*pongo los elementos de la lista en fila*/
+  color: white;                                 /*le cambie el color a los elementos de la lista*/
 }
-ul{                                                      /*para centrar las palabras de la lista*/
-  text-align: center;
-  padding-left: 0px;
-}
-form, .margin{
-  margin:auto;                                           /*lo puse para centrar el formulario*/
+ul{
+  text-align: center;                             /*para centrar las palabras de la lista*/
 }
 .search{
-  background-color: #353535;                           /*cambiar el color al buscador*/
-  color:#ADADAD;                                       /*cambiar el color de las letras*/
+  background-color: #353535;                    /*cambiar el color al buscador*/
+  color:#ADADAD;                                /*cambiar el color de las letras*/
 }
 .search[type=search]:focus {
-  background-color: black;                             /*cambiar el color al buscador cuando esta activado*/
-  color: white;                                        /*cambiar el color de las letras cuando esta activado*/
+  background-color: black;                      /*cambiar el color al buscador cuando esta activado*/
+  color: white;                                 /*cambiar el color de las letras cuando esta activado*/
 }
 .my-form{
-  display: flex;
-  justify-content: center;
+  display: flex;                                  /**/
+  justify-content: center;                        /**/
+  margin:auto;                                    /**/
 }
-.dropdown-menu{
-  right: 0px;
-  left: auto;
-  background: #343a40;
+.menu-deplegable{                                 /*reescribi el color,la pocicion*/
+  right: 0px;                                     /**/
+  left: auto;                                     /**/
+  background: #343a40;                          /**/
 }
-.dropdown-item{
-  color: rgb(177, 114, 255);
-}
-.dropdown-item:hover{
-  color:white;
-  background: #454d58;
-}
-.dropdown-divider{
+.separador{                                       /*el separador del desplegable*/
   border-top:1px solid #6d7a87;
 }
-.navbar-dark .navbar-nav .nav-link {
-  color: rgb(177, 114, 255)
+.navbar-dark .navbar-nav .nav-link ,
+.dropdown-item {                                  /*pise la clase de bootstrap*/
+  color: rgb(177, 114, 255)                     /*un rosa por que si*/
 }
-.nav-link:hover {
-    color: rgba(255,255,255,.75);
-    background: #454d58;
-}
-button{
-  margin: 0px 3px 0px 0px;
+.navbar a:hover,.dropdown-item:hover {            /*aca cuando le paso el mouse*/
+  color: rgba(255,255,255,.75);
+  background: #454d58;
 }
 hr{
-  border-width: 3px
+  border: 1px solid rgba(226, 226, 226, 0.404);  /*le di un toque de estilo al separador*/
 }
 
-/*---------Paguina principal-------------------------------------*/
+/*----------------------------Paguina principal----------------------------------*/
 
-
-/*aca le cambio los colores de letra fondo y borde al boton*/
-.column-mio img:hover {
+.bienvenida{
+  color: #B172FF;                               /*color de la letar*/
+  text-align: center;                             /*Centro el texto*/
+  border: 2px solid #575757;                    /*le pongo*/
+  background: #000000;                          /*le cambio el color de fondo*/
+  padding: 14px 30px;                             /*determino lo interno el padding*/
+  margin: 10px 25% 10px 25%;                      /*determino los margenes en proporcion al exterior*/
+}
+.column-mio img:hover {/*-----------------------------------------------------------importante cambiar*/
   border: solid 1px gray;
 }
-.row {
+.row{
   display: -ms-flexbox; 
   display: flex;
   -ms-flex-wrap: wrap; 
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center;  
   margin-right: 0px; 
   margin-left: 0px; 
+
 }
 .column-mio {
-  -ms-flex: 16.6666%; 
-  max-width: 16.6666%;
+  max-width: 16.666%;
   padding: 1px;
 }
 .column-mio img {
   margin-top: 3px;
-  vertical-align: middle;
   width: 100%;
+  height: 300px;
+  object-fit: cover;
 }
 .column-mio img:hover {
   border: solid 1px gray;
@@ -128,6 +112,7 @@ hr{
     font-size: 0.7rem
   }
 }
+
 /*registration-----------------------------------*/
 
 .sign-up{
@@ -170,7 +155,6 @@ input{
 
 /*Perfil usar-----------------------------------*/
 
-
 .desc{/*es la barra de navegacion*/
   background: #5f5f5f;
   border: #73288c6b 2px solid;
@@ -206,10 +190,6 @@ p.dato{
 #area{
   font-size: 30px;
 }
-
-
-
-
 
 /*Conectarse--------------------------------------*/
 
@@ -253,16 +233,13 @@ img.avatar {
   width: 40%;
   border-radius: 50%;
 }
-
 .container {
   padding: 16px;
 }
-
 span.psw {
   float: right;
   padding-top: 16px;
 }
-
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -277,7 +254,6 @@ span.psw {
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   padding-top: 60px;
 }
-
 /* Modal Content/Box */
 .modal-content {
   background-color: #000000;
@@ -321,5 +297,3 @@ span.psw {
      width: 100%;
   }
 }
-
-

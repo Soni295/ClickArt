@@ -1,3 +1,8 @@
+//Es para validad la cuenta al momento de crearse
+
+
+
+
 function crear_cuenta(usuario,email,contrasena,contrasena2,tipo) {
   var usuario,email,contrasena,contrasena2,tipo;
 
@@ -10,7 +15,6 @@ function crear_cuenta(usuario,email,contrasena,contrasena2,tipo) {
   return validar(usuario ,email ,contrasena ,contrasena2);
 
 }
-
 function validar(usuario ,email ,contrasena ,contrasena2) {
   
   let check1 = validar_usuario(usuario);
@@ -22,12 +26,9 @@ function validar(usuario ,email ,contrasena ,contrasena2) {
   }
   else{ 
     return true
-
   }  
 }
-
-function validar_usuario(user) { 
-  
+function validar_usuario(user) {   
   if ( user == "" ) {
     alert ("Llene la casilla de usuario");
     return false;
@@ -39,12 +40,9 @@ function validar_usuario(user) {
   else if( user.length < 6 ) {
     alert("el nombre de usuario es muy corto.(6 caracteres minimo)");
     return false;
-
   }
 }
-
-function validar_contrasena(contra1,contra2) {
-  
+function validar_contrasena(contra1,contra2) {  
   if (contra1 != contra2){
     alert("Las contraseñas no coinciden.");
     return false;
@@ -57,7 +55,5 @@ function validar_contrasena(contra1,contra2) {
     alert("contraseña muy corta.(8 caracteres minimo)");
     return false;
   }
-  else{return true;}
-  
+  else{return true;}  
 }
-

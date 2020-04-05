@@ -23,7 +23,6 @@ var inventar = ()=>{
 //buscador
 
 let bd = inventar();
-let vistaPrincipal=document.getElementById("principal");
 
 //aca mostrara lo q le pase
 
@@ -44,10 +43,13 @@ for(let i=0; i<72;i++){
   }
   orden++;
 
-  plantilla+=`  <a href="${link}"><img class="item" src="../images/${src}" alt=""></a>\n`
+  plantilla+=`  <a href="${link}"><img class="item" src="../../images/${src}" alt=""></a>\n`
 }
 
 plantilla +='</div>';  
 
+console.log(plantilla)
+
+let vistaPrincipal=document.getElementById("principal");
 
 vistaPrincipal.innerHTML=plantilla;
