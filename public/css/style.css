@@ -181,9 +181,10 @@ hr{
   display: block;
   margin: auto;
 }
-p.dato{
-  text-align: center;
+.dato{
   color:white;
+  margin: auto;
+
 }
 #nombre{
   font-size: 40px;

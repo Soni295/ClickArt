@@ -32,8 +32,8 @@ const rutas = (app,miDire)=>{
   app.get('/usuario',(req,res)=>{//Trabajar la verificacion
     res.sendFile(miDire +'artist.html')
   });
-  app.get('/dibujo01',(req,res)=>{
-    res.sendFile(miDire +'no_encontrado');
+  app.get('/dibujo',(req,res)=>{
+    res.sendFile(miDire +'Imagen.html');
   });
   app.get('*',(req,res)=>{
     res.status(404).sendFile(miDire +'no_encontrado');
