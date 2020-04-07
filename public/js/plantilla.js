@@ -17,9 +17,9 @@ else if(bnav1){
 let barra=`
   <nav class="navbar navbar-expand-md bg-dark navbar-dark">       
 
-    <!-- icon -->
-    <a class="navbar-brand" href="${palabra}index.html"><!--***************************************-->
-      <img src="${palabra}../../images/hi.png" height="30px" alt=""><!--***************************************-->
+    <!-- icon                     ${palabra}index.html        -->
+    <a class="navbar-brand" href="/">
+      <img src="${palabra}../../images/hi.png" height="30px" alt="">
     </a>      
 
     <!-- responsive -->
@@ -34,20 +34,20 @@ let barra=`
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="${palabra}subida.html">Subida</a><!--***************************************-->
+          <a class="nav-link" href="subida">Subida</a><!-- ${palabra}subida.html -->
         </li>
       </ul>
 
       <!-- buscador -->
       <form class="form-inline my-form">            
-        <input class="form-control mr-sm-2 search" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-2 search" type="search" method="GET" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Buscar</button>
       </form>
 
       <!-- Registrarse -->
       <ul class="navbar-nav">   
         <li class="nav-item">
-          <a class="nav-link"  href="${palabra}Resgistrarse.html">Registrarse</a> <!--***************************************-->      
+          <a class="nav-link"  href="resgistrarse">Registrarse</a> <!--${palabra}resgistrarse.html-->      
         </li>
         
         <!-- ingresar  con moral ------------------------------------------------->
@@ -96,10 +96,10 @@ let barra=`
 
           <!-- deplegador de opciones -->   
           <div class="dropdown-menu menu-deplegable" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a><!--***************************************-->
-            <a class="dropdown-item" href="Users/patata/imagen.html">Another action</a><!--***************************************-->
+            <a class="dropdown-item" href="Usuario">Mi Usuario</a><!--***************************************-->
+            <a class="dropdown-item" href="#">Configuraciones</a><!--***************************************-->
             <div class="dropdown-divider separador"></div>
-            <a class="dropdown-item" href="Users/patata/artist.html">Cuenta Prueba</a><!--***************************************-->
+            <a class="dropdown-item" href="Users/patata/artist.html">Salir</a><!--***************************************-->
           </div>
         </li>
       </ul>
@@ -112,11 +112,11 @@ let enlases=`
   <ul>
     <li><p>©2020</p></li>
     <li><p>|</p></li>
-    <li><a href="${palabra}Terms of Service.html">Terminos del servicio</a></li>
+    <li><a href="terminos">Terminos del servicio</a></li><!--${palabra}terminos.html-->
     <li><p>|</p></li>
-    <li><a href="${palabra}Privacy.html"> Privacidad</a></li>
+    <li><a href="privacidad"> Privacidad</a></li><!--${palabra}privacidad.html-->
     <li><p>|</p></li>
-    <li><a href="${palabra}Upload Policy.html">Politica de Subida</a></li>
+    <li><a href="politica_de_subida">Politica de Subida</a></li><!--${palabra}Upload Policy.html-->
   </ul>`;
 
 if(bnav0){

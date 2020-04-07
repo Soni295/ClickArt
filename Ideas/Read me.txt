@@ -1,4 +1,4 @@
-Mi objetivo seria hacer una pag con:
+﻿Mi objetivo seria hacer una pag con:
 	4 entradas de usuario: publico, artistas, empresas y administrativo
 	  publico: poder ver y entrar a todos los contenidos pero no poder interactuar.
 	  artistas:poder comentar, publicar, retocar, biografia, enviar mensajes, seguir otros artistas, secciones de tutorial,ect.
@@ -68,4 +68,14 @@ usuario
     favoritos/desabilitado temporalmente*************
     enviar mensaje
       usuario:
+
+
+
+
+
+
+
+
+
+corrgir lo del index usando promesas
 

@@ -1,8 +1,4 @@
 //Es para validad la cuenta al momento de crearse
-
-
-
-
 function crear_cuenta(usuario,email,contrasena,contrasena2,tipo) {
   var usuario,email,contrasena,contrasena2,tipo;
 
@@ -19,7 +15,7 @@ function validar(usuario ,email ,contrasena ,contrasena2) {
   
   let check1 = validar_usuario(usuario);
   let check2 = validar_contrasena(contrasena,contrasena2);
-  let check3 = true//validar_email(email);
+  let check3 = true//validar_email(email); pendiente
 
   if(check1 == false || check2 == false || check3 == false) {
     return false;

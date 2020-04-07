@@ -1,16 +1,15 @@
 const express = require('express');
 const app = express();
-const server = require('http').Server(app);
-const folder= __dirname + `/public/html/` ; //me da la direccion de este archivos
+const http = require('http');
+const server = http.createServer(app);
+const rutas = require('./src/rutas');
+const miDire = __dirname+'/public/html/';
 
 
-app.use('*',express.static('public'))
 
-app.get('/',function(req,res){
-  res.render(folder +'index.html');
+app.use(express.static(__dirname + '/public'));//me permite usar lo q esta en publico en la busquedad poner static adelante
+rutas(app,miDire);
+
+server.listen(3000,()=>{
+  console.log('Corriendo en el puerto 3000')
 });
-
-server.listen(3000, ()=>{                //selecciono el puerto 
-  console.log('Puerto 3000 activo');     //y que si fuciona me responda por consola
-});
-

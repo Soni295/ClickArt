@@ -1,4 +1,3 @@
-/*-------------------------------Cosas generales--------------------------------*/
 body{
   font-family:'Nanum Gothic', sans-serif;         /*letra gotica*/
   background:#333;                              /*fondo general*/
@@ -60,7 +59,7 @@ hr{
   border: 2px solid #575757;                    /*le pongo*/
   background: #000000;                          /*le cambio el color de fondo*/
   padding: 14px 30px;                             /*determino lo interno el padding*/
-  margin: 10px 25% 10px 25%;                      /*determino los margenes en proporcion al exterior*/
+  margin: 30px 25% 30px 25%;                      /*determino los margenes en proporcion al exterior*/
 }
 .column-mio img:hover {/*-----------------------------------------------------------importante cambiar*/
   border: solid 1px gray;
@@ -116,6 +115,7 @@ hr{
 /*registration-----------------------------------*/
 
 .sign-up{
+  color: #000;
 }
 .sign-up label{
   color: #B172FF;
@@ -132,9 +132,6 @@ hr{
   margin:5px;
   margin-right: 20px;
 }
-input{
-  background: #595959
-}
 @media screen and (max-width: 800px) {
   .column-mio {
     -ms-flex: 33%;
@@ -148,8 +145,12 @@ input{
   .User-Registration{
     display: flex;
   }
+  .terminos{
+    display: flex;
+    flex-direction:column
+  }
   footer{
-    font-size: 0.7rem
+    font-size: 1rem
   }
 }
 
@@ -274,6 +275,63 @@ span.psw {
   color: red;
   cursor: pointer;
 }
+/*Subida aaaaaaaaaaaaaaaaaaaaaa*/
+
+.subida-box{
+  border: 1px white solid;
+  background: black; 
+  margin-top: 50px;
+  margin-bottom: 400px;
+}
+.previa{
+  columns: white;
+  width: 300px;
+  border: 1px solid white;
+  height: 300px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.previa>p{
+  color: white;
+}
+input[type=file]{
+  display: none;
+}
+.form-de-subida{
+  display: flex; 
+  flex-direction:column; 
+  margin: auto;
+}
+#titulo-subida{
+  margin: auto;
+  width: 200px;
+  height: 60px; 
+  font-size: 30px; 
+  text-align: center;
+}
+div > textarea{
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px; 
+  float: left;
+  width: 100%;
+  min-height: 75px;
+  outline: none;
+  resize: none;
+}
+.boton-subir{
+  width: 100px; 
+  margin: auto;
+}
+@media screen and (max-width: 800px) {
+  .subida-box{
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+}
+
 /* Add Zoom Animation */
 .animate {
   -webkit-animation: animatezoom 0.6s;
