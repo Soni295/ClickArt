@@ -1,25 +1,13 @@
-let palabra;
-const distancia= { uno:'', dos:'../../'};
-
+//esta plantilla sirve para generar la barra de navegacion y el pie de paguina
 let bnav0=document.getElementById("nav0");
-let bnav1=document.getElementById("nav1");
 let pie0=document.getElementById("lin0");
-let pie1=document.getElementById("lin1");
-
-if(bnav0){
-  palabra=distancia.uno;
-}
-
-else if(bnav1){
-  palabra=distancia.dos;
-}
 
 let barra=`
   <nav class="navbar navbar-expand-md bg-dark navbar-dark">       
 
-    <!-- icon                     ${palabra}index.html        -->
+
     <a class="navbar-brand" href="/">
-      <img src="${palabra}../../images/hi.png" height="30px" alt="">
+      <img src="../../images/hi.png" height="30px" alt="">
     </a>      
 
     <!-- responsive -->
@@ -34,12 +22,12 @@ let barra=`
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="subida">Subida</a><!-- ${palabra}subida.html -->
+          <a class="nav-link" href="subida">Subida</a>
         </li>
       </ul>
 
       <!-- buscador -->
-      <form class="form-inline my-form">            
+      <form class="form-inline my-form" action="/" method="GET">            
         <input class="form-control mr-sm-2 search" type="search" method="GET" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Buscar</button>
       </form>
@@ -47,7 +35,7 @@ let barra=`
       <!-- Registrarse -->
       <ul class="navbar-nav">   
         <li class="nav-item">
-          <a class="nav-link"  href="resgistrarse">Registrarse</a> <!--${palabra}resgistrarse.html-->      
+          <a class="nav-link"  href="resgistrarse">Registrarse</a>   
         </li>
         
         <!-- ingresar  con moral ------------------------------------------------->
@@ -96,7 +84,7 @@ let barra=`
 
           <!-- deplegador de opciones -->   
           <div class="dropdown-menu menu-deplegable" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="Usuario">Mi Usuario</a><!--***************************************-->
+            <a class="dropdown-item" href="usuario">Mi Usuario</a><!--***************************************-->
             <a class="dropdown-item" href="#">Configuraciones</a><!--***************************************-->
             <div class="dropdown-divider separador"></div>
             <a class="dropdown-item" href="Users/patata/artist.html">Salir</a><!--***************************************-->
@@ -112,24 +100,12 @@ let enlases=`
   <ul>
     <li><p>©2020</p></li>
     <li><p>|</p></li>
-    <li><a href="terminos">Terminos del servicio</a></li><!--${palabra}terminos.html-->
+    <li><a href="terminos">Terminos del servicio</a></li>
     <li><p>|</p></li>
-    <li><a href="privacidad"> Privacidad</a></li><!--${palabra}privacidad.html-->
+    <li><a href="privacidad"> Privacidad</a></li>
     <li><p>|</p></li>
-    <li><a href="politica_de_subida">Politica de Subida</a></li><!--${palabra}Upload Policy.html-->
+    <li><a href="politica_de_subida">Politica de Subida</a>
   </ul>`;
 
-if(bnav0){
-
   bnav0.innerHTML += barra;
-
   pie0.innerHTML += enlases;
-
-}else
-
-if(bnav1){
-
-  bnav1.innerHTML += barra;
-
-  pie1.innerHTML += enlases;
-}
