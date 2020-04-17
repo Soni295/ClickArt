@@ -1,6 +1,6 @@
 async function index(){
 
-  let url= 'http://localhost:3000//datos/index'
+  let url= 'http://localhost:3000//datos/Index'
 
   let respuesta =  await fetch(url)
   var dibujos= await respuesta.json()
@@ -34,4 +34,3 @@ async function index(){
 }
 
 index();
-

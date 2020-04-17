@@ -8,7 +8,9 @@
 	Varios links:Trabajos,cursos,mechandarsing,desafios,sala de debates.
 	Un buscador q se puede ajustas segun, tipo de artistas, el orden de publicacion, basado en etiquetas,los mas relevantes.
 	Una pag bastante interactiva.
-Arreglar el resposive de registracion y la comparacion para mandar la info
+
+
+arreglar el resposive de index
 
 
 

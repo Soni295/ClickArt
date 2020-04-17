@@ -6,49 +6,55 @@ const fs =require('fs');
 //Datos
 
 async function datosIndex(req,res){
-  var lista = await(pool.query('SELECT * FROM `dibujo` ORDER BY `dibujo`.`ID_Dibujo` DESC'));
-  res.json(lista)
+  let datos = await(pool.query('SELECT * FROM `dibujo` ORDER BY `dibujo`.`ID_Dibujo` DESC'));
+  res.json(datos);
 }
-async function datosUsuarios(req,res){
-  var lista = await(pool.query('SELECT * FROM `usuarios`'));
-  res.json(lista)
+async function datosUsuarios(req,res){  
+  let datos = await(pool.query(`SELECT ID_Usuario,Usu_Nombre,Usu_Email,Usu_tipo,Nombre_Completo,Especialidad,Idiomas,Pais 
+    FROM usuarios WHERE ID_Usuario= ${nombre}`));
+  res.json(datos);
+}
+async function datosGalerias(req,res){  
+  let datos = await(pool.query(`SELECT * FROM dibujo WHERE ID_Usuario = ${nombre} AND Visible=1`));   
+  res.json(datos);
 }
 async function datosDibujos(req,res){
-  var lista = await(pool.query('SELECT * FROM `dibujo`'));
-  res.json(lista)
+  
+  let datos = await(pool.query(`SELECT Nombre_Completo,Titulo,ID_Icono
+  ,Descripcion,Nombre_del_archivo,usuarios.ID_Usuario,dibujo.ID_Dibujo 
+  FROM usuarios INNER JOIN dibujo on 
+  dibujo.ID_Usuario = usuarios.ID_Usuario WHERE ID_dibujo =${id}`));
+  await res.json(datos);
+ 
 }
-
+async function artist(req,res){  
+  res.sendFile(miDire +'artist.html');
+  return nombre=req.params.nombre//<-funciono pero espero q no se rompa esta mierda
+}
 
 
 async function index(req,res){ // ver que onda
-  res.sendFile(miDire +'index.html');  
+  res.sendFile(miDire +'index.html',{validate:true});
+  console.log(req.validate)
 }
 
 function privacidad(req,res){
   res.sendFile(miDire +'privacidad.html');
+  
 }
 function politicaDeSubida(req,res){
   res.sendFile(miDire +'politica_de_subida.html'); 
-  console.log(req.body)
 }
 function terminos(req,res){
   res.sendFile(miDire +'terminos.html'); 
 }
-function artist(req,res){
-  res.sendFile(miDire +'artist.html');
-
-  var lista = await(pool.query('SELECT * FROM `usuarios` WHERE `ID_Usuario` = '));
-    console.log(lista);
-
-}
-
-
 
 function noEncontrado(req,res){  
   res.status(404).sendFile(miDire +'no_encontrado.html');
 }
 function dibujo(req,res){
   res.sendFile(miDire +'Imagen.html');
+  return id = req.params.id;
 }
 
 function resgistrarse(req,res){
@@ -56,7 +62,6 @@ function resgistrarse(req,res){
 }
 async function resgistrarseExitoso(req,res){
   res.sendFile(miDire +'index.html');
-  console.log(req.body)
 
   let datos={
     Usu_Nombre:req.body.usuario,
@@ -90,6 +95,7 @@ module.exports = {
   datosIndex,
   datosUsuarios,
   datosDibujos,
+  datosGalerias,
   index,
   privacidad,
   politicaDeSubida,
