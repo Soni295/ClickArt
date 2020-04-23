@@ -1,7 +1,7 @@
 //Es para validad la cuenta al momento de crearse
-function crear_cuenta(usuario,email,contrasena,contrasena2,tipo,Term){  
+function crear_cuenta(usuario,email,contrasena,contrasena2,tipo){  
   //pido todos los datos
-  var suario,email,contrasena,contrasena2,tipo;
+  var usuario,email,contrasena,contrasena2,tipo;
 
   usuario = document.forms["myForm"]["usuario"].value;
   email = document.forms["myForm"]["email"].value;
