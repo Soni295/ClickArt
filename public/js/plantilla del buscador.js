@@ -7,8 +7,6 @@ async function index(){
   var orden=0;
   var plantilla='<div class="column column-mio">\n';
 
-  console.log(dibujos)
-
   try{
     for(let i=0; i<36;i++){
       let Archivo = dibujos[i].Nombre_del_archivo;

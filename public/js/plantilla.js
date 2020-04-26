@@ -1,12 +1,95 @@
 var modal = document.getElementById('id01');
 
+async function iniciar(){
+  let informacion=await datos()
+  await plantilla(informacion)  
+}
+iniciar()
+
 //esta plantilla sirve para generar la barra de navegacion y el pie de paguina
-function plantilla(){
+async function plantilla(datos){
+
+  var subida         =''
+  var registrarse    =''
+  var iniciarSesion  =''
+  var configuraciones=''
+  var mensajes       =''
+
+
+
+  if (datos){
+    subida=`
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/subida">Subida</a>
+      </li>
+    </ul>`
+
+    mensajes=`
+    <li class="nav-item">
+      <a class="nav-link"  href="/Mensajes">Mensajes</a>   
+    </li>`
+  
+    configuraciones=` 
+    <li class="nav-item dropdown">    
+      <a class="nav-link dropdown-toggle" href="#"
+        id="navbarDropdown" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Soporte
+      </a>   
+      <div class="dropdown-menu menu-deplegable" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="/usuario/${datos.usuario[0]}">Mi Usuario</a>
+        <a class="dropdown-item" href="/usuario/Configuracion">Configuraciones</a>
+        <div class="dropdown-divider separador"></div>
+        <a class="dropdown-item" href="/CerrarSesion" method="get">Salir</a>
+      </div>
+    </li>`
+  }
+  else{    
+    registrarse=`
+    <li class="nav-item">
+      <a class="nav-link"  href="/resgistrarse">Registrarse</a>   
+    </li>`
+
+    iniciarSesion=`
+    <li class="nav-item">
+      <a class="nav-link" onclick="document.getElementById('id01').style.display='block'" href="#">Conectarse</a>
+                      
+      <div id="id01" class="modal">
+        <form id="conectar" name="conectar" onsubmit="return conectarse()" class="modal-content animate my-form" action="/IniciarSesion" method="post">
+          <div class="imgcontainer">
+            <span onclick="document.getElementById('id01').style.display='none'" 
+            class="close" title="Close Modal">&times;</span>
+          </div>
+
+          <div class="container">
+            <label for="nDeUsuario"><b>Usuario:</b></label>
+            <input id="nDeUsuario" class="search" type="text" placeholder="Enter Username" name="nDeUsuario" required>
+
+            <label for="contraDeUsuario"><b>Contraseña:</b></label>
+            <input id="contraDeUsuario" class="search" type="password" placeholder="Pon tu contrseña" name="contraDeUsuario" required>
+            
+            <button class="login" type="submit">Conectarse</button>
+            <label>
+              <input type="checkbox" checked="checked" name="remember"> Recuerdame
+            </label>
+          </div>
+
+          <div class="container" >
+            <button class="login login2" type="button"
+              onclick="document.getElementById('id01').style.display='none'" 
+              class="cancelbtn">Cancel</button>
+            <span class="psw">Olvidastes <a href="#">tu contraseña</a></span>
+          </div>
+        </form>
+      </div>
+    </li>`
+  }
 
   let bnav0=  document.getElementById("nav0");
   let pie0= document.getElementById("lin0");
 
-  let barra= `
+  let barra=`
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">  
       <a class="navbar-brand" href="/">
         <img src="../../images/hi.png" height="30px" alt="">
@@ -20,13 +103,9 @@ function plantilla(){
         <span class="navbar-toggler-icon"></span>
       </button>     
 
-      <!-- boton upload -->
+      <!-- boton subida --> 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="/subida">Subida</a>
-          </li>
-        </ul>
+      ${subida}
 
         <!-- buscador -->
         <form class="form-inline my-form" action="/" method="GET">            
@@ -36,61 +115,15 @@ function plantilla(){
 
         <!-- Registrarse -->
         <ul class="navbar-nav">   
-          <li class="nav-item">
-            <a class="nav-link"  href="/resgistrarse">Registrarse</a>   
-          </li>
+          ${registrarse}
           
-          <!-- ingresar  con moral ------------------------------------------------->
-          <li class="nav-item">
-            <a class="nav-link" onclick="document.getElementById('id01').style.display='block'" href="#">Conectarse</a>
-                      
-            <div id="id01" class="modal">
-              <form id="conectar" name="conectar" onsubmit="return conectarse()" class="modal-content animate my-form" action="/datos/Seccion" method="post">
-                
-              <div class="imgcontainer">
-                  <span onclick="document.getElementById('id01').style.display='none'" 
-                  class="close" title="Close Modal">&times;</span>
-                </div>
+          <!-- ingresar  con moral -->
+          ${iniciarSesion}
 
-                <div class="container">
-                  <label for="nDeUsuario"><b>Usuario:</b></label>
-                  <input id="nDeUsuario" class="search" type="text" placeholder="Enter Username" name="nDeUsuario" required>
-
-                  <label for="contraDeUsuario"><b>Contraseña:</b></label>
-                  <input id="contraDeUsuario" class="search" type="password" placeholder="Pon tu contrseña" name="contraDeUsuario" required>
-                  
-                  <button class="login" type="submit">Conectarse</button>
-                  <label>
-                    <input type="checkbox" checked="checked" name="remember"> Recuerdame
-                  </label>
-                </div>
-
-                <div class="container" >
-                  <button class="login login2" type="button"
-                    onclick="document.getElementById('id01').style.display='none'" 
-                    class="cancelbtn">Cancel</button>
-                  <span class="psw">Olvidastes <a href="#">tu contraseña</a></span>
-                </div>
-              </form>
-            </div>
-          </li>
+          ${mensajes}
 
           <!-- barra desplegable -->      
-          <li class="nav-item dropdown">    
-            <a class="nav-link dropdown-toggle" href="#"
-              id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Soporte
-            </a>
-
-            <!-- deplegador de opciones -->   
-            <div class="dropdown-menu menu-deplegable" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="usuario">Mi Usuario</a><!--***************************************-->
-              <a class="dropdown-item" href="#">Configuraciones</a><!--***************************************-->
-              <div class="dropdown-divider separador"></div>
-              <a class="dropdown-item" href="Users/patata/artist.html">Salir</a><!--***************************************-->
-            </div>
-          </li>
+         ${configuraciones}
         </ul>
       </div>
     </nav>`;
@@ -109,9 +142,8 @@ function plantilla(){
 
   bnav0.innerHTML +=  barra;
   pie0.innerHTML +=  enlases;
-}
 
-plantilla()
+}
       
 window.onclick = (event)=>{
         
@@ -126,13 +158,21 @@ async function conectarse(nDeUsuario,contraDeUsuario){
   let usuario = document.forms["conectar"]["nDeUsuario"].value; 
   let email = document.forms["conectar"]["contraDeUsuario"].value;
 
-  console.log(usuario,email)
-  
-  let url = 'sd' ;
-  
-  let respuesta= await fetch(url);  
-  let datos= await respuesta.json();
-
-  
   return false;
+}
+
+async function datos(){
+  
+  let direccion= 'http://localhost:3000/datos/Usuario';
+
+  try{ 
+    let respuesta= await fetch(direccion);
+    let dato= await respuesta.json()
+    return dato 
+  }catch{
+    let dato=null;
+    console.log(dato)
+    return dato
+  }
+  
 }

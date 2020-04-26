@@ -3,8 +3,10 @@ const path = require('path');
 const miDire = path.join(__dirname, '/../../public/html/');
 const pool = require('../basededatos/database.js');
 
+
 //Datos
-async function datosIndex(req,res){
+
+async function datosIndex(req,res){/*este esta bien*/
   let peticion='SELECT ID_Dibujo,Nombre_del_archivo ';
   peticion   +='FROM dibujo ';
   peticion   +='ORDER BY dibujo. '
@@ -13,22 +15,26 @@ async function datosIndex(req,res){
   res.json(datos);
 }
 
-async function datosUsuarios(req,res){  
-  let peticion ='SELECT ID_Usuario,';
+async function datosUsuarios(req,res){ 
+  let peticion ='SELECT Usu_Nombre,';
   peticion    +=  'Usu_Email,Usu_tipo,';
   peticion    +=  'Nombre_Completo,Especialidad,';
   peticion    +=  'Idiomas,Pais ';
   peticion    +='FROM usuarios ';
-  peticion    +=`WHERE ID_Usuario= ${nombre}`;
+  peticion    +=`WHERE Usu_Nombre = '${req.session.nombre}'`;/*ver el tema de la imagen de portada*/
   let datos = await(pool.query(peticion));
   res.json(datos);
 }
 
-async function datosGalerias(req,res){
+async function sesion(req,res){//para obtener los datos
+  await res.json(req.session.usuario)
+}
+
+async function datosGalerias(req,res){  
   let peticion ='SELECT * FROM dibujo ';
-  peticion    +=`WHERE ID_Usuario = ${nombre}`;
+  peticion    +=`WHERE Usu_Nombre = '${req.session.nombre}'`;
   let datos = await(pool.query(peticion));   
-  res.json(datos);
+  res.json(datos);  
 }
 
 async function datosDibujos(req,res){  
@@ -42,24 +48,16 @@ async function datosDibujos(req,res){
   peticion    += `dibujo on `;
   peticion    += `dibujo.ID_Usuario = `;
   peticion    += `usuarios.ID_Usuario `;
-  peticion    += `WHERE ID_dibujo =${id}`;//--------------------------------------modificar
+  peticion    += `WHERE ID_dibujo =2`;//--------------------------------------modificar
   let datos = await(pool.query(peticion)); 
   res.json(datos)  
 }
 
-async function indexpost(req,res){    
-  res.send('hello world')
-}
 
-async function artist(req,res){  
-  res.sendFile(miDire +'artist.html');
-  return nombre=req.params.id//<-funciono pero espero q no se rompa esta mierda
-}
+
 
 async function index(req,res){ // ver que onda
-  res.sendFile(miDire +'index.html');
-  req.session.user={Juan:'papa',Maria:'mama'}
-  console.log(req.session)
+  res.sendFile(miDire +'index.html'); 
 }
 
 function dibujo(req,res){
@@ -71,6 +69,6 @@ function dibujo(req,res){
 module.exports = { 
   datosIndex, datosUsuarios,
   datosDibujos, datosGalerias,
-  index,artist,
-  dibujo, indexpost
+  index, dibujo,
+  sesion
 }
