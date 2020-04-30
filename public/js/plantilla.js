@@ -1,3 +1,8 @@
+function injectarhtml(id,variable){
+  let html = document.getElementById(id)
+  html.innerHTML = variable
+}
+
 var modal = document.getElementById('id01');
 
 async function iniciar(){
@@ -14,8 +19,6 @@ async function plantilla(datos){
   var iniciarSesion  =''
   var configuraciones=''
   var mensajes       =''
-
-
 
   if (datos){
     subida=`
@@ -86,9 +89,6 @@ async function plantilla(datos){
     </li>`
   }
 
-  let bnav0=  document.getElementById("nav0");
-  let pie0= document.getElementById("lin0");
-
   let barra=`
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">  
       <a class="navbar-brand" href="/">
@@ -140,9 +140,8 @@ async function plantilla(datos){
       <li><a href="politica_de_subida">Politica de Subida</a>
     </ul>`;
 
-  bnav0.innerHTML +=  barra;
-  pie0.innerHTML +=  enlases;
-
+  injectarhtml('barra-de-navegacion',barra);
+  injectarhtml('pie-de-pag',enlases);
 }
       
 window.onclick = (event)=>{
@@ -152,16 +151,14 @@ window.onclick = (event)=>{
     modal.style.display = "none";  
   }
 }
-
-async function conectarse(nDeUsuario,contraDeUsuario){  
-
+/*
+function conectarse(nDeUsuario,contraDeUsuario){  
   let usuario = document.forms["conectar"]["nDeUsuario"].value; 
   let email = document.forms["conectar"]["contraDeUsuario"].value;
-
   return false;
-}
+}*/
 
-async function datos(){
+async function datos(){  
   
   let direccion= 'http://localhost:3000/datos/Usuario';
 
@@ -173,6 +170,5 @@ async function datos(){
     let dato=null;
     console.log(dato)
     return dato
-  }
-  
+  }  
 }

@@ -5,7 +5,6 @@ const server = require('http').createServer(app);            //Monto el server
 const enrutador = require('./app/rutas/rutas');              //enlases
 const {subida} = require('./app/multer/multer');             //subir imagenes
 const {sesion} = require('./app/sesiones/session');          //para conectarser
-const bcrypt= require('bcrypt');
 
 //mid
 app.use(express.static(__dirname + '/public'));             //Para poder usar los css y los js de public

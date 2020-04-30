@@ -3,17 +3,12 @@ const miDire = path.join(__dirname, '/../../public/html/');
 const pool = require('../basededatos/database.js');
 const bcrypt= require('bcrypt');
 
-
-function crearUsuario(req,res){
-  res.sendFile(miDire +'resgistrarse.html');
-}
-
-//Compara si el usuario ya existe en la base de datos
+//Compara si el usuario ya existe en la base de datos para crear
 async function comparadorDeUsuarios(req,res,next){
   let peticion=`SELECT Usu_Nombre `;
   peticion +=`FROM usuarios `;
-
   let nombres = await(pool.query(peticion));
+  
   let existe = false
   
   nombres.find((nombre)=>{
@@ -23,7 +18,7 @@ async function comparadorDeUsuarios(req,res,next){
   })
 
   if(existe){
-    res.send('ese usuario ya existe')/*mandar paguina q diga q no*/
+    res.send('ese usuario ya existe')/*mandar paguina q diga que no por q ya existe*/
   }
   else{
     next()
@@ -45,48 +40,40 @@ async function usuarioCreado(req,res){
     Usu_Nombre:req.body.usuario,
     Usu_Email:req.body.email,
     Usu_Contrasena:hash,
-    Usu_tipo:req.body.Kind_of_user
+    Usu_tipo:req.body.Kind_of_user,
+    Nombre_Completo:req.body.usuario,
   }
+
   req.session.usuario={usuario:[usuario.Usu_Nombre,usuario.Usu_tipo]}
-  //res.redirect('/usuario/:nombre/Configuracion')
   
   await pool.query('INSERT INTO usuarios set ?',[usuario],(err,result,fields)=>{
     
     if(err) {
-      console.log('no se pudo guardar');
+      console.log(err);
+      res.send('no se ha podido guardar')
     }
     
     else {
-      console.log('se guardo exitosamente');
+      req.session.usuario={usuario:[usuario.Usu_Nombre,usuario.Usu_tipo]}
+      res.redirect('/usuario/Configuracion');
     }
-  })    
-  
+  })  
 }
-
-
-
-
-
-
-
 
 //Cerrar Sesion
 function cerrarSesion(req,res){
   req.session.destroy((err) => {
     if(err){
       console.log(err)
+      res.send('hubo un error al desconectarse')
     }else{
     res.redirect('/')
     }
   })  
 }
 
-
-
-
-
-async function artist(req,res){  
-  req.session.nombre = req.params.nombre//meto el parametro nombre en la secion
+function artist(req,res){  
+  req.session.nombre = req.params.nombre   //meto el parametro nombre en la secion
   res.sendFile(miDire +'artist.html');
 }
 
@@ -102,16 +89,13 @@ async function iniciarSesion(req,res){
 
   let usuario= await datos.find(user=>req.body.nDeUsuario===user.Usu_Nombre);//busco entre los usuarios
     
-  if(!usuario){
-    return res.send('El usuario no existe');
-  }    
+  if(!usuario) res.send('El usuario no existe');
     
   try{
 
-    if(await bcrypt.compare(req.body.contraDeUsuario, usuario.Usu_Contrasena)){
+    if(await bcrypt.compare(req.body.contraDeUsuario, usuario.Usu_Contrasena)){      
       req.session.usuario={usuario:[usuario.Usu_Nombre,usuario.Usu_tipo]}
       res.redirect('/')           
-      console.log(req.session)
     }else{
       res.send('Esa no es la contraseña');
     }
@@ -121,7 +105,22 @@ async function iniciarSesion(req,res){
   }
 }
 
-function modificarUsuario(req,res){/**/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function modificarUsuario(req,res){
   res.sendFile(miDire +'configuracion.html');
 }
 
@@ -143,7 +142,7 @@ function perfil(){/**/
 }
 
 module.exports={
-  crearUsuario,comparadorDeUsuarios,
+  comparadorDeUsuarios,
   usuarioCreado,artist,
   modificarUsuario, 
   iniciarSesion, perfil,

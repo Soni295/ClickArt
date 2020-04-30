@@ -8,25 +8,24 @@ const dibujo      = require('./ctrl_dibujos');
 
 enrutador
 .get('/datos/Index', controlador.datosIndex)
-.get('/datos/Usuarios', controlador.datosUsuarios)
+.get('/datos/Usuarios', controlador.perfilUsuario)
 .get('/datos/Dibujos', controlador.datosDibujos)
 .get('/datos/Galerias', controlador.datosGalerias)
-.get('/datos/Usuario',controlador.sesion )
+.get('/datos/Usuario',controlador.datosDeSesion )
 
-.get('/', controlador.index)
+.get('/', estatico.index)
 
-
-.get('/resgistrarse', usuario.crearUsuario)
+.get('/resgistrarse', estatico.resgistrarse)
 .post('/resgistrarse', usuario.comparadorDeUsuarios,usuario.usuarioCreado)
 
 .post('/IniciarSesion',usuario.iniciarSesion )
 .get('/CerrarSesion', usuario.cerrarSesion)
 
 
-.get('/usuario/Configuracion',usuario.permisoDeUsuario ,usuario.modificarUsuario)/*usuario.permisoDeUsuario */
+.get('/usuario/Configuracion',usuario.permisoDeUsuario , estatico.configuraciones)/*usuario.permisoDeUsuario */
 .post('/usuario/Configuracion', usuario.usuariomodificado)
 
-.get('/subida',usuario.permisoDeUsuario, dibujo.crearDibujo)
+.get('/subida',usuario.permisoDeUsuario, estatico.subida)
 .post('/subida', dibujo.dibujoCreado)
 
 .get('/usuario/:nombre', usuario.artist)

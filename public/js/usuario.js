@@ -9,6 +9,7 @@ async function peticion(url){
 
   let respuesta= await fetch(url);
   let datos= await respuesta.json();
+  console.log(datos)
   return datos;
 
 }
@@ -29,7 +30,7 @@ function portadaDePerfil(datos){
         <p id="especialidad">${Especialidad}</p>
       </div>
       <div class="col">
-      <!--<img src="" class="img-perfil" alt="icono">              temporalmente   -->
+        <img src="../images/1586574814475-680505595.jpg" class="img-perfil" alt="icono">
       </div>
       <div class="col text-center dato">            
         <p>${Idiomas}</p>

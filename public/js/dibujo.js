@@ -1,6 +1,6 @@
 async function dibujo(){
   
-  let direccion='http://localhost:3000//datos/Dibujos';
+  let direccion='http://localhost:3000/datos/Dibujos';
 
   let respuesta= await fetch(direccion);
   let datos= await respuesta.json();
@@ -9,12 +9,9 @@ async function dibujo(){
   let nombre = datos[0].Nombre_Completo;
   let titulo = datos[0].Titulo;
   let Descripcion = datos[0].Descripcion;
-  let ID_Usuario = datos[0].ID_Usuario;
+  let usuario = datos[0].Usu_Nombre;
   let dibujo = datos[0].Nombre_del_archivo;
-  let ID_Icono = datos[0].ID_Icono;
-
-
-
+  let icono = datos[0].icono;
 
 
   let generador=`
@@ -22,14 +19,18 @@ async function dibujo(){
     <div class="col-3 text-center Datos_dibujo" style="border-right: 1px white solid; align-items:center">
       <div>
         <div>
-        <a href="/usuario/${ID_Usuario}">
-          <p>icono usuario</p>
-          <p>${nombre}</p>
+        <a href="/usuario/${usuario}">
+        <p style="" ><img style="width: 60px;
+        height: 60px;
+        border-radius: 100px;
+        object-fit: cover;
+        margin-top: 30px;" src="../images/${icono}" style="" alt="">
+          ${nombre}</p>
         </a>
         
-          <h1>${titulo}</h1>
+          <p>${titulo}</p>
         </div>            
-        <h2>${Descripcion}</h2>           
+        <p style="text-align: left;">${Descripcion}</p>           
         <hr>             
       </div>                
     </div>
