@@ -1,5 +1,5 @@
-let dire1= 'http://localhost:3000/datos/Usuarios/';
-let dire2= 'http://localhost:3000/datos/Galerias/';
+let dire1= 'http://localhost:8888/datos/Usuarios/';
+let dire2= 'http://localhost:8888/datos/Galerias/';
 
 document.getElementById("porDefecto").click();//     permite cambiar la vista de la navegacion
 peticion(dire1).then(portadaDePerfil);//             pide los datos del usuario y los pone enla portada

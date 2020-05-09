@@ -2,8 +2,17 @@ function injectarhtml(id,variable){
   let html = document.getElementById(id)
   html.innerHTML = variable
 }
-
+/*
 var modal = document.getElementById('id01');
+
+window.onclick = (event)=>{
+        
+  if (event.target == modal) {
+
+    modal.style.display = "none";  
+  }
+}
+*/
 
 async function iniciar(){
   let informacion=await datos()
@@ -53,6 +62,26 @@ async function plantilla(datos){
     <li class="nav-item">
       <a class="nav-link"  href="/resgistrarse">Registrarse</a>   
     </li>`
+
+    //borrar esto
+    configuraciones=` 
+    <li class="nav-item dropdown">    
+      <a class="nav-link dropdown-toggle" href="#"
+        id="navbarDropdown" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Soporte
+      </a>   
+      <div class="dropdown-menu menu-deplegable" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="/usuario/">Mi Usuario</a>
+        <a class="dropdown-item" href="/usuario/Configuracion">Configuraciones</a>
+        <div class="dropdown-divider separador"></div>
+        <a class="dropdown-item" href="/CerrarSesion" method="get">Salir</a>
+      </div>
+    </li>`
+
+
+
+
 
     iniciarSesion=`
     <li class="nav-item">
@@ -144,27 +173,16 @@ async function plantilla(datos){
   injectarhtml('pie-de-pag',enlases);
 }
       
-window.onclick = (event)=>{
-        
-  if (event.target == modal) {
 
-    modal.style.display = "none";  
-  }
-}
-/*
-function conectarse(nDeUsuario,contraDeUsuario){  
-  let usuario = document.forms["conectar"]["nDeUsuario"].value; 
-  let email = document.forms["conectar"]["contraDeUsuario"].value;
-  return false;
-}*/
 
 async function datos(){  
   
-  let direccion= 'http://localhost:3000/datos/Usuario';
+  let direccion= 'http://localhost:8888//datos/Usuario';
 
   try{ 
     let respuesta= await fetch(direccion);
     let dato= await respuesta.json()
+    console.log(dato)
     return dato 
   }catch{
     let dato=null;

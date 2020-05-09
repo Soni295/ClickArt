@@ -2,11 +2,11 @@ const session = require('express-session')
 const FileStore = require('session-file-store')(session)
 
 let sesion= session({
-  store: new FileStore,
+  name: 'Usuario',
   secret: '123456789',
-  resave: false,
+  resave: true,
   saveUninitialized: true,
-  name: 'Usuario'
+  store: new FileStore({autoReconnect:true})
 })
 
 module.exports={sesion};

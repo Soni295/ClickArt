@@ -42,7 +42,8 @@ async function datosGalerias(req,res){/*para motra los dibujos de la galeria*/
   res.json(datos);  
 }
 
-function datosDeSesion(req,res){/*para la barra de navegacion si esta logeado capas poner async*/
+function datosDeSesion(req,res){
+  console.log(req.session)
   res.json(req.session.usuario)
 }
 
@@ -78,8 +79,6 @@ async function datosDibujos(req,res){
 
   res.json(datos)  
 }
-
-
 
 module.exports = { 
   datosIndex, perfilUsuario,

@@ -1,6 +1,6 @@
 async function dibujo(){
   
-  let direccion='http://localhost:3000/datos/Dibujos';
+  let direccion='http://localhost:8888/datos/Dibujos';
 
   let respuesta= await fetch(direccion);
   let datos= await respuesta.json();

@@ -1,0 +1,21 @@
+.form-inline{/*para centrar el boton del buscador*/
+justify-content: center
+}
+#basic-navbar-nav{/*Es para la barra para cuando se achica*/
+  text-align: center;
+}
+.desplegable > div{/*modal de mi usuario*/
+right: 0px;
+left: auto;
+background: #343a40;
+}
+.dropdown-item{/*separador del mi usuario*/
+  color: white !important;
+}
+.dropdown-item:hover{
+  color: black !important;
+}
+.dropdown-divider{                                       /*el separador del desplegable*/
+  border-top:1px solid #6d7a87;
+}
+

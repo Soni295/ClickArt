@@ -1,0 +1,55 @@
+.subida-box{
+  border: 1px white solid;
+  background: black; 
+  margin-top: 50px;
+  margin-bottom: 400px;
+}
+.previa{
+  columns: white;
+  width: 300px;
+  border: 1px solid white;
+  height: 300px;  
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.previa>p{
+  color: white;
+}
+input[type=file]{
+  display: none;
+}
+.form-de-subida{
+  display: flex; 
+  flex-direction:column; 
+  margin: auto;
+}
+#titulo-subida{
+  margin: auto;
+  width: 200px;
+  height: 60px; 
+  font-size: 30px; 
+  text-align: center;
+}
+div > textarea{
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px; 
+  float: left;
+  width: 100%;
+  min-height: 75px;
+  outline: none;
+  resize: none;
+}
+.boton-subir{
+  width: 100px; 
+  margin: auto;
+}
+@media screen and (max-width: 800px) {
+  .subida-box{
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+}

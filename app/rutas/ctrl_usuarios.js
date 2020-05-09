@@ -28,13 +28,13 @@ async function comparadorDeUsuarios(req,res,next){
 //Encriptador
 async function encritador(contraseña){
   const salt = await bcrypt.genSalt(10);
-  let hash = await bcrypt.hash(contraseña , salt);
+  let hash = await bcrypt.hash(contraseña , salt);  
   return hash
 }
 
 async function usuarioCreado(req,res){
   
-  let hash= await encritador(req.body.contrasena);  
+  let hash= await encritador(req.body.contrasena);
   
   let usuario={
     Usu_Nombre:req.body.usuario,
@@ -55,6 +55,7 @@ async function usuarioCreado(req,res){
     
     else {
       req.session.usuario={usuario:[usuario.Usu_Nombre,usuario.Usu_tipo]}
+      
       res.redirect('/usuario/Configuracion');
     }
   })  
@@ -77,7 +78,6 @@ function artist(req,res){
   res.sendFile(miDire +'artist.html');
 }
 
-
 function formularioParaCompletardatos(req,res){
 
 }
@@ -95,7 +95,8 @@ async function iniciarSesion(req,res){
 
     if(await bcrypt.compare(req.body.contraDeUsuario, usuario.Usu_Contrasena)){      
       req.session.usuario={usuario:[usuario.Usu_Nombre,usuario.Usu_tipo]}
-      res.redirect('/')           
+      console.log(req.session)
+      res.redirect('/')             
     }else{
       res.send('Esa no es la contraseña');
     }
@@ -104,20 +105,6 @@ async function iniciarSesion(req,res){
     console.log('hubo un error al intentar validar la Contraseña');
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function modificarUsuario(req,res){
