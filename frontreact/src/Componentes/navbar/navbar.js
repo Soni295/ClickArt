@@ -2,9 +2,10 @@ import React from 'react';
 import { Button, Nav, Form, FormControl, Navbar, NavDropdown } from 'react-bootstrap';
 import './navbar.css'
 import Conectarse  from '../conectarse_moral/Conectarse'
-let icon ='hi.png'
 
-function Navbar1() {
+export default (props)=> {
+ 
+  const icon ='hi.png'
   return(   
     <Navbar bg="dark" variant="dark"  expand="lg">        
       <Navbar.Brand href="/">
@@ -27,10 +28,13 @@ function Navbar1() {
         </Form>
         <Nav>
           <Nav.Link href="/Registrarse">Registrarse</Nav.Link>
-          <Conectarse />
+          <Conectarse 
+            handleCloseMoral = {props.handleShowMoral}
+            showMoral = {props.showMoral}
+            handleShowMoral = {props.handleCloseMoral}/>
           <Nav.Link href="#">Mensajes</Nav.Link>
           <NavDropdown className="desplegable" title="Mi Usuario" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Mi Perfil</NavDropdown.Item>
+            <NavDropdown.Item href="/Perfil">Mi Perfil</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">Configuraciones</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="#action/3.4">Cerrar Sesión</NavDropdown.Item>
@@ -40,7 +44,5 @@ function Navbar1() {
     </Navbar>    
   );
 }
-
-export default Navbar1;
 
 

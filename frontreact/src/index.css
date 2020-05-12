@@ -31,3 +31,15 @@ hr{
     display: none;
   }
 }
+.boton-link{
+  border: none;
+  background-color: transparent;
+  color: #448bd8;
+}
+.boton-link:hover{
+  color: #8cc0f8;
+}
+.galeria{
+  display: flex;
+  flex-wrap: wrap;
+}

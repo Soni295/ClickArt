@@ -1,0 +1,66 @@
+.datos{
+  color:white;
+  margin: auto;
+}
+.img-perfil{
+  height: auto;
+  max-width: 400px;
+  min-width: 40px;
+  width: 100%;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+}
+.dato{
+  color:white;
+  margin: auto;
+}
+
+#usuario-perfil{
+  font-size: 3vw;
+}
+#especialidad-perfil{
+  font-size: 2.5vw;
+}
+#area{
+  font-size: 30px;
+}
+.datos-secundarios{
+  font-size: 1.9vw;
+}
+.vistas{
+  display: flex;
+  list-style-type: none;
+  justify-content:center;
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
+  background-color: #718894;
+  border-radius: 30px;
+}
+.vistas >li > button{
+  background: wheat;
+  border: none;
+  font-size: 20px;
+}
+.vistas >li > button:hover{
+  background: rgb(63, 51, 51);
+  color: white;
+}
+
+@media screen and (max-width: 800px) {
+  .img-perfil{
+    width: 80%;
+  }
+  .vistas >li > button{    
+    font-size: 15px;
+  }
+  .datos-secundarios{
+    display: none !important;
+  }
+  #usuario-perfil{
+    font-size: 6vw;
+  }
+  #especialidad-perfil{
+    font-size: 5vw;
+  }
+}

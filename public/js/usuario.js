@@ -14,7 +14,6 @@ async function peticion(url){
 
 }
 
-
 function portadaDePerfil(datos){
   
   let nombre = datos[0].Nombre_Completo;

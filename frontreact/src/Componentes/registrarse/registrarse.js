@@ -1,7 +1,7 @@
 import React from 'react';
 import './registrarse.css'
 import { Container, Row, Col, Form } from 'react-bootstrap'
-import {InsertarFormulario,Formulario} from '../formulario/formulario'
+import { InsertarFormulario, Formulario } from '../formulario/formulario'
 
 /*
 Insertarformulario pide:
@@ -10,8 +10,7 @@ labelTexto:(El texto del label)
 type:(El tipo de input)
 placeholder:(el placeholder que se desea poner)
 */
-
-function Registrarse() {
+export default ( props ) => {
   const usuario= new InsertarFormulario('usuario','Usuario:','text','Jose2020' );
   const nombreCompleto= new InsertarFormulario('nombre','Nombre completo:','text','Jose Perez' );
   const email= new InsertarFormulario('email','E-mail:','email','joseperez@hotmail.con' );
@@ -57,10 +56,11 @@ function Registrarse() {
               />
               <p>
                 ¿Ya tienes cuenta? 
-                <a href=" "
-                  onClick={()=> alert('hola')}>
-                    Haz click aqui
-                </a>
+                <button 
+                  className="boton-link" 
+                  onClick={props.handleShowMoral}
+                >Haz click aqui
+                </button>               
               </p>
               <Form.Group className="text-center" >
                 <button 
@@ -94,4 +94,4 @@ function Registrarse() {
     </>
   );
 }
-export default Registrarse
+

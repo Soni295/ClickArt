@@ -9,7 +9,8 @@ async function datosIndex(req,res){/*pide los dibujos para el index */
   
   let peticion =`
   SELECT ID_Dibujo,
-  Nombre_del_archivo 
+  Nombre_del_archivo, 
+  Titulo
   FROM dibujo
   ORDER BY dibujo.
   ID_Dibujo DESC`
