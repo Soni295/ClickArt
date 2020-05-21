@@ -1,68 +1,163 @@
-import React , { useState } from 'react';
-import Navbar from './Componentes/navbar/Navbar';
-import Foot from './Componentes/foot/foot';
-import Bienvenida from './Componentes/bienvenida/Bienvenida';
-import { TerminosYCondiciones, Privacidad, PoliticaDeSubida, AcercaDeNosotros } from './Componentes/Info_del_sitio/Info_del_sitio';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Subida from './Componentes/subida/Subida';
-import Registrarse from './Componentes/registrarse/Registrarse';
-import Perfil from './Componentes/Perfil/Perfil';
-import Galeria from './Componentes/galeria/Galeria';
-
-function App() {
-  //Esto es para el moral de conectarse
-  const [ showMoral, setShowMoral ] = useState( false );
-  const handleCloseMoral = () => setShowMoral( false );
-  const handleShowMoral  = () => setShowMoral( true );  
-
-  //Esto es para la bienvenida diga el nombre del usuario
-    //const [ nombreDeUsuario, setnombreDeUsuario ] = useState('Armando Esteban quito');
+import React , { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route , Redirect} from 'react-router-dom';
+import Navbar from './Componentes/Navbar';
+import Foot from './Componentes/Foot';
+import Bienvenida from './Componentes/Bienvenida';
+import Mensajes from './Componentes/Mensajes';
+import Subida from './Componentes/Subida';
+import Registrarse from './Componentes/Registrarse';
+import Perfil from './Componentes/Perfil';
+import Galeria from './Componentes/Reutilisable/Galeria';
+import { TerminosYCondiciones, Privacidad, PoliticaDeSubida, AcercaDeNosotros } from './Componentes/Info_del_sitio';
+import PerfilDibujo from './Componentes/PerfilDibujo'
+import ConfiguracionesUsuario from './Componentes/ConfiguracionesUsuario'
+export default props => {  
   
-    //const nombre = ( nombreDeUsuario.split(' ')[0] )
-
-  //Esto es para que react almacene los datos
-  const handleCambio = ( event, set ) => set( event.target.value );
-
-  const handleDibujoCambio = (event, set) => {
-    set( event.target.files[0] );
+  const [ redireccion, setRedireccion ] = useState( false );       //Seteo del Redirect
+  const [ sesion, setSesion ]           = useState(['Ejemplo12', 1]);            //Setea al usuario
+  const [ showMoral, setShowMoral ]     = useState( false );       //Seteo del moral
+  const [ conjuntoDeDibujos, setconjuntoDeDibujos ]= useState()
+  
+  async function peticion(){      
+    let respuesta = await fetch('http://localhost:8888/react/Index')  
+    let datos = await respuesta.json()
+    setconjuntoDeDibujos(datos)
   }
+  
+  useEffect( () => {
+    if(!conjuntoDeDibujos){
+      peticion()
+    }
+  // eslint-disable-next-line
+  } , []) 
+    
+  const handleCloseMoral   = () => setShowMoral( false );                       //Cierra el moral conectarse
+  const handleShowMoral    = () => setShowMoral( true );                        //Abre el moral conectarse
+  const handleCambio       = ( event, set ) => set( event.target.value );       //Para Actualizar los formularios
+  const handleDibujoCambio = ( event, set ) => set( event.target.files[0]);     //Para actualizar los dibujos 
+  
+  const handleRedirect = () => {                                   //Redirecciona cuando se conecta o registra
+    setRedireccion(true)
+    setTimeout( ()=> { setRedireccion(false) },1000) 
+  }  
+
+  //const mostrar=()=> console.log(conjuntoDeDibujos)
+  //<button onClick={mostrar}>aaaaa</button>
+
   return (
     <>
-      <Router>
+      <Router> 
+        {redireccion && <Redirect to="/" />}
+
         <Navbar        
-          handleCloseMoral = {handleShowMoral}
-          showMoral = {showMoral}
-          handleShowMoral = {handleCloseMoral}
+          handleCloseMoral = {handleCloseMoral}
+          showMoral        = {showMoral}
+          handleShowMoral  = {handleShowMoral}
+          handleCambio     = {handleCambio}
+          setSesion        = {setSesion}
+          sesion           = {sesion}
+          handleRedirect   = {handleRedirect}
+          setconjuntoDeDibujos={setconjuntoDeDibujos}         
         />
+
         <Switch>
+        
+          <Route exact path="/Configuraciones" 
+            children={
+              <ConfiguracionesUsuario              
+                sesion={sesion}
+              />
+            }
+          />
 
-          <Route exact path="/" children={
-            <> 
-              <Bienvenida />
-              <Galeria url='http://localhost:8888/datos/Index' /> 
-            </>
+          <Route exact path="/Usuario/:nombre/Mensajes" 
+            children={
+              <Mensajes
+                sesion={sesion}
+                handleRedirect={handleRedirect}
+              />
+            }
+          />
+
+          <Route exact path="/" 
+            children={
+              <>
+                <Bienvenida 
+                  sesion={sesion}
+                />
+                <hr/>
+                <Galeria
+                  conjuntoDeDibujos={conjuntoDeDibujos}
+                />              
+              </>
+            }
+          />
+
+          <Route exact path="/Registrarse" 
+            children={            
+              <Registrarse 
+                handleShowMoral = {handleShowMoral} 
+                handleCambio    = {handleCambio}
+                handleRedirect  = {handleRedirect}
+                setSesion       = {setSesion}
+              />
+            }
+          />
+
+          <Route exact path="/Subir" 
+            children={
+              <Subida
+                handleCambio       = {handleCambio}
+                handleDibujoCambio = {handleDibujoCambio}
+                handleRedirect     = {handleRedirect}
+                sesion             = {sesion}             
+              /> 
+            }
+          />
+
+          <Route exact path="/Terminos_y_condiciones"
+            children={
+              <TerminosYCondiciones />
+            }
+          />  
+
+          <Route exact path="/Privacidad" 
+            children={
+              <Privacidad />
+            }
+          /> 
+
+          <Route exact path="/Politica_de_subida" 
+            children={
+              <PoliticaDeSubida />
+            }
+          />  
+
+          <Route exact path="/Acerca_de_nosotros" 
+            children={
+              <AcercaDeNosotros />
+            }
+          /> 
+
+          <Route exact path="/Usuario/:nombre" children={
+            <Perfil
+              handleRedirect = {handleRedirect}
+            />           
           }/>
 
-          <Route exact path="/Registrarse" children={            
-            <Registrarse 
-            handleShowMoral = {handleShowMoral} />
-          }/>
+          <Route exact path="/Dibujo/:id" 
+            children={
+              <PerfilDibujo
+                handleRedirect = {handleRedirect}
+              />
+            }
+          />
 
-          <Route exact path="/Subir" children={
-          <Subida 
-            handleCambio={handleCambio}
-            handleDibujoCambio={handleDibujoCambio}
-          />}/>
-          <Route exact path="/Terminos_y_condiciones" children={<TerminosYCondiciones />}/>  
-          <Route exact path="/Privacidad" children={<Privacidad />}/> 
-          <Route exact path="/Politica_de_subida" children={<PoliticaDeSubida />}/>  
-          <Route exact path="/Acerca_de_nosotros" children={<AcercaDeNosotros />}/> 
-          <Route exact path="/Perfil" children={<Perfil />}/> 
         </Switch>
-        <Foot />   
+
+        <Foot /> 
+         
       </Router>     
     </> 
   );
 }
-
-export default App;

@@ -5,7 +5,7 @@ const pool = require('../basededatos/database.js');
 
 //Datos
 
-async function datosIndex(req,res){/*pide los dibujos para el index */
+async function datosIndex(req,res){
   
   let peticion =`
   SELECT ID_Dibujo,

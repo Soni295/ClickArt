@@ -1,9 +1,0 @@
-.bienvenida{
-  font-size: 1 em;
-  color: #B172FF;                               /*color de la letar*/
-  text-align: center;                             /*Centro el texto*/
-  border: 2px solid #575757;                    /*le pongo*/
-  background: #000000;                          /*le cambio el color de fondo*/
-  padding: 14px 30px;                             /*determino lo interno el padding*/
-  margin: 30px 25% 30px 25%;                      /*determino los margenes en proporcion al exterior*/
-}

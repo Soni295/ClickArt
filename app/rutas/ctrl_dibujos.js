@@ -4,7 +4,7 @@ const pool = require('../basededatos/database.js');
 var tags =''
 
 async function dibujoCreado(req,res){
-  //res.redirect('/')
+  res.redirect('/')
   
   tags += (req.body.tags).split(" ");/*ver tags*/ 
   
@@ -12,11 +12,11 @@ async function dibujoCreado(req,res){
     Titulo: req.body.Titulo,
     Descripcion: req.body.Descripcion,
     Nombre_del_archivo: req.file.filename,
-    //Usu_Nombre:req.session.usuario.usuario[0]    
+    Usu_Nombre:req.session.usuario.usuario[0]    
   }
   console.log(datos, tags)
 
-  //await pool.query('INSERT INTO dibujo set ?',[datos]);  
+  await pool.query('INSERT INTO dibujo set ?',[datos]);  
 }
 
 function dibujo(req,res){  

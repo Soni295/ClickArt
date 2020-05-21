@@ -3,6 +3,21 @@ const controlador = require('./ctrl_rutas_get');
 const estatico    = require('./ctrl_estaticos');
 const usuario     = require('./ctrl_usuarios');
 const dibujo      = require('./ctrl_dibujos');
+const react       = require('./ctrl_react');
+
+
+//El router que maneja las rutas de react
+enrutador
+.post('/react/SubirDibujo', react.subirDibujo)
+.post('/react/Registrarse', react.comparadorDeUsuarios,react.registrarUsuario)
+.post('/react/Conectarse', react.iniciarSesion)
+.post('/react/Perfil', react.perfil)
+.post('/react/Buscador', react.buscador)
+.get('/react/Index', react.datosIndex)
+.post('/react/Dibujo', react.dibujo)
+.put('/react/Configuracion/Usuario', react.configuracionUsuario)
+.delete('/react/CerrarSesion', react.cerrarSesion)
+
 
 //El router va a manejar las rutas
 enrutador
@@ -10,7 +25,7 @@ enrutador
 .get('/datos/Usuarios', controlador.perfilUsuario)
 .get('/datos/Dibujos', controlador.datosDibujos)
 .get('/datos/Galerias', controlador.datosGalerias)
-.get('/datos/Usuario',controlador.datosDeSesion )// No se como esto esta funcionando
+.get('/datos/Usuario',controlador.datosDeSesion )
 
 .get('/', estatico.index)
 
@@ -36,7 +51,3 @@ enrutador
 .get('*', estatico.noEncontrado)
 
 module.exports = enrutador;
-
-
-
-

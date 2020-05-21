@@ -1,23 +1,20 @@
 //modulos
-const express   = require('express');                          //Llamo a express 
-const app       = express();                                       //Activo la app
-const server    = require('http').createServer(app);            //Monto el server
-const enrutador = require('./rutas/rutas');                  //enlases
-const {subida}  = require('./multer/multer');                 //subir imagenes
-const {sesion}  = require('./sesiones/session');              //para conectarser
-const path      = require('path');
-const cors      = require('cors'); 
+const express    = require('express');                          //Llamo a express 
+const app        = express();                                       //Activo la app
+const server     = require('http').createServer(app);            //Monto el server
+const enrutador  = require('./rutas/rutas');                  //enlases
+const {subida}   = require('./multer/multer');                 //subir imagenes
+const {sesion}   = require('./sesiones/session');              //para conectarser
+const path       = require('path');
+const cors       = require('cors'); 
+const fileUpload = require('express-fileupload');
 
+app.use(fileUpload())
 
-app.use( cors({
-  credentials: true,
-  origin: 'http://localhost:3000',
-  allowedHeaders: ['Content-Type']
-})
-)
+app.use( cors({ credentials: true, origin: 'http://localhost:3000', allowedHeaders: ['Content-Type']}))
 
 app.use(express.static(path.join(__dirname, '/../public')));//Para poder usar los css y los js de public
-app.use(subida);                                            //para subir las imagener con el multer
+//app.use(subida);                                            //para subir las imagener con el multer
 app.use(sesion);
 app.use(express.urlencoded({extended:false}));               //para obtener los formularios desde el backend
 app.use(express.json());
