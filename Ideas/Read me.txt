@@ -82,3 +82,18 @@ configurar el icono d perfil de usuario en el perfl
 
 corrgir lo del index usando promesas
 
+--------------------------------------------------
+Parte de react
+Bienvenida: 
+  debo hacelo mas resposive y que se ajuste al usuario
+  y que desaparescar despues de unos segundo
+Navbar:
+Galeria:
+  En resumen tengo que conectar todo
+
+Conectarse_moral:
+  Tengo que hacer que conecte con el server y me devuelva el usuario
+  y si da el tiempo que me envie mensajes si el usuario existe o no.
+Info_del_sitio:
+  debo llenarlo de texto para que sea mas creible la pag 
+  y hacer mas resposive el cartel que indica cara area
