@@ -1,0 +1,45 @@
+.contenedor{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  height: 600px;
+  text-align: center;
+}
+.caja-contactos{
+  border: 2px white solid;
+  padding: 5px 10px 5px 10px;
+  border-radius: 25px;  
+}
+.contactos> a{
+  font-size: 20px;
+}
+.contactos> a:hover{
+  text-decoration: none;
+}
+.chat{
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+}
+.titulo-chat{
+  font-size: 25px;
+  border: 1px white solid;
+}
+.titulo-chat>p{  
+  margin: 0px 
+}
+.caja-chat{
+ width: 400px;
+}
+.mensaje-chat{
+  border: black 1px solid;
+  border-radius: 20px;
+}
+
+.mensajes-usuario{
+  background: #74ced7;
+}
+
+.mensajes-contacto{
+  background: #2c753f;
+}

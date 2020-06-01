@@ -1,13 +1,17 @@
 //modulos
 const express    = require('express');                          //Llamo a express 
-const app        = express();                                       //Activo la app
-const server     = require('http').createServer(app);            //Monto el server
-const enrutador  = require('./rutas/rutas');                  //enlases
-const {subida}   = require('./multer/multer');                 //subir imagenes
-const {sesion}   = require('./sesiones/session');              //para conectarser
+const app        = express();                                   //Activo la app
+const http       = require('http')
+const socketio   = require('socket.io')
+const server     = http.createServer(app);                      //Monto el server
+const io         = socketio(server);
+const enrutador  = require('./rutas/rutas');                    //enlases
+const {subida}   = require('./multer/multer');                  //subir imagenes
+const {sesion}   = require('./sesiones/session');               //para conectarser
 const path       = require('path');
 const cors       = require('cors'); 
 const fileUpload = require('express-fileupload');
+require('./socketio/io')(io)
 
 app.use(fileUpload())
 
@@ -23,6 +27,6 @@ app.use(express.json());
 app.use('',enrutador);
 
 //server
-server.listen(8888,()=>{                                     //Monto el server en el puerto 3000
+server.listen(8888, ()=>{                                     //Monto el server en el puerto 3000
   console.log('Corriendo en el puerto 8888');
 });

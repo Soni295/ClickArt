@@ -12,13 +12,14 @@ variable: donde se almacena este valor y se vuelve a mostrar en la caja
 */
 
 class InsertarFormulario{
-  constructor(nombre,labelTexto,type,placeholder,set,variable){
+  constructor(nombre,labelTexto,type,placeholder,set,variable,span=''){
     this.nombre=nombre;
     this.labelTexto=labelTexto;
     this.type=type;
     this.placeholder=placeholder;
     this.set=set;
     this.variable=variable;
+    this.span=span;
   }
 }
 
@@ -35,8 +36,10 @@ function Formulario(props) {
         placeholder={props.placeholder} 
         onChange={props.onChange}
         value = {props.value}
-        required 
       />
+      <Form.Text className="error">
+      {props.span}
+    </Form.Text>
     </Form.Group>
   )
 }

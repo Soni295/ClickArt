@@ -2,7 +2,7 @@ import React  from 'react';
 import DibujoGaleria from './DibujoGaleria'
 
 export default ( props ) => {  
-  
+  console.log(props.conjuntoDeDibujos)
   return (
     <div className="galeria" >
       {props.conjuntoDeDibujos &&

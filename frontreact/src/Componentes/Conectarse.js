@@ -1,6 +1,6 @@
 import React,{ useState } from 'react';
 import { Button, Modal, Nav } from 'react-bootstrap';
-import {InsertarFormulario, Formulario} from './Reutilisable/formulario'
+import { InsertarFormulario, Formulario } from './Reutilisable/formulario'
 
 export default props => {
   
@@ -26,13 +26,11 @@ export default props => {
       props.handleCloseMoral()
       props.handleRedirect()
     }    
-    else{
-      props.handleCloseMoral()
-      alert(datos.msg)
-    } 
-    
+    else{ 
+      setMensaje(datos.msg)
+    }  
   }
-
+  const [ mensaje, setMensaje ] = useState('')
   const [ usuario , setUsuario ] = useState('')
   const [ contrasena , setContrasena ] = useState('')
   
@@ -67,9 +65,10 @@ export default props => {
         </Modal.Body>
 
         <Modal.Footer>
+          <span className="mx-auto">{mensaje}</span>
           <Button 
             variant="outline-primary" 
-            onClick={handleConectarse}
+            onClick={(event)=> handleConectarse(event)}
           >
             Iniciar Sesión
           </Button>

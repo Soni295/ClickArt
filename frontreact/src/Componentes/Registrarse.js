@@ -1,23 +1,15 @@
 import React ,{ useState }from 'react';
 import { Container, Row, Col, Form } from 'react-bootstrap'
 import { InsertarFormulario, Formulario } from './Reutilisable/formulario'
-import { filtroRegistrar } from './Reutilisable/Verificador'
-/*
-Insertarformulario pide:
-nombre:(id de input, name del imput,for para el label(usa el mismo nombre))
-labelTexto:(El texto del label)
-type:(El tipo de input)
-placeholder:(el placeholder que se desea poner)
-set: para setear el formulario
-variable: donde se almacena este valor y se vuelve a mostrar en la caja
-*/
-
+import { verificar } from './Reutilisable/Verificador'
+import { Redirect } from 'react-router-dom';
 
 export default props => {
   
   const handleCrearCuenta = event => {
     event.preventDefault()
     const url='http://localhost:8888/react/Registrarse'
+    setMensaje({})
     
     const parametros = {
       usuario    :usuario,
@@ -25,11 +17,13 @@ export default props => {
       email      :email,
       contrasena :contrasena,
       contrasena2:contrasena2,
-      tipo       :select
+      tipo       :select,
+      termycondi :termycondi
     }    
-    
-    let chequeo = filtroRegistrar(parametros, acepto)
-    
+    console.log(parametros)
+    setMensaje(verificar(parametros))
+    console.log(mensaje)
+    /*
     chequeo ?
 
     fetch(url,{
@@ -50,23 +44,26 @@ export default props => {
       }
     ):
     alert('No se pudo registrar')
+    */
   }
-
+  const [ mensaje, setMensaje ]         = useState({});
   const [ usuario, setUsuario ]         = useState('');
   const [ nombre, setnombre ]           = useState('');
   const [ email, setemail ]             = useState('');
   const [ contrasena, setcontrasena ]   = useState('');
   const [ contrasena2, setcontrasena2 ] = useState('');
   const [ select, setSelect ]           = useState("0");
-  const [ acepto, setAcepto ]           = useState('');
+  const [ termycondi, setTermycondi ]   = useState('');
 
-  const usuarioObj        = new InsertarFormulario('usuario', 'Usuario:', 'text', 'Jose2020', setUsuario, usuario);
-  const nombreCompletoObj = new InsertarFormulario('nombre', 'Nombre completo:', 'text', 'Jose Perez', setnombre, nombre);
-  const emailObj          = new InsertarFormulario('email', 'E-mail:', 'email', 'joseperez@hotmail.con', setemail, email);
-  const contrasenaObj     = new InsertarFormulario('contrasena', 'Contraseña:', 'password', '********', setcontrasena , contrasena);
-  const contrasena2Obj    = new InsertarFormulario('contrasena2', 'Confirme contraseña:', 'password', '********', setcontrasena2 ,contrasena2);
+  const usuarioObj        = new InsertarFormulario('usuario', 'Usuario:', 'text', 'Jose2020', setUsuario, usuario, mensaje.usuario);
+  const nombreCompletoObj = new InsertarFormulario('nombre', 'Nombre completo:', 'text', 'Jose Perez', setnombre, nombre,mensaje.nombre);
+  const emailObj          = new InsertarFormulario('email', 'E-mail:', 'email', 'joseperez@hotmail.con', setemail, email,mensaje.email);
+  const contrasenaObj     = new InsertarFormulario('contrasena', 'Contraseña:', 'password', '********', setcontrasena , contrasena, mensaje.contrasena);
+  const contrasena2Obj    = new InsertarFormulario('contrasena2', 'Confirme contraseña:', 'password', '********', setcontrasena2 ,contrasena2,);
   const formularios       = [usuarioObj, nombreCompletoObj, emailObj, contrasenaObj, contrasena2Obj];
   
+  if(props.sesion) return <Redirect to="/" />
+
   return(
     <>
       <Container>
@@ -88,6 +85,7 @@ export default props => {
                     placeholder={formulario.placeholder} 
                     onChange={ ( event ) => props.handleCambio(event, formulario.set)}
                     value={formulario.variable}
+                    span={formulario.span}
                   />
                 )
               })}
@@ -113,8 +111,7 @@ export default props => {
                 type="switch"
                 id="custom-switch"
                 label="Acepto los terminos y condiciones"
-                onChange={ event => props.handleCambio( event, setAcepto )}
-
+                onChange={ event => props.handleCambio( event, setTermycondi )}
                 required
               />
 
@@ -122,7 +119,7 @@ export default props => {
                 ¿Ya tienes cuenta? 
                 <button 
                   className="boton-link" 
-                  onClick={props.handleShowMoral}
+                  onClick={()=> props.handleShowMoral()}
                 >Haz click aqui
                 </button>               
               </p>

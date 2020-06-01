@@ -11,10 +11,11 @@ import Galeria from './Componentes/Reutilisable/Galeria';
 import { TerminosYCondiciones, Privacidad, PoliticaDeSubida, AcercaDeNosotros } from './Componentes/Info_del_sitio';
 import PerfilDibujo from './Componentes/PerfilDibujo'
 import ConfiguracionesUsuario from './Componentes/ConfiguracionesUsuario'
+
 export default props => {  
   
   const [ redireccion, setRedireccion ] = useState( false );       //Seteo del Redirect
-  const [ sesion, setSesion ]           = useState(['Ejemplo12', 1]);            //Setea al usuario
+  const [ sesion, setSesion ]           = useState();            //Setea al usuario
   const [ showMoral, setShowMoral ]     = useState( false );       //Seteo del moral
   const [ conjuntoDeDibujos, setconjuntoDeDibujos ]= useState()
   
@@ -40,9 +41,6 @@ export default props => {
     setRedireccion(true)
     setTimeout( ()=> { setRedireccion(false) },1000) 
   }  
-
-  //const mostrar=()=> console.log(conjuntoDeDibujos)
-  //<button onClick={mostrar}>aaaaa</button>
 
   return (
     <>
@@ -70,7 +68,7 @@ export default props => {
             }
           />
 
-          <Route exact path="/Usuario/:nombre/Mensajes" 
+          <Route exact path="/Mensajes" 
             children={
               <Mensajes
                 sesion={sesion}
@@ -100,6 +98,7 @@ export default props => {
                 handleCambio    = {handleCambio}
                 handleRedirect  = {handleRedirect}
                 setSesion       = {setSesion}
+                sesion          = {sesion}
               />
             }
           />
@@ -156,7 +155,7 @@ export default props => {
         </Switch>
 
         <Foot /> 
-         
+      
       </Router>     
     </> 
   );

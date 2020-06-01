@@ -101,7 +101,7 @@ async function iniciarSesion( req, res ){
     
     if(err) console.log(err)    
        
-    else if(!result[0]) return res.status(404).json({msg:'El usuario o la contraseña estan mal'})    
+    else if(!result[0]) return res.status(404).json({usuario:'no existe',msg:'El usuario no existe'})    
     
     else{
      
@@ -119,7 +119,7 @@ async function iniciarSesion( req, res ){
         })       
       }
 
-      else return res.status(404).json({msg:'El usuario o la contraseña esta mal'})
+      else return res.status(404).json({msg:'La contraseña no coincide'})
     }  
   })
 }

@@ -116,7 +116,7 @@ export default props => {
               </>
             :
               <>
-                <Link to={'/Usuario/' + props.sesion[0]+ '/Mensajes'}> 
+                <Link to={'/Mensajes'}> 
                   <Navbar.Text>Mensajes</Navbar.Text>
                 </Link>
                 <NavDropdown 
