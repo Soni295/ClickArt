@@ -1,12 +1,31 @@
-# My-Proyect-React-course-
+# Click Art
 
-Es pagina esta diseñada como una galeria para
-que artistas puedan exponer sus obras y poder hacer contacto
-con clientes o empresas de forma dinamica y organica
+---
 
-Tiene:
-Sistema de registro ,subida de imagenes, Conexion a base de datos,
-Valiradores d la informacion que se sube, Sistema de busqueda,Responsivo
+#### Está diseñada como una galería para que artistas puedan exponer sus obras y poder hacer contacto con clientes o empresas de forma dinámica y orgánica.
+
+---
+
+## Tecnologias usadas
+
+> - Javascript
+> - React
+> - Node
+> - Express
+> - HTML
+> - CSS
+> - Bootstrap
+> - Mysql
+> - Socket io
+
+### Cuenta con
+
+- _Sistema de registros y comprobación de usuarios._
+- _Almacenamiento de imágenes._
+- _Una galería general con todos los artistas y una individual por cada artista._
+- _Conexión a base de datos._
+- _Sistema de búsqueda por Nombre de artista o Dibujo._
+- _Responsivo (Diseño adaptable a la pantalla)._
 
 La idea final es que contara con:
 usuarios clientes, empresas, artistas y administradores
@@ -14,3 +33,6 @@ sistema de chat privado en linea
 sistema de subir y almacenar imagenes
 tambien de comentarios
 una paguina que se ajuste al formato en sus distintos tamaños
+
+![Vistas](/Preview/PrincipalEscritorio.png)
+![Vistas](/Preview/VistaPrincipalMovil.png)
