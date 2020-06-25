@@ -28,10 +28,4 @@
 - _Responsivo (Diseño adaptable a la pantalla)._
 - _Chat privado online(en desarrollo)_
 
-La idea final es que contara con:
-usuarios clientes, empresas, artistas y administradores
-sistema de chat privado en linea
-sistema de subir y almacenar imagenes
-tambien de comentarios
-una paguina que se ajuste al formato en sus distintos tamaños
 <img src="/Preview/PrincipalEscritorio.png" width="500"><img src="/Preview/VistaPrincipalMovil.png " width="200">
