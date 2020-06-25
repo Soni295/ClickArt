@@ -28,4 +28,6 @@
 - _Responsivo (Diseño adaptable a la pantalla)._
 - _Chat privado online(en desarrollo)_
 
+---
+
 <img src="/Preview/PrincipalEscritorio.png" width="500"><img src="/Preview/VistaPrincipalMovil.png " width="200">
