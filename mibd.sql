@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2020 a las 23:29:44
+-- Tiempo de generación: 17-06-2020 a las 05:13:25
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.5
 
@@ -59,7 +59,8 @@ INSERT INTO `dibujo` (`ID_Dibujo`, `Titulo`, `Nombre_del_archivo`, `Descripcion`
 (18, 'ssssssssss', '1589675408076-949943536.png', 'sssssssssssssssssssssssss', 'Armando'),
 (19, 'ssssssssss', '1589675416202-999266131.png', 'sssssssssssssssssssssssss', 'Ricardo'),
 (20, 'asasd', '1589676879901-208874734.png', 'asdasdasda', 'Ricardo'),
-(21, 'Sdasda', '1589733716967-328666012.png', 'saasdasd', 'Ejemplo12');
+(21, 'Sdasda', '1589733716967-328666012.png', 'saasdasd', 'Ejemplo12'),
+(22, 'fffsdfs', '1592340141938-824040425.jpg', 'dfsdfsdfs', 'Ejemplo12');
 
 -- --------------------------------------------------------
 
@@ -78,6 +79,40 @@ CREATE TABLE `icono` (
 
 INSERT INTO `icono` (`ID_Icono`, `ID_Dibujo`) VALUES
 (1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `mensaje`
+--
+
+CREATE TABLE `mensaje` (
+  `ID_mensaje` int(11) NOT NULL,
+  `Usu_Nombre` varchar(60) NOT NULL,
+  `mensaje` text NOT NULL,
+  `ID_Sala` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `mensaje`
+--
+
+INSERT INTO `mensaje` (`ID_mensaje`, `Usu_Nombre`, `mensaje`, `ID_Sala`) VALUES
+(1, 'Ejemplo12', 'ss', 1),
+(2, 'Ejemplo12', 'a', 1),
+(3, 'Ejemplo12', 'a', 1),
+(4, 'Ejemplo12', 'a', 1),
+(5, 'Ejemplo12', 'sda', 1),
+(6, 'Ejemplo12', 'sda', 1),
+(7, 'Ejemplo12', 's', 1),
+(8, 'Ejemplo12', 'd', 1),
+(9, 'Ejemplo12', 'd', 1),
+(10, 'Ejemplo12', 'd', 1),
+(11, 'Ejemplo12', 'a', 1),
+(12, 'Ejemplo12', 'adsdas', 1),
+(13, 'Ejemplo12', 'adsdas', 1),
+(14, 'Ejemplo12', 'adsdas', 1),
+(15, 'Ejemplo12', 'adsdas', 1);
 
 -- --------------------------------------------------------
 
@@ -104,6 +139,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`Usu_Nombre`, `Usu_Email`, `Nombre_Completo`, `Usu_tipo`, `Especialidad`, `Idiomas`, `Pais`, `ID_Dibujo`, `Usu_Contrasena`) VALUES
 ('Armando', 'ArmandoE@hotmail.com', 'Armando Esteban quito', 1, 'ingeniero', 'aleman', 'alemania', 1, '$2b$10$0qpPrVqyvyBDQjtkZmPMveqLk9mRN2Yrw98XvCDKLPjdXmqQuecNm'),
 ('Ejemplo12', 'Ejemplo@hotmail.com', 'Noa', 0, 'Artista conceptual', 'Chino', 'China', 1, '$2b$10$6eR8WHZCXknGHlj/cmLSs.nK/SfX6l/XjSGQdbIUQDx8gZ321pXd.'),
+('Ejemplo15', 'Juama@hotmail.com', 'Juan Esteban', 0, '', '', '', 1, '$2b$10$ysL9CuyoXnfGD92CSGwLSeeJCpmnuYlYRv0s3ghC9ka/36T1TMkbq'),
 ('Ricardo', 'RicAlmagro@hotmail.com', 'Ricardo Martin de la Cruz', 0, 'Diseñado de ambiente', 'Español', 'Mexico', 1, '$2b$10$s9lhoFJGGfByigyqXuSykeZnfXPCE41daKKIjmWI6PG8VL4HxIcny'),
 ('Sion14', 'Sionsion@hotmail.com', 'Sion', 1, '', '', '', 1, '0');
 
@@ -126,6 +162,14 @@ ALTER TABLE `icono`
   ADD KEY `ID_Dibujo` (`ID_Dibujo`);
 
 --
+-- Indices de la tabla `mensaje`
+--
+ALTER TABLE `mensaje`
+  ADD PRIMARY KEY (`ID_mensaje`),
+  ADD KEY `Usu_Nombre` (`Usu_Nombre`),
+  ADD KEY `ID_Sala` (`ID_Sala`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -140,13 +184,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `dibujo`
 --
 ALTER TABLE `dibujo`
-  MODIFY `ID_Dibujo` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `ID_Dibujo` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `icono`
 --
 ALTER TABLE `icono`
   MODIFY `ID_Icono` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `mensaje`
+--
+ALTER TABLE `mensaje`
+  MODIFY `ID_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Restricciones para tablas volcadas
@@ -157,6 +207,12 @@ ALTER TABLE `icono`
 --
 ALTER TABLE `dibujo`
   ADD CONSTRAINT `dibujo_ibfk_1` FOREIGN KEY (`Usu_Nombre`) REFERENCES `usuarios` (`Usu_Nombre`);
+
+--
+-- Filtros para la tabla `mensaje`
+--
+ALTER TABLE `mensaje`
+  ADD CONSTRAINT `mensaje_ibfk_1` FOREIGN KEY (`Usu_Nombre`) REFERENCES `usuarios` (`Usu_Nombre`);
 
 --
 -- Filtros para la tabla `usuarios`

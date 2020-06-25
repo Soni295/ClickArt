@@ -1,32 +1,39 @@
 //modulos
-const express    = require('express');                          //Llamo a express 
-const app        = express();                                   //Activo la app
-const http       = require('http')
-const socketio   = require('socket.io')
-const server     = http.createServer(app);                      //Monto el server
-const io         = socketio(server);
-const enrutador  = require('./rutas/rutas');                    //enlases
-const {subida}   = require('./multer/multer');                  //subir imagenes
-const {sesion}   = require('./sesiones/session');               //para conectarser
-const path       = require('path');
-const cors       = require('cors'); 
-const fileUpload = require('express-fileupload');
-require('./socketio/io')(io)
+const express = require("express"); //Llamo a express
+const app = express(); //Activo la app
+const http = require("http");
+const socketio = require("socket.io");
+const server = http.createServer(app); //Monto el server
+const io = socketio(server);
+const enrutador = require("./rutas/rutas"); //enlases
+const { subida } = require("./multer/multer"); //subir imagenes
+const { sesion } = require("./sesiones/session"); //para conectarser
+const path = require("path");
+const cors = require("cors");
+const fileUpload = require("express-fileupload");
+const bodyParser = require('body-parser');
+require("./socketio/io")(io);
 
-app.use(fileUpload())
+app.use(fileUpload());
 
-app.use( cors({ credentials: true, origin: 'http://localhost:3000', allowedHeaders: ['Content-Type']}))
+app.use(
+  cors({
+    credentials: true,
+    origin: "http://localhost:3000",
+    allowedHeaders: ["Content-Type"],
+  })
+);
 
-app.use(express.static(path.join(__dirname, '/../public')));//Para poder usar los css y los js de public
-//app.use(subida);                                            //para subir las imagener con el multer
+app.use(bodyParser.urlencoded({ extended: false} ));
+app.use(bodyParser.json());
+
+app.use(express.static(path.join(__dirname, "/../public")));
 app.use(sesion);
-app.use(express.urlencoded({extended:false}));               //para obtener los formularios desde el backend
-app.use(express.json());
 
 //rutas
-app.use('',enrutador);
+app.use("", enrutador);
 
 //server
-server.listen(8888, ()=>{                                     //Monto el server en el puerto 3000
-  console.log('Corriendo en el puerto 8888');
+server.listen(8888, () => {
+  console.log("Corriendo en el puerto 8888");
 });

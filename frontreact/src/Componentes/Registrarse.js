@@ -19,32 +19,35 @@ export default props => {
       contrasena2:contrasena2,
       tipo       :select,
       termycondi :termycondi
-    }    
-    console.log(parametros)
+    }   
     setMensaje(verificar(parametros))
-    console.log(mensaje)
-    /*
-    chequeo ?
 
-    fetch(url,{
-      method:'POST',
-      credentials:'include',
-      body: JSON.stringify(parametros),
-      headers:{
-        'Content-Type' : 'application/json'
-      }
-    })
-      .then( respuesta => respuesta.json() )
-      .then( datos => {
-        if(datos){
-          alert(datos.msg)
-          props.setSesion(datos.usuario)
-          props.handleRedirect()
-        }        
-      }
-    ):
-    alert('No se pudo registrar')
-    */
+    if(
+      mensaje.usuario    === "" && 
+      mensaje.nombre     === "" &&
+      mensaje.email      === "" &&
+      mensaje.contrasena === "" && 
+      mensaje.term       === ""
+    ){
+      fetch(url,{
+        method:'POST',
+        credentials:'include',
+        body: JSON.stringify(parametros),
+        headers:{
+          'Content-Type' : 'application/json'
+        }
+      })
+        .then( respuesta => respuesta.json() )
+        .then( datos => {
+          if(datos){
+            alert(datos.msg)
+            props.setSesion(datos.usuario)
+            props.handleRedirect()
+          }        
+        }
+      )
+    }
+    
   }
   const [ mensaje, setMensaje ]         = useState({});
   const [ usuario, setUsuario ]         = useState('');
@@ -114,6 +117,9 @@ export default props => {
                 onChange={ event => props.handleCambio( event, setTermycondi )}
                 required
               />
+              <Form.Text className="error">
+                {mensaje.term}
+              </Form.Text>
 
               <p>
                 ¿Ya tienes cuenta? 

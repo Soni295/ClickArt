@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export default (props) =>{
-  return(
-    <div 
-      style = {props.visible} 
-      className = "ventana"
-    >
+export default (props) => {
+  return (
+    <div style={props.visible} className="ventana">
       {props.texto}
-    </div>)
-}
+    </div>
+  );
+};

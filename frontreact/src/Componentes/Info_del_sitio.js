@@ -1,43 +1,36 @@
-import React from 'react'
+import React from "react";
 
 function TerminosYCondiciones() {
-  return(
+  return (
     <>
-      <h2 className='cartel'>Terminos Y Condiciones</h2>
-      <p className='cartel info'>Pagina en construccion</p>
+      <h2 className="cartel">Terminos Y Condiciones</h2>
+      <p className="cartel info">Pagina en construccion</p>
     </>
   );
 }
 function Privacidad() {
-  return(
+  return (
     <>
-    <h2 className='cartel'>Privacidad</h2>
-    <p className='cartel info'>Pagina en construccion</p>
+      <h2 className="cartel">Privacidad</h2>
+      <p className="cartel info">Pagina en construccion</p>
     </>
   );
 }
-function PoliticaDeSubida(){
-  return(
+function PoliticaDeSubida() {
+  return (
     <>
-    <h2 className='cartel'>Politica De Subida</h2>
-    <p className='cartel info'>Pagina en construccion</p>
+      <h2 className="cartel">Politica De Subida</h2>
+      <p className="cartel info">Pagina en construccion</p>
     </>
   );
 }
-function AcercaDeNosotros(){
-  return(
+function AcercaDeNosotros() {
+  return (
     <>
-    <h2 className='cartel'>Informacion de la Paguina</h2>
-    <p className='cartel info'>
-      Que fluya el arte
-      </p>
+      <h2 className="cartel">Informacion de la Paguina</h2>
+      <p className="cartel info">Que fluya el arte</p>
     </>
   );
 }
 
-export { 
-  TerminosYCondiciones,
-  Privacidad,
-  PoliticaDeSubida,
-  AcercaDeNosotros
- };
+export { TerminosYCondiciones, Privacidad, PoliticaDeSubida, AcercaDeNosotros };
