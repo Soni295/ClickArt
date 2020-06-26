@@ -4,11 +4,12 @@ import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 export default (props) => {
-  if (!props.sesion) return <Redirect to="/" />;
+  if (!props.sesion) return <Redirect to="/ClickArt" />;
 
   const handleCambio = (event, set) => set(event.target.value);
 
   const enviar = async (formData) => {
+    /*
     const url = "http://localhost:8888/react/Configuracion/Usuario";
 
     formData.append("usuario", props.sesion[0]);
@@ -19,7 +20,7 @@ export default (props) => {
       },
     });
     console.log(respuesta);
-
+    */
     /*
     if(datos.msg === 'conexion exitosa') {
       props.setSesion(datos.usuario)

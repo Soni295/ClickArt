@@ -38,7 +38,7 @@ export default (props) => {
     */
     alert("Esta funcion esta deshabilitada en la version Expo(gh-pages)");
   };
-  if (!props.sesion) return <Redirect to="/" />;
+  if (!props.sesion) return <Redirect to="/ClickArt" />;
 
   return (
     <Container className="subida-box">

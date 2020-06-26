@@ -74,10 +74,10 @@ export default (props) => {
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
-      <Link to="/">
+      <Link to="/ClickArt">
         <Navbar.Brand>
           <img
-            src="/images/hi.png"
+            src="/ClickArt/images/hi.png"
             width="30"
             height="30"
             className="d-inline-block align-top"
@@ -88,7 +88,7 @@ export default (props) => {
       <Navbar.Toggle />
       <Navbar.Collapse id="basic-navbar-nav">
         {props.sesion && (
-          <Link to="/Subir">
+          <Link to="/ClickArt/Subir">
             <Navbar.Text>Subida</Navbar.Text>
           </Link>
         )}
@@ -112,7 +112,7 @@ export default (props) => {
         <Nav>
           {!props.sesion ? (
             <>
-              <Link to="/Registrarse">
+              <Link to="/ClickArt/Registrarse">
                 <Navbar.Text>Registrarse</Navbar.Text>
               </Link>
               <Conectarse
@@ -126,7 +126,7 @@ export default (props) => {
             </>
           ) : (
             <>
-              <Link to={"/Mensajes"}>
+              <Link to={"/ClickArt/Mensajes"}>
                 <Navbar.Text>Mensajes</Navbar.Text>
               </Link>
               <NavDropdown
@@ -134,14 +134,14 @@ export default (props) => {
                 title="Mi Usuario"
                 id="collasible-nav-dropdown"
               >
-                <Link to={"/Usuario/" + props.sesion[0]}>
+                <Link to={"/ClickArt/Usuario/" + props.sesion[0]}>
                   <span className="dropdown-item">Mi Perfil</span>
                 </Link>
-                <Link to="/Configuraciones">
+                <Link to="/ClickArt/Configuraciones">
                   <span className="dropdown-item">Configuraciones</span>
                 </Link>
                 <NavDropdown.Divider />
-                <Link to="/">
+                <Link to="/ClickArt">
                   <span
                     className="dropdown-item"
                     onClick={(event) => cerrarSesion(event)}

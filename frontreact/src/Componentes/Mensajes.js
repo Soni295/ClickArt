@@ -4,7 +4,7 @@ import "./mensajes.css";
 import io from "socket.io-client";
 
 export default (props) => {
-  if (!props.sesion) return <Redirect to="/" />;
+  if (!props.sesion) return <Redirect to="/ClickArt" />;
   /*
   <Contactos sesion={props.sesion} setcontacto={setcontacto} />
   */
@@ -32,6 +32,7 @@ const Chat = (props) => {
     });
   }, []);
 
+  alert("Seccion en construccion");
   socket.on("actualizarMensaje", (datos) => {
     const data = mensajes;
     data.push(datos);

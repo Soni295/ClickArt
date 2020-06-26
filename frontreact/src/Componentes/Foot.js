@@ -6,10 +6,14 @@ export default () => {
     <>
       <hr />
       <p className="pie">
-        ©2020 |<Link to="/Terminos_y_condiciones"> Terminos del servicio</Link>{" "}
-        |<Link to="/Privacidad"> Privacidad</Link> |
-        <Link to="/Politica_de_subida"> Politica de Subida</Link> |
-        <Link to="/Acerca_de_nosotros"> Acerca de nosotros</Link>
+        ©2020 |
+        <Link to="/ClickArt/Terminos_y_condiciones">
+          {" "}
+          Terminos del servicio
+        </Link>{" "}
+        |<Link to="/ClickArt/Privacidad"> Privacidad</Link> |
+        <Link to="/ClickArt/Politica_de_subida"> Politica de Subida</Link> |
+        <Link to="/ClickArt/Acerca_de_nosotros"> Acerca de nosotros</Link>
       </p>
     </>
   );

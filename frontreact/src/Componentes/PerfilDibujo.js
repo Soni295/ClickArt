@@ -1,18 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Col, Row, Container } from "react-bootstrap";
+import { perfilDibujo } from "../Emulador";
 
 export default (props) => {
-  const [datosDibujo, setDatosDibujo] = useState("");
-
   const { id } = useParams();
+  const [datosDibujo, setDatosDibujo] = useState("");
 
   useEffect(() => {
     async function peticion() {
-      const url = "http://localhost:8888/react/Dibujo/" + id;
+      const datos = perfilDibujo(id);
+      console.log(datos);
 
-    
+      //const url = "http://localhost:8888/react/Dibujo/" + id;
 
+      if (datos === undefined) {
+        props.handleRedirect();
+      } else {
+        setDatosDibujo({
+          usuario: datos.Usu_Nombre,
+          titulo: datos.Titulo,
+          archivo: "/ClickArt/images/" + datos.Nombre_del_archivo,
+          descripcion: datos.Descripcion,
+          icono: datos.ID_Dibujo,
+        });
+      }
+
+      /*
       fetch(url)
         .then((respuesta) => respuesta.json())
         .then((datos) => {
@@ -22,25 +36,26 @@ export default (props) => {
             setDatosDibujo({
               usuario: datos.Usu_Nombre,
               titulo: datos.Titulo,
-              archivo: "/images/" + datos.Nombre_del_archivo,
+              archivo: "/ClickArt/images/" + datos.Nombre_del_archivo,
               descripcion: datos.Descripcion,
               icono: datos.ID_Dibujo,
             });
           }
         });
+        */
     }
-    peticion();
+    id && peticion();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id]);
+  }, []);
 
   return (
     <Container fluid>
       <Row>
         <Col className="dibubo-presentacion" sm={2}>
-          <Link to={"/Usuario/" + datosDibujo.usuario}>
+          <Link to={"/ClickArt/Usuario/" + datosDibujo.usuario}>
             <img
               className="dibujo-icono"
-              src="/images/icon.png"
+              src="/ClickArt/images/icon.png"
               alt={datosDibujo.usuario}
             />
             <h2 className="text-center">{datosDibujo.usuario}</h2>

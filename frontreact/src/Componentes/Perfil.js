@@ -23,7 +23,7 @@ const DatosDePerfil = (props) => {
           tipo: datos.tipo,
           pais: datos.pais,
           idiomas: datos.idiomas,
-          icono: "/images/" + datos.icono,
+          icono: "/ClickArt/images/" + datos.icono,
           galeria: datos.galeria,
         });
       }

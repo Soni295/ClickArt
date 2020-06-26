@@ -2,9 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default (props) => {
-  const direccion = "/Dibujo/" + props.direccion;
-  const nombre = "/images/" + props.nombre;
-
+  const direccion = "/ClickArt/Dibujo/" + props.direccion;
+  const nombre = "/ClickArt/images/" + props.nombre;
 
   return (
     <div className="caja-dibujo">

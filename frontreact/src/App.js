@@ -36,7 +36,6 @@ export default () => {
     setconjuntoDeDibujos(datos);
   }
 */
-
   useEffect(() => {
     if (!conjuntoDeDibujos) {
       //peticion();
@@ -61,7 +60,7 @@ export default () => {
   return (
     <>
       <Router>
-        {redireccion && <Redirect to="/" />}
+        {redireccion && <Redirect to="/ClickArt" />}
 
         <Navbar
           handleCloseMoral={handleCloseMoral}
@@ -77,13 +76,13 @@ export default () => {
         <Switch>
           <Route
             exact
-            path="/Configuraciones"
+            path="/ClickArt/Configuraciones"
             children={<ConfiguracionesUsuario sesion={sesion} />}
           />
 
           <Route
             exact
-            path="/Mensajes"
+            path="/ClickArt/Mensajes"
             children={
               <Mensajes sesion={sesion} handleRedirect={handleRedirect} />
             }
@@ -91,7 +90,7 @@ export default () => {
 
           <Route
             exact
-            path="/"
+            path="/ClickArt"
             children={
               <>
                 <Bienvenida sesion={sesion} />
@@ -103,7 +102,7 @@ export default () => {
 
           <Route
             exact
-            path="/Registrarse"
+            path="/ClickArt/Registrarse"
             children={
               <Registrarse
                 handleShowMoral={handleShowMoral}
@@ -117,7 +116,7 @@ export default () => {
 
           <Route
             exact
-            path="/Subir"
+            path="/ClickArt/Subir"
             children={
               <Subida
                 handleCambio={handleCambio}
@@ -130,33 +129,33 @@ export default () => {
 
           <Route
             exact
-            path="/Terminos_y_condiciones"
+            path="/ClickArt/Terminos_y_condiciones"
             children={<TerminosYCondiciones />}
           />
 
-          <Route exact path="/Privacidad" children={<Privacidad />} />
+          <Route exact path="/ClickArt/Privacidad" children={<Privacidad />} />
 
           <Route
             exact
-            path="/Politica_de_subida"
+            path="/ClickArt/Politica_de_subida"
             children={<PoliticaDeSubida />}
           />
 
           <Route
             exact
-            path="/Acerca_de_nosotros"
+            path="/ClickArt/Acerca_de_nosotros"
             children={<AcercaDeNosotros />}
           />
 
           <Route
             exact
-            path="/Usuario/:nombre"
+            path="/ClickArt/Usuario/:nombre"
             children={<Perfil handleRedirect={handleRedirect} />}
           />
 
           <Route
             exact
-            path="/Dibujo/:id"
+            path="/ClickArt/Dibujo/:id"
             children={<PerfilDibujo handleRedirect={handleRedirect} />}
           />
         </Switch>
