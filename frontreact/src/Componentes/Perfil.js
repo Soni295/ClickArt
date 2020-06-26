@@ -3,14 +3,32 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import Galeria from "./Reutilisable/Galeria";
 import VentanaPefil from "./Reutilisable/VentanaPerfil";
+import { perfilUsuario } from "../Emulador";
 
 const DatosDePerfil = (props) => {
   const { nombre } = useParams(); //Ejemplo12
 
   useEffect(() => {
     async function peticion() {
-      const url = "http://localhost:8888/react/Perfil/"+ nombre;
+      //const url = "http://localhost:8888/react/Perfil/" + nombre;
 
+      const datos = perfilUsuario(nombre);
+      if (datos.msg === "No existe ese usuario") {
+        props.handleRedirect();
+      } else {
+        props.setInfoDelPerfil({
+          nombreCompleto: datos.nombreCompleto,
+          email: datos.email,
+          especialidad: datos.especialidad,
+          tipo: datos.tipo,
+          pais: datos.pais,
+          idiomas: datos.idiomas,
+          icono: "/images/" + datos.icono,
+          galeria: datos.galeria,
+        });
+      }
+
+      /*
       fetch(url)
         .then((respuesta) => respuesta.json())
         .then((datos) => {
@@ -29,6 +47,7 @@ const DatosDePerfil = (props) => {
             });
           }
         });
+        */
     }
     nombre && peticion();
     // eslint-disable-next-line react-hooks/exhaustive-deps

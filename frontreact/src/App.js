@@ -22,21 +22,25 @@ import {
 import PerfilDibujo from "./Componentes/PerfilDibujo";
 import ConfiguracionesUsuario from "./Componentes/ConfiguracionesUsuario";
 
+import { dibujosIndex } from "./Emulador"; //Emulador
+
 export default () => {
   const [redireccion, setRedireccion] = useState(false); //Seteo del Redirect
   const [sesion, setSesion] = useState(["Ejemplo12", 0]); //Setea al usuario
   const [showMoral, setShowMoral] = useState(false); //Seteo del moral
   const [conjuntoDeDibujos, setconjuntoDeDibujos] = useState();
-
+  /*
   async function peticion() {
     let respuesta = await fetch("http://localhost:8888/react/Index");
     let datos = await respuesta.json();
     setconjuntoDeDibujos(datos);
   }
+*/
 
   useEffect(() => {
     if (!conjuntoDeDibujos) {
-      peticion();
+      //peticion();
+      setconjuntoDeDibujos(dibujosIndex);
     }
     // eslint-disable-next-line
   }, []);

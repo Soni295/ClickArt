@@ -11,7 +11,7 @@ export default (props) => {
 
   const handleEnviar = async (event) => {
     event.preventDefault();
-
+    /*
     const formData = new FormData();
     formData.append("Titulo", titulo);
     formData.append("Descripcion", descripcion);
@@ -35,6 +35,8 @@ export default (props) => {
       console.log(err);
       alert("Llene todos los datos");
     }
+    */
+    alert("Esta funcion esta deshabilitada en la version Expo(gh-pages)");
   };
   if (!props.sesion) return <Redirect to="/" />;
 

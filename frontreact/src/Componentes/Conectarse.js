@@ -1,18 +1,27 @@
 import React, { useState } from "react";
 import { Button, Modal, Nav } from "react-bootstrap";
 import { InsertarFormulario, Formulario } from "./Reutilisable/formulario";
+import { conectarse } from "../Emulador"; //Emulador
 
 export default (props) => {
-  
   const handleConectarse = async (event) => {
     event.preventDefault();
-    const url = "http://localhost:8888/react/Conectarse";
-    const parametros={
-      usuario:usuario,
-      contrasena:contrasena
-    }
-    console.log(parametros)
+    //const url = "http://localhost:8888/react/Conectarse";
 
+    const parametros = {
+      usuario: usuario,
+      contrasena: contrasena,
+    };
+
+    const datos = conectarse(parametros);
+    if (datos.msg === "conexion exitosa") {
+      props.setSesion(datos.usuario);
+      props.handleCloseMoral();
+      props.handleRedirect();
+    } else {
+      setMensaje(datos.msg);
+    }
+    /*
     fetch(url,{
       method:"POST",
       credentials:"include",
@@ -28,9 +37,8 @@ export default (props) => {
       } else {
         setMensaje(datos.msg);
       }
-    })
+    })*/
   };
-
 
   const [mensaje, setMensaje] = useState("");
   const [usuario, setUsuario] = useState("");

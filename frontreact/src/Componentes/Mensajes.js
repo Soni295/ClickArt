@@ -4,8 +4,6 @@ import "./mensajes.css";
 import io from "socket.io-client";
 
 export default (props) => {
-  
-  
   if (!props.sesion) return <Redirect to="/" />;
   /*
   <Contactos sesion={props.sesion} setcontacto={setcontacto} />
@@ -16,69 +14,38 @@ export default (props) => {
       <Chat contacto={contacto} sesion={props.sesion} />
     </div>
   );
-
-
 };
-/*
-const Contactos = (props) => {
-  const contactos=["Armando", "Ricardo"];
-
-  return (
-    <div className="caja-contactos">
-      <div className="titulo-contactos">
-        <h3>Contactos</h3>
-      </div>
-
-      <div className="contactos">
-        {contactos.map((contacto, index) => (
-          <p onClick={() => props.setcontacto(contacto)} key={index}>
-            {contacto}
-          </p>
-        ))}
-      </div>
-    </div>
-  );
-};
-*/
-
 
 const Chat = (props) => {
-  
   const [mensajes, setMensajes] = useState();
   const [mensaje, setMensaje] = useState("");
-  
-  const socket = io("localhost:8888"); 
-  
-  useEffect(()=>{
-    
-    socket.emit("mensajes",{
+
+  const socket = io("localhost:8888");
+
+  useEffect(() => {
+    socket.emit("mensajes", {
       usuario: props.sesion[0],
-      contacto: props.contacto
-    })
-    socket.on("todosLosMensajes", (datos)=>{
-      setMensajes(datos)
-    })
+      contacto: props.contacto,
+    });
+    socket.on("todosLosMensajes", (datos) => {
+      setMensajes(datos);
+    });
+  }, []);
 
-  },[])
-
-
-
-  socket.on("actualizarMensaje",(datos)=>{
-    const data= mensajes
-    data.push(datos)
-    setMensajes(data)
-  })
-  
+  socket.on("actualizarMensaje", (datos) => {
+    const data = mensajes;
+    data.push(datos);
+    setMensajes(data);
+  });
 
   function enviarMensaje() {
     socket.emit("mensajeNuevo", {
       usuario: props.sesion[0],
       contacto: props.contacto,
-      mensaje: mensaje
+      mensaje: mensaje,
     });
-    return false
+    return false;
   }
-
 
   const handleCambio = (event, set) => set(event.target.value);
 
@@ -87,28 +54,35 @@ const Chat = (props) => {
       <div className="titulo-chat">
         <p>{props.contacto}Hernan</p>
       </div>
-      <div className="caja-chat">        
-       
-        {mensajes && mensajes.map((mensaje, index) => {
-          if (mensaje.usuario === props.sesion[0]) {
+      <div className="caja-chat">
+        {mensajes &&
+          mensajes.map((mensaje, index) => {
+            if (mensaje.usuario === props.sesion[0]) {
+              return (
+                <div
+                  className="mensaje-chat mensajes-usuario"
+                  key={"a" + index}
+                >
+                  <p key={index}>{mensaje.mensaje}</p>
+                </div>
+              );
+            }
             return (
-              <div className="mensaje-chat mensajes-usuario" key={"a" + index}>
+              <div className="mensaje-chat mensajes-contacto" key={"a" + index}>
                 <p key={index}>{mensaje.mensaje}</p>
               </div>
             );
-          }
-          return (
-            <div className="mensaje-chat mensajes-contacto" key={"a" + index}>
-              <p key={index}>{mensaje.mensaje}</p>
-            </div>
-          );
-        })}
+          })}
+      </div>
+      <div className="caja-de-mensaje-por-enviar">
+        <textarea
+          className="mensaje-por-enviar"
+          onChange={(event) => handleCambio(event, setMensaje)}
+        />
 
-        </div>
-        <div className="caja-de-mensaje-por-enviar">
-        <textarea className="mensaje-por-enviar" onChange={(event) => handleCambio(event, setMensaje)} />
-
-        <button className="boton-envio" onClick={() => enviarMensaje()}>Enviar</button>
+        <button className="boton-envio" onClick={() => enviarMensaje()}>
+          Enviar
+        </button>
       </div>
     </div>
   );

@@ -75,9 +75,8 @@ async function registrarUsuario(req, res) {
 }
 
 async function iniciarSesion(req, res) {
-  
-  console.log(req)
-  
+  console.log(req);
+
   const peticion = `
   SELECT 
   ${USUARIO.usuario},
@@ -170,15 +169,17 @@ async function perfil(req, res) {
   '${req.params.nombre}'`;
 
   const peticion2 = `
-    SELECT
-    ${DIBUJO.id}, 
-    ${DIBUJO.titulo},
-    ${DIBUJO.nombreDelArchivo}
-    FROM
-    ${TABLADIBUJO}
-    WHERE ${TABLADIBUJO}.${DIBUJO.nombreDelUsuario} = 
-    '${req.params.nombre}'
+  SELECT
+  ${DIBUJO.id}, 
+  ${DIBUJO.titulo},
+  ${DIBUJO.nombreDelArchivo}
+  FROM
+  ${TABLADIBUJO}
+  WHERE ${TABLADIBUJO}.${DIBUJO.nombreDelUsuario} = 
+  '${req.params.nombre}'
   `;
+  console.log(peticion2);
+  console.log(peticion);
 
   const dibujos = await pool.query(peticion2);
 
@@ -222,6 +223,7 @@ async function datosIndex(req, res) {
   ORDER BY ${TABLADIBUJO}.${DIBUJO.id} DESC`;
 
   let datos = await pool.query(peticion);
+  console.log(datos);
   res.json(datos);
 }
 
@@ -262,7 +264,7 @@ async function buscador(req, res) {
 
   await pool.query(peticion, async (err, result, fields) => {
     if (err) console.log(err);
-
+    console.log(result);
     result[0]
       ? res.json(result)
       : res.json({ msg: "No se ha encontrado nada" });

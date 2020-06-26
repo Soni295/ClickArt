@@ -10,15 +10,18 @@ import {
 import { Link } from "react-router-dom";
 import Conectarse from "./Conectarse";
 
+import { busqueda } from "../Emulador"; //Emulador
+
 export default (props) => {
   const [buscador, setBuscador] = useState("");
 
   const cerrarSesion = (event) => {
     event.preventDefault();
 
-    const url = "http://localhost:8888/react/CerrarSesion";
-
-    fetch(url, {
+    alert("Se ha cerrado su sesion");
+    props.setSesion("");
+    //const url = "http://localhost:8888/react/CerrarSesion";
+    /*fetch(url, {
       method: "DELETE",
       credentials: "include",
     })
@@ -30,15 +33,21 @@ export default (props) => {
           props.setSesion("");
         }
       });
+      */
   };
 
   const handleclickBuscador = (event) => {
     event.preventDefault();
 
-    const url = "http://localhost:8888/react/Buscador";
+    //const url = "http://localhost:8888/react/Buscador";
 
-    buscador !== "" && buscador !== " "
-      ? fetch(url, {
+    const datos = busqueda(buscador);
+    if (datos.msg === "No se ha encontrado nada") {
+      alert("No se ha encontrado nada");
+    } else {
+      props.setconjuntoDeDibujos(datos);
+    }
+    /*fetch(url, {
           method: "POST",
           credentials: "include",
           body: JSON.stringify({ buscar: buscador }),
@@ -53,8 +62,9 @@ export default (props) => {
             } else {
               props.setconjuntoDeDibujos(datos);
             }
-          })
-      : console.log("");
+          })*/
+
+    console.log("");
   };
 
   const handleCambio = (event, set) => set(event.target.value);
