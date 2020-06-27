@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/ClickArt/static/css/main.3e1a2e6b.chunk.css",
+    "main.js": "/ClickArt/static/js/main.677ff084.chunk.js",
+    "main.js.map": "/ClickArt/static/js/main.677ff084.chunk.js.map",
+    "runtime-main.js": "/ClickArt/static/js/runtime-main.57d50c7d.js",
+    "runtime-main.js.map": "/ClickArt/static/js/runtime-main.57d50c7d.js.map",
+    "static/css/2.69121389.chunk.css": "/ClickArt/static/css/2.69121389.chunk.css",
+    "static/js/2.12fa83d3.chunk.js": "/ClickArt/static/js/2.12fa83d3.chunk.js",
+    "static/js/2.12fa83d3.chunk.js.map": "/ClickArt/static/js/2.12fa83d3.chunk.js.map",
+    "index.html": "/ClickArt/index.html",
+    "precache-manifest.0c688e96c2c818031cfe538e6aa395b3.js": "/ClickArt/precache-manifest.0c688e96c2c818031cfe538e6aa395b3.js",
+    "service-worker.js": "/ClickArt/service-worker.js",
+    "static/css/2.69121389.chunk.css.map": "/ClickArt/static/css/2.69121389.chunk.css.map",
+    "static/css/main.3e1a2e6b.chunk.css.map": "/ClickArt/static/css/main.3e1a2e6b.chunk.css.map",
+    "static/js/2.12fa83d3.chunk.js.LICENSE.txt": "/ClickArt/static/js/2.12fa83d3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.57d50c7d.js",
+    "static/css/2.69121389.chunk.css",
+    "static/js/2.12fa83d3.chunk.js",
+    "static/css/main.3e1a2e6b.chunk.css",
+    "static/js/main.677ff084.chunk.js"
+  ]
+}
