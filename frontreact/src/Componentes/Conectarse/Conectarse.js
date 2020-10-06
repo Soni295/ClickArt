@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal, Nav } from "react-bootstrap";
-import { InsertarFormulario, Formulario } from "./Reutilisable/formulario";
+import { InsertarFormulario, Formulario } from "../Reutilisable/formulario";
+import Forma from './Form'
 
 export default (props) => {
   
@@ -31,6 +32,7 @@ export default (props) => {
     })
   };
 
+  
 
   const [mensaje, setMensaje] = useState("");
   const [usuario, setUsuario] = useState("");
@@ -68,6 +70,16 @@ export default (props) => {
         </Modal.Header>
 
         <Modal.Body>
+         
+
+
+
+
+
+  <Forma />
+
+
+    
           {formularios.map((formulario, index) => {
             return (
               <Formulario

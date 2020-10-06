@@ -8,7 +8,7 @@ import {
   NavDropdown,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Conectarse from "./Conectarse";
+import Conectarse from "./Conectarse/Conectarse";
 
 export default (props) => {
   const [buscador, setBuscador] = useState("");

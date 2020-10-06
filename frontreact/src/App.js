@@ -24,7 +24,8 @@ import ConfiguracionesUsuario from "./Componentes/ConfiguracionesUsuario";
 
 export default () => {
   const [redireccion, setRedireccion] = useState(false); //Seteo del Redirect
-  const [sesion, setSesion] = useState(["Ejemplo12", 0]); //Setea al usuario
+ // const [sesion, setSesion] = useState(["Ejemplo12", 0]); //Setea al usuario ["Ejemplo12", 0]
+  const [sesion, setSesion] = useState(); //Setea al usuario 
   const [showMoral, setShowMoral] = useState(false); //Seteo del moral
   const [conjuntoDeDibujos, setconjuntoDeDibujos] = useState();
 
