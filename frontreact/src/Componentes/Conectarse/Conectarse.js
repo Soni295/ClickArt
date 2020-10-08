@@ -71,14 +71,7 @@ export default (props) => {
 
         <Modal.Body>
          
-
-
-
-
-
   <Forma />
-
-
     
           {formularios.map((formulario, index) => {
             return (

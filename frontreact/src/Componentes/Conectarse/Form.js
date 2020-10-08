@@ -1,29 +1,36 @@
-import React from "react"
-import { Form } from "react-bootstrap";
+import React, { useReducer } from "react"
+import FormGenerator from './FormGenerator'
 
-// FormLogin
+const user = {
+  label:'User:',
+  name:'user',
+  type:'text',
+}
+
+const password = {
+  label:'Password:',
+  name:'password',
+  type:'password',
+}
+
+const reducer = (state, event) =>
+  ({...state, [event.name]:event.value})
+
 export default () => { 
+  const [formData, setFormData] = useReducer(reducer, {})
+  
+  const handleChange = event =>
+    setFormData({name:event.target.name, value:event.target.value})
 
-  const UserForm = () =>(
-    <Form.Group>
-      <Form.Label>User:</Form.Label>
-      <Form.Control
-        type = 'text'
-        onChange = {(e) => handleUser(e.target.value, 'user')}
-        value = {formFilling.user}
-      />
-    </Form.Group>
-  )
-
-  const PasswordForm = () =>(
-    <Form.Group>
-      <Form.Label>Password</Form.Label>
-      <Form.Control
-        type = 'password'
-        onChange = {() => console.log('hola')}
-        value = 'eeee'
-      />
-    </Form.Group>
-  )
-  return <><UserForm/><PasswordForm/></>
+  const FormGroup =
+    [user, password].map(
+      (form, index) =>
+        <FormGenerator 
+          index={index}
+          data={form}
+          value={formData[form.name]} 
+          handle={handleChange}
+        />
+      )
+  return FormGroup
 }
