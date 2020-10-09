@@ -15,7 +15,7 @@ const password = {
 
 const reducer = (state, event) =>
   ({...state, [event.name]:event.value})
-
+// FormGroup
 export default () => { 
   const [formData, setFormData] = useReducer(reducer, {})
   

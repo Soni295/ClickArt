@@ -33,4 +33,14 @@ const requestLogIn = domain => endPoint => async (value) =>
   .then(r => r.json())
   .catch(e => console.log(e))
 
+const requestSignIn = domain => endPoint => async (value) => 
+  fetch( (domain + '/' + endPoint), {
+    method: 'POST',
+    credentials: 'include',
+    body: JSON.stringify(value),
+    headers: {'Content-Type': 'application/json'}
+  })
+  .then(r => r.json())
+  .catch(e => console.log(e))
+
 export const handleLogIn = requestLogIn(domain)('react/Conectarse')

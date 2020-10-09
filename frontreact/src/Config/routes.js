@@ -1,25 +1,26 @@
-import Mensajes from "./Componentes/Mensajes";
-import Subida from "./Componentes/Subida";
-import Registrarse from "./Componentes/Registrarse";
-import Perfil from "./Componentes/Perfil";
-import Galeria from "./Componentes/Reutilisable/Galeria";
+import Mensajes from "../Componentes/Mensajes";
+import Subida from "../Componentes/Subida";
+import Registrarse from "../Componentes/Registrarse";
+import Perfil from "../Componentes/Perfil";
+import Galeria from "../Componentes/Reutilisable/Galeria";
 import {
   TerminosYCondiciones,
   Privacidad,
   PoliticaDeSubida,
   AcercaDeNosotros,
-} from "./Componentes/Info_del_sitio";
-import PerfilDibujo from "./Componentes/PerfilDibujo";
-import ConfiguracionesUsuario from "./Componentes/ConfiguracionesUsuario";
+} from "../Componentes/Info_del_sitio";
+import PerfilDibujo from "../Componentes/PerfilDibujo";
+import ConfiguracionesUsuario from "../Componentes/ConfiguracionesUsuario";
 
 // routes
+
 export default [
   {
     path: '/Configuraciones',
     component: ConfiguracionesUsuario
   },
   {
-    path: 'Mensajes',
+    path: '/Mensajes',
     component: Mensajes
   },
   {
@@ -36,26 +37,30 @@ export default [
   },
   {
     path: '/TerminosYCondiciones',
-    component: TerminosYCondiciones 
+    component: TerminosYCondiciones,
+    text: ' Terminos Del Servicio '
   },
   {
     path: '/Politicadesubida',
-    component: PoliticaDeSubida
+    component: PoliticaDeSubida,
+    text: ' Politica De Subida  '
   },
   {
-    path= '/Privacidad',
-    component: Privacidad
+    path: '/Privacidad',
+    component: Privacidad,
+    text: ' Privacidad '
   },
   {
-    path= '/Acercadenosotros',
-    component: AcercaDeNosotros
+    path: '/Acercadenosotros',
+    component: AcercaDeNosotros,
+    text: ' Acerca De Nosotros '
   },
   {
-    path= '/Usuario/:nombre',
+    path: '/Usuario/:nombre',
     component: Perfil
   },
   {
-    path= 'Dibujo/:id',
+    path: '/Dibujo/:id',
     component: PerfilDibujo 
   },
 ]

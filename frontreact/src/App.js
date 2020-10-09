@@ -1,64 +1,66 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
-} from "react-router-dom";
-import Navbar from "./Componentes/Navbar";
-import Foot from "./Componentes/Foot";
-import Bienvenida from "./Componentes/Bienvenida";
-import Mensajes from "./Componentes/Mensajes";
-import Subida from "./Componentes/Subida";
-import Registrarse from "./Componentes/Registrarse";
-import Perfil from "./Componentes/Perfil";
-import Galeria from "./Componentes/Reutilisable/Galeria";
+} from 'react-router-dom'
+import Navbar from './Componentes/Navbar/Navbar'
+import Foot from './Componentes/Foot'
+import Bienvenida from './Componentes/Bienvenida'
+import Mensajes from './Componentes/Mensajes'
+import Subida from './Componentes/Subida'
+import Registrarse from './Componentes/Registrarse'
+import Perfil from './Componentes/Perfil'
+import Galeria from './Componentes/Reutilisable/Galeria'
 import {
   TerminosYCondiciones,
   Privacidad,
   PoliticaDeSubida,
   AcercaDeNosotros,
-} from "./Componentes/Info_del_sitio";
-import PerfilDibujo from "./Componentes/PerfilDibujo";
-import ConfiguracionesUsuario from "./Componentes/ConfiguracionesUsuario";
+} from './Componentes/Info_del_sitio'
+import PerfilDibujo from './Componentes/PerfilDibujo'
+import ConfiguracionesUsuario from './Componentes/ConfiguracionesUsuario'
 
+
+// App
 export default () => {
-  const [redireccion, setRedireccion] = useState(false); //Seteo del Redirect
- // const [sesion, setSesion] = useState(["Ejemplo12", 0]); //Setea al usuario ["Ejemplo12", 0]
-  const [sesion, setSesion] = useState(); //Setea al usuario 
-  const [showMoral, setShowMoral] = useState(false); //Seteo del moral
-  const [conjuntoDeDibujos, setconjuntoDeDibujos] = useState();
+  const [redireccion, setRedireccion] = useState(false) //Seteo del Redirect
+ // const [sesion, setSesion] = useState(['Ejemplo12', 0]) //Setea al usuario ['Ejemplo12', 0]
+  const [sesion, setSesion] = useState() //Setea al usuario 
+  const [showMoral, setShowMoral] = useState(false) //Seteo del moral
+  const [conjuntoDeDibujos, setconjuntoDeDibujos] = useState()
 
   async function peticion() {
-    let respuesta = await fetch("http://localhost:8888/react/Index");
-    let datos = await respuesta.json();
-    setconjuntoDeDibujos(datos);
+    let respuesta = await fetch('http://localhost:8888/react/Index')
+    let datos = await respuesta.json()
+    setconjuntoDeDibujos(datos)
   }
 
   useEffect(() => {
     if (!conjuntoDeDibujos) {
-      peticion();
+      peticion()
     }
     // eslint-disable-next-line
-  }, []);
+  }, [])
 
-  const handleCloseMoral = () => setShowMoral(false); //Cierra el moral conectarse
-  const handleShowMoral = () => setShowMoral(true); //Abre el moral conectarse
-  const handleCambio = (event, set) => set(event.target.value); //Para Actualizar los formularios
-  const handleDibujoCambio = (event, set) => set(event.target.files[0]); //Para actualizar los dibujos
+  const handleCloseMoral = () => setShowMoral(false) //Cierra el moral conectarse
+  const handleShowMoral = () => setShowMoral(true) //Abre el moral conectarse
+  const handleCambio = (event, set) => set(event.target.value) //Para Actualizar los formularios
+  const handleDibujoCambio = (event, set) => set(event.target.files[0]) //Para actualizar los dibujos
 
   const handleRedirect = () => {
     //Redirecciona cuando se conecta o registra
-    setRedireccion(true);
+    setRedireccion(true)
     setTimeout(() => {
-      setRedireccion(false);
-    }, 1000);
-  };
+      setRedireccion(false)
+    }, 1000)
+  }
 
   return (
     <>
       <Router>
-        {redireccion && <Redirect to="/" />}
+        {redireccion && <Redirect to='/' />}
 
         <Navbar
           handleCloseMoral={handleCloseMoral}
@@ -74,13 +76,13 @@ export default () => {
         <Switch>
           <Route
             exact
-            path="/Configuraciones"
+            path='/Configuraciones'
             children={<ConfiguracionesUsuario sesion={sesion} />}
           />
 
           <Route
             exact
-            path="/Mensajes"
+            path='/Mensajes'
             children={
               <Mensajes sesion={sesion} handleRedirect={handleRedirect} />
             }
@@ -88,7 +90,7 @@ export default () => {
 
           <Route
             exact
-            path="/"
+            path='/'
             children={
               <>
                 <Bienvenida sesion={sesion} />
@@ -100,7 +102,7 @@ export default () => {
 
           <Route
             exact
-            path="/Registrarse"
+            path='/Registrarse'
             children={
               <Registrarse
                 handleShowMoral={handleShowMoral}
@@ -114,7 +116,7 @@ export default () => {
 
           <Route
             exact
-            path="/Subir"
+            path='/Subir'
             children={
               <Subida
                 handleCambio={handleCambio}
@@ -127,39 +129,40 @@ export default () => {
 
           <Route
             exact
-            path="/Terminos_y_condiciones"
+            path='/Terminos_y_condiciones'
             children={<TerminosYCondiciones />}
           />
 
-          <Route exact path="/Privacidad" children={<Privacidad />} />
+          <Route exact path='/Privacidad' children={<Privacidad />} />
 
           <Route
             exact
-            path="/Politica_de_subida"
+            path='/Politica_de_subida'
             children={<PoliticaDeSubida />}
           />
 
           <Route
             exact
-            path="/Acerca_de_nosotros"
+            path='/Acerca_de_nosotros'
             children={<AcercaDeNosotros />}
           />
 
           <Route
             exact
-            path="/Usuario/:nombre"
+            path='/Usuario/:nombre'
             children={<Perfil handleRedirect={handleRedirect} />}
           />
 
           <Route
             exact
-            path="/Dibujo/:id"
+            path='/Dibujo/:id'
             children={<PerfilDibujo handleRedirect={handleRedirect} />}
           />
         </Switch>
 
+        <hr />
         <Foot />
       </Router>
     </>
-  );
-};
+  )
+}

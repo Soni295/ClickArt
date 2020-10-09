@@ -1,8 +1,8 @@
-import React ,{ useState }from 'react';
+import React ,{ useState }from 'react'
 import { Container, Row, Col, Form } from 'react-bootstrap'
 import { InsertarFormulario, Formulario } from './Reutilisable/formulario'
 import { verificar } from './Reutilisable/Verificador'
-import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom'
 
 export default props => {
   
@@ -23,11 +23,11 @@ export default props => {
     setMensaje(verificar(parametros))
 
     if(
-      mensaje.usuario    === "" && 
-      mensaje.nombre     === "" &&
-      mensaje.email      === "" &&
-      mensaje.contrasena === "" && 
-      mensaje.term       === ""
+      mensaje.usuario    === '' && 
+      mensaje.nombre     === '' &&
+      mensaje.email      === '' &&
+      mensaje.contrasena === '' && 
+      mensaje.term       === ''
     ){
       fetch(url,{
         method:'POST',
@@ -49,35 +49,35 @@ export default props => {
     }
     
   }
-  const [ mensaje, setMensaje ]         = useState({});
-  const [ usuario, setUsuario ]         = useState('');
-  const [ nombre, setnombre ]           = useState('');
-  const [ email, setemail ]             = useState('');
-  const [ contrasena, setcontrasena ]   = useState('');
-  const [ contrasena2, setcontrasena2 ] = useState('');
-  const [ select, setSelect ]           = useState("0");
-  const [ termycondi, setTermycondi ]   = useState('');
+  const [ mensaje, setMensaje ]         = useState({})
+  const [ usuario, setUsuario ]         = useState('')
+  const [ nombre, setnombre ]           = useState('')
+  const [ email, setemail ]             = useState('')
+  const [ contrasena, setcontrasena ]   = useState('')
+  const [ contrasena2, setcontrasena2 ] = useState('')
+  const [ select, setSelect ]           = useState('0')
+  const [ termycondi, setTermycondi ]   = useState('')
 
-  const usuarioObj        = new InsertarFormulario('usuario', 'Usuario:', 'text', 'Jose2020', setUsuario, usuario, mensaje.usuario);
-  const nombreCompletoObj = new InsertarFormulario('nombre', 'Nombre completo:', 'text', 'Jose Perez', setnombre, nombre,mensaje.nombre);
-  const emailObj          = new InsertarFormulario('email', 'E-mail:', 'email', 'joseperez@hotmail.con', setemail, email,mensaje.email);
-  const contrasenaObj     = new InsertarFormulario('contrasena', 'Contraseña:', 'password', '********', setcontrasena , contrasena, mensaje.contrasena);
-  const contrasena2Obj    = new InsertarFormulario('contrasena2', 'Confirme contraseña:', 'password', '********', setcontrasena2 ,contrasena2,);
-  const formularios       = [usuarioObj, nombreCompletoObj, emailObj, contrasenaObj, contrasena2Obj];
+  const usuarioObj        = new InsertarFormulario('usuario', 'Usuario:', 'text', 'Jose2020', setUsuario, usuario, mensaje.usuario)
+  const nombreCompletoObj = new InsertarFormulario('nombre', 'Nombre completo:', 'text', 'Jose Perez', setnombre, nombre,mensaje.nombre)
+  const emailObj          = new InsertarFormulario('email', 'E-mail:', 'email', 'joseperez@hotmail.con', setemail, email,mensaje.email)
+  const contrasenaObj     = new InsertarFormulario('contrasena', 'Contraseña:', 'password', '********', setcontrasena , contrasena, mensaje.contrasena)
+  const contrasena2Obj    = new InsertarFormulario('contrasena2', 'Confirme contraseña:', 'password', '********', setcontrasena2 ,contrasena2,)
+  const formularios       = [usuarioObj, nombreCompletoObj, emailObj, contrasenaObj, contrasena2Obj]
   
-  if(props.sesion) return <Redirect to="/" />
+  if(props.sesion) return <Redirect to='/' />
 
   return(
     <>
       <Container>
-        <h1 className="cartel">Registro de usuario</h1>
+        <h1 className='cartel'>Registro de usuario</h1>
       </Container>
 
       <Container>
-        <Row className="justify-content-center">
-          <Col className="registro">
+        <Row className='justify-content-center'>
+          <Col className='registro'>
 
-            <Form className="formulario" name="myForm">              
+            <Form className='formulario' name='myForm'>              
               {formularios.map( (formulario, index) =>{
                 return(
                   <Formulario
@@ -94,52 +94,52 @@ export default props => {
               })}
               <Form.Group>
 
-                <Form.Label htmlFor="Kind_of_user">
+                <Form.Label htmlFor='Kind_of_user'>
                   Tipo de Usuario
                 </Form.Label>                
                 <Form.Control 
-                id="tipo" 
-                as="select" 
+                id='tipo' 
+                as='select' 
                 custom
                 onChange={ event => props.handleCambio( event, setSelect )}
                 value={select}
                 >
-                  <option value="0">Ninguno</option>
-                  <option value="1">Artista</option>
-                  <option value="2">Compania</option>
+                  <option value='0'>Ninguno</option>
+                  <option value='1'>Artista</option>
+                  <option value='2'>Compania</option>
                 </Form.Control>                
               </Form.Group>
 
               <Form.Check 
-                type="switch"
-                id="custom-switch"
-                label="Acepto los terminos y condiciones"
+                type='switch'
+                id='custom-switch'
+                label='Acepto los terminos y condiciones'
                 onChange={ event => props.handleCambio( event, setTermycondi )}
                 required
               />
-              <Form.Text className="error">
+              <Form.Text className='error'>
                 {mensaje.term}
               </Form.Text>
 
               <p>
                 ¿Ya tienes cuenta? 
                 <button 
-                  className="boton-link" 
+                  className='boton-link' 
                   onClick={()=> props.handleShowMoral()}
                 >Haz click aqui
                 </button>               
               </p>
-              <Form.Group className="text-center" >
+              <Form.Group className='text-center' >
                 <button 
                   onClick={event => handleCrearCuenta(event)}
-                  className="btn btn-primary boton-registrarme">
+                  className='btn btn-primary boton-registrarme'>
                   Registrarme
                 </button>
               </Form.Group>                      
             </Form>
           </Col>
-          <Col className="registro terminos">
-            <h2 className="text-center">
+          <Col className='registro terminos'>
+            <h2 className='text-center'>
               Terminos y condiciones
             </h2>
             <p>
@@ -159,5 +159,5 @@ export default props => {
         </Row>
       </Container>
     </>
-  );
+  )
 }
