@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Row, Col, Tab, Nav, Form, Button } from "react-bootstrap";
+import UserContext from '../Context/UserContext'
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 
-export default (props) => {
-  if (!props.sesion) return <Redirect to="/" />;
+export default () => {
+  const { session } = useContext(UserContext)
+  if (!session.logIn) return <Redirect to="/" />;
 
   const handleCambio = (event, set) => set(event.target.value);
 
   const enviar = async (formData) => {
     const url = "http://localhost:8888/react/Configuracion/Usuario";
 
-    formData.append("usuario", props.sesion[0]);
+    formData.append("usuario", session.user);
 
     const respuesta = await axios.put(url, formData, {
       headers: {

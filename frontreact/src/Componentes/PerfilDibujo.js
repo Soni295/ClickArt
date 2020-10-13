@@ -10,14 +10,11 @@ export default (props) => {
   useEffect(() => {
     async function peticion() {
       const url = 'http://localhost:8888/react/Dibujo/' + id
-
     
-
-      fetch(url)
-        .then((respuesta) => respuesta.json())
-        .then((datos) => {
-          if (datos.msg === 'Este dibujo no existe') {
-            props.handleRedirect()
+      fetch(url).then( r => r.json()).then( datos => {
+        if (datos.msg === 'Este dibujo no existe') {
+            // props.handleRedirect()
+            console.log('I exit')
           } else {
             setDatosDibujo({
               usuario: datos.Usu_Nombre,
@@ -30,7 +27,6 @@ export default (props) => {
         })
     }
     peticion()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
 
   return (

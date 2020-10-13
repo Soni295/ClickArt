@@ -1,5 +1,5 @@
 import React, { useReducer } from "react"
-import FormGenerator from './FormGenerator'
+import FormTemplater from './FormTemplate'
 
 const user = {
   label:'User:',
@@ -19,13 +19,15 @@ const reducer = (state, event) =>
 export default () => { 
   const [formData, setFormData] = useReducer(reducer, {})
   
-  const handleChange = event =>
-    setFormData({name:event.target.name, value:event.target.value})
+  const handleChange = event => {
+    const {name, value} = event.target
+    setFormData({[name]:value})
+  }
 
   const FormGroup =
     [user, password].map(
       (form, index) =>
-        <FormGenerator 
+        <FormTemplater 
           index={index}
           data={form}
           value={formData[form.name]} 

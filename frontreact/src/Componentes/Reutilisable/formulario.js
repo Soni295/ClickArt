@@ -1,43 +1,37 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 
-/*
-Insertarformulario pide:
-nombre:(id de input, name del imput,for para el label(usa el mismo nombre))
-labelTexto:(El texto del label)
-type:(El tipo de input)
-placeholder:(el placeholder que se desea poner)
-set: para setear el formulario
-variable: donde se almacena este valor y se vuelve a mostrar en la caja
-*/
-
-class InsertarFormulario {
-  constructor(nombre, labelTexto, type, placeholder, set, variable, span = "") {
-    this.nombre = nombre;
-    this.labelTexto = labelTexto;
-    this.type = type;
-    this.placeholder = placeholder;
-    this.set = set;
-    this.variable = variable;
-    this.span = span;
+class InputForm{
+  constructor(name, placeHolder, type='text', span = ''){
+    this.name = name
+    this.placeHolder = placeHolder
+    this.span = span
+    this.type = type
   }
 }
 
-function Formulario(props) {
-  return (
-    <Form.Group>
-      <Form.Label htmlFor={props.nombre}>{props.labelTexto}</Form.Label>
-      <Form.Control
-        id={props.nombre}
-        name={props.nombre}
-        type={props.type}
-        placeholder={props.placeholder}
-        onChange={props.onChange}
-        value={props.value}
-      />
-      <Form.Text className="error">{props.span}</Form.Text>
-    </Form.Group>
-  );
-}
+const userObj = new InputForm('User', 'Jose2020')
+const nameObj = new InputForm('Name', 'Jose Perez')
+const emailObj = new InputForm('Email', 'Jose20@gmail.com')
+const passObj = new InputForm('Password', '********', 'password')
+const pass2Obj = new InputForm('Confirm Password', '********', 'password')
 
-export { InsertarFormulario, Formulario };
+const Inputs = [userObj, nameObj, emailObj, passObj, pass2Obj]
+
+const Formulario = ({ input, handle, value }) => {
+  const {name, placeHolder, type, span} = input
+  return(  
+    <Form.Group>
+      <Form.Label htmlFor={name}>{name + ':'}</Form.Label>
+      <Form.Control
+        name={name}
+        type={type}
+        placeholder={placeHolder}
+        onChange={e => handle(e)}
+        value={value}
+      />
+      <Form.Text className="error">{span}</Form.Text>
+    </Form.Group>
+  )
+}
+export { Formulario, Inputs };

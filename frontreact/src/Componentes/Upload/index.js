@@ -1,14 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Form, Container, Col } from 'react-bootstrap'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import UserContext from '../../Context/UserContext'
 
-export default (props) => {
+// Upload
+export default () => {
+  const { session } = useContext(UserContext)
   const [titulo, setTitulo] = useState('')
   const [descripcion, setDescripcion] = useState('')
   const [tags, setTags] = useState('')
   const [dibujo, setDibujo] = useState('')
-
+  const handleCambio = (e, set) => set(e.target.value)
+  const handleDibujoCambio = (event, set) => set(event.target.files[0]) //Para actualizar los dibujos
   const handleEnviar = async (event) => {
     event.preventDefault()
 
@@ -17,7 +21,7 @@ export default (props) => {
     formData.append('Descripcion', descripcion)
     formData.append('Tags', tags)
     formData.append('Dibujo', dibujo)
-    formData.append('Usuario', props.sesion[0])
+    formData.append('Usuario', session.user)
 
     try {
       const res = await axios.post(
@@ -36,7 +40,7 @@ export default (props) => {
       alert('Llene todos los datos')
     }
   }
-  if (!props.sesion) return <Redirect to='/' />
+  // if (!session.logIn) return <Redirect to='/' />
 
   return (
     <Container className='subida-box'>
@@ -55,7 +59,7 @@ export default (props) => {
             <input
               id='dibujo'
               type='file'
-              onChange={(event) => props.handleDibujoCambio(event, setDibujo)}
+              onChange={ e => handleDibujoCambio(e, setDibujo)}
               required
               accept='image/*'
             ></input>
@@ -65,7 +69,7 @@ export default (props) => {
           <input
             type='text'
             id='titulo-subida'
-            onChange={(event) => props.handleCambio(event, setTitulo)}
+            onChange={ e => handleCambio(e, setTitulo)}
             value={titulo}
             required
             placeholder='Titulo'
@@ -73,14 +77,14 @@ export default (props) => {
           <textarea
             id='descripcion'
             rows='6'
-            onChange={(event) => props.handleCambio(event, setDescripcion)}
+            onChange={ e => handleCambio(e, setDescripcion)}
             value={descripcion}
             required
             placeholder='Descripcion'
           ></textarea>
           <textarea
             id='tags'
-            onChange={(event) => props.handleCambio(event, setTags)}
+            onChange={ e => handleCambio(e, setTags)}
             value={tags}
             placeholder='Tags deben ser con espacios y guion si van juntos, por ejemplo: renecentismo arte blanco-y-negro patata'
           ></textarea>

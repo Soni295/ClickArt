@@ -1,11 +1,11 @@
-import React from "react"
-import { Form } from "react-bootstrap";
+import React from 'react'
+import { Form } from 'react-bootstrap'
 
-// FormGenerator
+// Form
 export default ({index, data, value, handle}) => {
   const { label, name, type } = data
   return(
-    <Form.Group key={index}>
+    <Form.Group key={index+ '1'}>
       <Form.Label>{label}</Form.Label>
       <Form.Control
         name={name}
