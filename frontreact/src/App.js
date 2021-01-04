@@ -16,6 +16,23 @@ import routess ,{ RouterBox } from './Config/routes'
 
 // Seguir en singUp 
 
+
+const f = (endPoint) => { 
+  const url = 'https://jsonplaceholder.typicode.com/' + endPoint
+  const method ='POST' 
+  const body = data => JSON.stringify(data)
+
+  return({
+    put: data => fetch(url, { 
+      method, body:body(data), 
+    }).then(r => r.json()),
+
+    get: () => fetch(url).then(r => r.json())
+  })
+}
+const direccion = f('posts/2')
+direccion.get().then(console.table)
+
 function App() {
   const [redireccion, setRedireccion] = useState(false) //Seteo del Redirect
   const [sesion, setSesion] = useState() //Setea al usuario 

@@ -9,14 +9,10 @@ const routesFoot = routes
 export default () => (
   <p className='pie'>
     ©2020{' '} 
-    {
-      routesFoot.map((route, i) => 
-        <Link 
-          key={i}
-          to={route.path}
-        >
-          |{route.text}
-        </Link>
+    {routesFoot.map((route, i) => 
+      <Link key={i} to={route.path}>
+        |{route.text}
+      </Link>
     )}
   </p>
 )

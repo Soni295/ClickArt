@@ -40,11 +40,13 @@ export default () => {
         >
           Sign In
         </Button>
-        <Button variant='outline-light' onClick={handleCloseModal}>
+        <Button 
+          variant='outline-light' 
+          onClick={handleCloseModal}
+        >
           Close 
         </Button>
       </Modal.Footer>
     </Modal>
   </>
 }
-
