@@ -3,6 +3,25 @@
 si queire probarlo precione aqui en [click Art](https://soni295.github.io/ClickArt/)
 (los usuarios y contraseñas estan abajo)
 
+
+
+cd ClickArt
+cd frontreact/
+yarn
+npm start
+
+cd ../app
+npm install
+
+
+Se necesitara dos consolas una para el backend y otra para el frontend
+
+./ClickArt/frontreact
+npm start
+
+./ClickArt/app
+npm run run
+
 ---
 
 #### Está diseñada como una galería para que artistas puedan exponer sus obras y poder hacer contacto con clientes o empresas de forma dinámica y orgánica.

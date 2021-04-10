@@ -4,6 +4,7 @@
   "description": "Una paguina web donde se puedan subir dibujos y empresas/seguidores puedan contactar con los artitas",
   "main": "server.js",
   "scripts": {
+    "run": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js"
   },
