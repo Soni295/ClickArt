@@ -1,20 +1,17 @@
-// import { Redirect } from 'react-router-dom'
-
-const crudder = site => endPoint => {
-  const url = `${site}/react${endPoint}`
-  const get = () => console.log(data, url)
-  const post = data => console.log(data, url)
-  const put = data => console.log(data, url)
-  const del = data => console.log(data, url)
-
-  return {get, put, post, del}
+export const URL = 'http://localhost:8888'
+export const useGet = async(endPoint) => {
+  return await(await fetch(URL + endPoint)).json()
 }
 
-const request = crudder('http://localhost:8888')
-const aaa = backEnd('aa')
-
 /*
-export default () => {
-  
+export const usePost = (endPoint, data) => {
+  const post = {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers:{
+      'Content-Type': 'application/json'
+    }
+  }
+  return await(await fetch(URL + endPoint, post)).json()
 }
 */

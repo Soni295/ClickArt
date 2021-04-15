@@ -12,45 +12,19 @@ import ConfiguracionesUsuario from './Componentes/ConfiguracionesUsuario'
 import { UserProvider } from './Context/UserContext'
 import { ModalProvider } from './Context/ModalContext'
 import Home from './Pages/Home'
-import routess ,{ RouterBox } from './Config/routes'
-
-// Seguir en singUp 
-
-
-const f = (endPoint) => { 
-  const url = 'https://jsonplaceholder.typicode.com/' + endPoint
-  const method ='POST' 
-  const body = data => JSON.stringify(data)
-
-  return({
-    put: data => fetch(url, { 
-      method, body:body(data), 
-    }).then(r => r.json()),
-
-    get: () => fetch(url).then(r => r.json())
-  })
-}
-const direccion = f('posts/2')
-direccion.get().then(console.table)
+import routess , { RouterBox } from './Config/routes'
+import { URL } from './hooks/useRequests'
 
 function App() {
   const [redireccion, setRedireccion] = useState(false) //Seteo del Redirect
-  const [sesion, setSesion] = useState() //Setea al usuario 
-  const [conjuntoDeDibujos, setconjuntoDeDibujos] = useState()
-  
-  async function peticion() {
-    const datos = await fetch('http://localhost:8888/react/Index')
-      .then(r => r.json())
-    setconjuntoDeDibujos(datos)
-  }
+  const [sesion, setSesion] = useState() //Setea al usuario
+  const [conjuntoDeDibujos, setconjuntoDeDibujos] = useState(null)
 
   useEffect(() => {
-    if (!conjuntoDeDibujos) {
-      peticion()
-    }
-  }, [conjuntoDeDibujos])
-
-  const handleCambio = (event, set) => set(event.target.value) //Para Actualizar los formularios
+    fetch(URL + '/react/Index')
+      .then(r => r.json())
+      .then(data => setconjuntoDeDibujos(data))
+    } , [])
 
   const handleRedirect = () => {
     //Redirecciona cuando se conecta o registra
@@ -101,7 +75,7 @@ function App() {
           />
 
           {
-            routess.map( route => 
+            routess.map( route =>
               <RouterBox key={route.path} {...route} />
             )
           }
@@ -122,6 +96,6 @@ function App() {
 
 
 export default () =>
-  <UserProvider> 
+  <UserProvider>
     <ModalProvider><App /></ModalProvider>
-  </UserProvider> 
+  </UserProvider>

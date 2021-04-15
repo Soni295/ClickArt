@@ -3,9 +3,10 @@ import Welcome from '../Componentes/Welcome/index'
 import Galeria from '../Componentes/Reutilisable/Galeria'
 
 // Home
-export default ({conjuntoDeDibujos}) => 
+export default ({conjuntoDeDibujos}) => (
   <>
     <Welcome />
     <hr />
-    <Galeria conjuntoDeDibujos={conjuntoDeDibujos} /> 
+    <Galeria conjuntoDeDibujos={conjuntoDeDibujos} />
   </>
+)
