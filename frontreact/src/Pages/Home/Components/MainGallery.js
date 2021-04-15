@@ -1,27 +1,21 @@
-import React, { useState, useEffect } from "react"
-import { Draw }from "./Draw"
+import React, { useContext } from 'react'
+import { MainGalleryContext } from '../../../Context/MainGalleryContext'
+import { Draw }from './Draw'
 
 export const MainGallery = () => {
-  const [conjuntoDeDibujos, setconjuntoDeDibujos] = useState(null)
-
-  const URL = 'http://localhost:8888'
-  useEffect(() => {
-    fetch(URL + '/react/Index')
-      .then(r => r.json())
-      .then(data => setconjuntoDeDibujos(data))
-    } , [])
+  const { gallery } = useContext(MainGalleryContext)
 
   return (
     <div className="galeria">
-      {conjuntoDeDibujos &&
-        conjuntoDeDibujos.map((dibujo) =>
+      {gallery && gallery.map(
+        ({ID_Dibujo, Nombre_del_archivo, titulo}) =>
           <Draw
-            direccion={dibujo.ID_Dibujo}
-            nombre={dibujo.Nombre_del_archivo}
-            titulo={dibujo.titulo}
-            key={dibujo.ID_Dibujo}
+            direccion={ID_Dibujo}
+            nombre={Nombre_del_archivo}
+            titulo={titulo}
+            key={ID_Dibujo}
           />
-        )}
+      )}
     </div>
   )
 }
