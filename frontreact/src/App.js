@@ -11,20 +11,14 @@ import Perfil from './Componentes/Perfil'
 import ConfiguracionesUsuario from './Componentes/ConfiguracionesUsuario'
 import { UserProvider } from './Context/UserContext'
 import { ModalProvider } from './Context/ModalContext'
-import Home from './Pages/Home'
+import Home from './Pages/Home/Home'
 import routess , { RouterBox } from './Config/routes'
-import { URL } from './hooks/useRequests'
+import { MainGalleryProvider } from './Context/MainGalleryContext'
+
 
 function App() {
   const [redireccion, setRedireccion] = useState(false) //Seteo del Redirect
   const [sesion, setSesion] = useState() //Setea al usuario
-  const [conjuntoDeDibujos, setconjuntoDeDibujos] = useState(null)
-
-  useEffect(() => {
-    fetch(URL + '/react/Index')
-      .then(r => r.json())
-      .then(data => setconjuntoDeDibujos(data))
-    } , [])
 
   const handleRedirect = () => {
     //Redirecciona cuando se conecta o registra
@@ -53,15 +47,11 @@ function App() {
               <Mensajes sesion={sesion} handleRedirect={handleRedirect} />
             }
           />*/}
-
           <Route
             exact
             path='/'
-            children={
-                <Home conjuntoDeDibujos={conjuntoDeDibujos} />
-            }
+            render ={Home}
           />
-
           <Route
             exact
             path='/Registrarse'
@@ -87,7 +77,6 @@ function App() {
           />
 
         </Switch>
-
         <hr />
         <Foot />
       </Router>
@@ -95,7 +84,12 @@ function App() {
 }
 
 
-export default () =>
+export default () => (
   <UserProvider>
-    <ModalProvider><App /></ModalProvider>
+    <MainGalleryProvider>
+      <ModalProvider>
+        <App />
+      </ModalProvider>
+    </MainGalleryProvider>
   </UserProvider>
+)
