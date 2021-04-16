@@ -14,7 +14,7 @@ import { ModalProvider } from './Context/ModalContext'
 import Home from './Pages/Home/Home'
 import routess , { RouterBox } from './Config/routes'
 import { MainGalleryProvider } from './Context/MainGalleryContext'
-
+import { Path } from './Config/Path'
 
 function App() {
   const [redireccion, setRedireccion] = useState(false) //Seteo del Redirect
@@ -30,14 +30,14 @@ function App() {
 
   return (
       <Router>
-        {redireccion && <Redirect to='/' />}
+        {redireccion && <Redirect to={Path.Home} />}
         <Navbar />
 
         <Switch>
           <Route
             exact
-            path='/Configuraciones'
-            children={<ConfiguracionesUsuario />}
+            path={Path.Settings}
+            render ={ConfiguracionesUsuario}
           />
 
     {/*<Route

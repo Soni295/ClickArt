@@ -1,17 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import routes from '../../Config/routes'
+import { footerRoutes } from '../../Config/routes'
 
-const routesFoot = routes
-  .filter( route => route.text)
+// Replace all _ for ' ' and / for ' '
+// Example '/Terminos_Y_Condiciones' return 'Terminos Y Condiciones '
+const foot = footerRoutes.map(route =>
+  ({path: route.path, text: route.path.replace(/[\_|\/]/g, ' ') })
+)
 
 // Foot
 export default () => (
   <p className='pie'>
-    ©2020{' '} 
-    {routesFoot.map((route, i) => 
+    ©2020{' '}
+    {foot.map((route, i) =>
       <Link key={i} to={route.path}>
-        |{route.text}
+        |{route.text + ' '}
       </Link>
     )}
   </p>

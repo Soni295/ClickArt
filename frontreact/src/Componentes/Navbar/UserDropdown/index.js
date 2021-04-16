@@ -1,6 +1,8 @@
 import React from 'react'
 import { NavDropdown } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { Path } from '../../../Config/Path'
+
 
 const LogOut = () => {
   const url = 'http://localhost:8888/react/CerrarSesion'
@@ -18,7 +20,7 @@ const LogOut = () => {
   }
 }
 
-const LinkOption = ({text, link}) => 
+const LinkOption = ({text, link}) =>
   <Link to={link}>
     <span className='dropdown-item'>{text}</span>
   </Link>
@@ -33,13 +35,13 @@ export default ({user}) => {
       id='collasible-nav-dropdown'
     >
       <LinkOption link={'/User/' + user} text='My Account'/>
-      <LinkOption link={'/Settings'} text='Settings'/>
+      <LinkOption link={Path.Settings} text='Settings'/>
       <NavDropdown.Divider />
       <span
         className='dropdown-item'
         onClick={ () => LogOut()}
       >
-        Log Out 
+        Log Out
       </span>
     </NavDropdown>
   )

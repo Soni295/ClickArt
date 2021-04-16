@@ -1,17 +1,20 @@
 export const URL = 'http://localhost:8888'
-export const useGet = async(endPoint) => {
-  return await(await fetch(URL + endPoint)).json()
-}
 
-/*
-export const usePost = (endPoint, data) => {
-  const post = {
-    method: 'POST',
-    body: JSON.stringify(data),
-    headers:{
-      'Content-Type': 'application/json'
+export const usePost = endPoint =>
+
+  async function (e, form) {
+    e.preventDefault()
+    const post = {
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify(form),
+      headers:{
+        'Content-Type': 'application/json'
+      }
     }
+    const data = fetch(URL + endPoint , post).then(r => r.json())
+
   }
-  return await(await fetch(URL + endPoint, post)).json()
-}
-*/
+
+
+

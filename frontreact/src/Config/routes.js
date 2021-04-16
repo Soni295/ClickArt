@@ -14,15 +14,73 @@ import PerfilDibujo from "../Componentes/PerfilDibujo";
 import ConfiguracionesUsuario from "../Componentes/ConfiguracionesUsuario";
 import { Route } from 'react-router-dom'
 
-// routes
+import { Path } from './Path'
+
 export const RouterBox = route => (
   <Route
     path={route.path}
-    render = { 
-      props => <route.component {...props} />
-    }
+    render = {props => <route.component {...props} />}
   />
 )
+
+const dinamicRoutes = [
+  {
+    path: Path.Draw,
+    component: PerfilDibujo
+  },
+  {
+    path: Path.UserGallery,
+    component: Perfil
+  },
+  {
+    path: Path.Home,
+    component: Galeria
+  },
+  {
+    path: Path.SignIn,
+    component: Registrarse
+  }
+]
+
+const userRoutes = [
+  {
+    path: Path.Upload,
+    component: Upload
+  },
+  {
+    path: Path.Settings,
+    component: ConfiguracionesUsuario
+  },
+  {
+    path: Path.Message,
+    component: Mensajes
+  },
+]
+
+export const footerRoutes = [
+  {
+    path: Path.ToS,
+    component: TerminosYCondiciones,
+  },
+  {
+    path: Path.UploadPolicy,
+    component: PoliticaDeSubida,
+  },
+  {
+    path: Path.Privacy,
+    component: Privacidad,
+  },
+  {
+    path: Path.AboutUs,
+    component: AcercaDeNosotros,
+  }
+]
+
+
+const allRoutes = [
+
+]
+
 
 export default [
   {
@@ -51,28 +109,6 @@ export default [
   },
   {
     path: '/Dibujo/:id',
-    component: PerfilDibujo 
-  },
-]
-const resto = [
-  {
-    path: '/Usuario/:nombre',
-    component: Perfil
-  },
-  {
-    path: '/Configuraciones',
-    component: ConfiguracionesUsuario
-  },
-  {
-    path: '/Mensajes',
-    component: Mensajes
-  },
-  {
-    path: '/',
-    component: Galeria
-  },
-  {
-    path: '/Registrarse',
-    component: Registrarse// luego tocar
+    component: PerfilDibujo
   },
 ]

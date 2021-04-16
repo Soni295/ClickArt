@@ -1,21 +1,17 @@
 import React, { useState } from 'react'
 import { Form, FormControl } from 'react-bootstrap'
-
+import { usePost } from '../../../hooks/useRequests'
 // Search
 export default () => {
   const [search, setSearch] = useState('')
-  
-  const handleChange = e => 
-    setSearch(e.target.value)
-  
-  const getSearch = (e, search) => {
-    e.preventDefault()
-    alert(search)
-  }
+  const handleChange = e => setSearch(e.target.value)
+
+
+  const handleSubmit = usePost('/react/Buscador')
 
   const handleclickBuscador = event => {
     event.preventDefault()
-    
+
     const parametros ={
       method: 'POST',
       credentials: 'include',
@@ -41,19 +37,19 @@ export default () => {
   }
 
   return(
-    <Form onSubmit={ e => getSearch(e, search)} 
-      className='m-auto' 
+    <Form onSubmit={e => handleSubmit(e, search)}
+      className='m-auto'
     inline>
-      <FormControl 
+      <FormControl
         className='mr-sm-2'
         type='text'
         value={search}
         placeholder='What do you want to see?'
-        onChange={e => handleChange(e)}
+        onChange={handleChange}
       />
-      <input 
-        type='submit' 
-        className='btn btn-outline-info' 
+      <input
+        type='submit'
+        className='btn btn-outline-info'
         value='Search'
       />
     </Form>
