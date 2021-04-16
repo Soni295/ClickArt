@@ -3,7 +3,7 @@ import Mensajes from "../Componentes/Mensajes";
 import Upload from "../Componentes/Upload/index";
 import Registrarse from "../Componentes/Registrarse";
 import Perfil from "../Componentes/Perfil";
-import Galeria from "../Componentes/Reutilisable/Galeria";
+import Home from '../Pages/Home/Home'
 import {
   TerminosYCondiciones,
   Privacidad,
@@ -13,17 +13,25 @@ import {
 import PerfilDibujo from "../Componentes/PerfilDibujo";
 import ConfiguracionesUsuario from "../Componentes/ConfiguracionesUsuario";
 import { Route } from 'react-router-dom'
-
 import { Path } from './Path'
 
 export const RouterBox = route => (
   <Route
     path={route.path}
-    render = {props => <route.component {...props} />}
+    render= {props => <route.component {...props} />}
   />
 )
 
 const dinamicRoutes = [
+  {
+    path: Path.Home,
+    component: Home,
+    exact: true
+  },
+  {
+    path: Path.SignIn,
+    component: Registrarse
+  },
   {
     path: Path.Draw,
     component: PerfilDibujo
@@ -32,14 +40,6 @@ const dinamicRoutes = [
     path: Path.UserGallery,
     component: Perfil
   },
-  {
-    path: Path.Home,
-    component: Galeria
-  },
-  {
-    path: Path.SignIn,
-    component: Registrarse
-  }
 ]
 
 const userRoutes = [
@@ -76,39 +76,9 @@ export const footerRoutes = [
   }
 ]
 
+const allRoutes = []
+  .concat(dinamicRoutes)
+  .concat(userRoutes)
+  .concat(footerRoutes)
 
-const allRoutes = [
-
-]
-
-
-export default [
-  {
-    path: '/TerminosYCondiciones',
-    component: TerminosYCondiciones,
-    text: ' Terminos Del Servicio '
-  },
-  {
-    path: '/Politicadesubida',
-    component: PoliticaDeSubida,
-    text: ' Politica De Subida  '
-  },
-  {
-    path: '/Privacidad',
-    component: Privacidad,
-    text: ' Privacidad '
-  },
-  {
-    path: '/Acercadenosotros',
-    component: AcercaDeNosotros,
-    text: ' Acerca De Nosotros '
-  },
-  {
-    path: '/Upload',
-    component: Upload
-  },
-  {
-    path: '/Dibujo/:id',
-    component: PerfilDibujo
-  },
-]
+export default allRoutes

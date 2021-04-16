@@ -6,7 +6,8 @@ import VentanaPefil from './Reutilisable/VentanaPerfil'
 
 const DatosDePerfil = (props) => {
   const { nombre } = useParams() //Ejemplo12
-  const [reDirect, setReDirect] = useState(false) 
+  const [reDirect, setReDirect] = useState(false)
+
   useEffect(() => {
     async function peticion() {
       const url = 'http://localhost:8888/react/Perfil/'+ nombre
@@ -138,15 +139,17 @@ const Vistas = (props) => {
   )
 }
 
-export default (props) => {
+export default () => {
   const [infoDelPerfil, setInfoDelPerfil] = useState('')
-
+  const  handleRedirect = () => {
+    console.log('Hola')
+  }
   return (
     <>
       <DatosDePerfil
         infoDelPerfil={infoDelPerfil}
         setInfoDelPerfil={setInfoDelPerfil}
-        handleRedirect={props.handleRedirect}
+        handleRedirect={handleRedirect}
       />
       <Vistas infoDelPerfil={infoDelPerfil} />
     </>

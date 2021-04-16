@@ -1,57 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
-  Switch, Route,
-  Redirect } from 'react-router-dom'
+  Switch, Route } from 'react-router-dom'
 import Navbar from './Componentes/Navbar/index'
 import Foot from './Componentes/Foot/index'
 // import Mensajes from './Componentes/Mensajes'
 import Registrarse from './Componentes/Registrarse'
-import Perfil from './Componentes/Perfil'
-import ConfiguracionesUsuario from './Componentes/ConfiguracionesUsuario'
 import { UserProvider } from './Context/UserContext'
 import { ModalProvider } from './Context/ModalContext'
-import Home from './Pages/Home/Home'
 import routess , { RouterBox } from './Config/routes'
 import { MainGalleryProvider } from './Context/MainGalleryContext'
-import { Path } from './Config/Path'
 
 function App() {
-  const [redireccion, setRedireccion] = useState(false) //Seteo del Redirect
   const [sesion, setSesion] = useState() //Setea al usuario
-
-  const handleRedirect = () => {
-    //Redirecciona cuando se conecta o registra
-    setRedireccion(true)
-    setTimeout(() => {
-      setRedireccion(false)
-    }, 1000)
-  }
+  const handleRedirect = () => console.log('redirect')
 
   return (
       <Router>
-        {redireccion && <Redirect to={Path.Home} />}
         <Navbar />
-
         <Switch>
-          <Route
-            exact
-            path={Path.Settings}
-            render ={ConfiguracionesUsuario}
-          />
-
-    {/*<Route
-            exact
-            path='/Mensajes'
-            children={
-              <Mensajes sesion={sesion} handleRedirect={handleRedirect} />
-            }
-          />*/}
-          <Route
-            exact
-            path='/'
-            render ={Home}
-          />
           <Route
             exact
             path='/Registrarse'
@@ -63,27 +30,18 @@ function App() {
               />
             }
           />
-
-          {
-            routess.map( route =>
-              <RouterBox key={route.path} {...route} />
-            )
-          }
-
-          <Route
-            exact
-            path='/Usuario/:nombre'
-            children={<Perfil handleRedirect={handleRedirect} />}
-          />
-
+          {routess.map( route =>
+            <RouterBox
+              key={route.path}
+              {...route}
+            />
+          )}
         </Switch>
         <hr />
         <Foot />
       </Router>
   )
 }
-
-
 export default () => (
   <UserProvider>
     <MainGalleryProvider>
