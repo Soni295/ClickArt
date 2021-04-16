@@ -1,4 +1,3 @@
-import React from 'react'
 import Mensajes from "../Componentes/Mensajes";
 import Upload from "../Componentes/Upload/index";
 import Registrarse from "../Componentes/Registrarse";
@@ -12,73 +11,63 @@ import {
 } from "../Componentes/Info_del_sitio";
 import PerfilDibujo from "../Componentes/PerfilDibujo";
 import ConfiguracionesUsuario from "../Componentes/ConfiguracionesUsuario";
-import { Route } from 'react-router-dom'
 import { Path } from './Path'
-
-export const RouterBox = route => (
-  <Route
-    path={route.path}
-    render= {props => <route.component {...props} />}
-  />
-)
 
 const dinamicRoutes = [
   {
     path: Path.Home,
-    component: Home,
+    Component: Home,
     exact: true
   },
   {
     path: Path.SignIn,
-    component: Registrarse
+    Component: Registrarse
   },
   {
     path: Path.Draw,
-    component: PerfilDibujo
+    Component: PerfilDibujo
   },
   {
     path: Path.UserGallery,
-    component: Perfil
+    Component: Perfil
   },
 ]
 
 const userRoutes = [
   {
     path: Path.Upload,
-    component: Upload
+    Component: Upload
   },
   {
     path: Path.Settings,
-    component: ConfiguracionesUsuario
+    Component: ConfiguracionesUsuario
   },
   {
     path: Path.Message,
-    component: Mensajes
+    Component: Mensajes
   },
 ]
 
 export const footerRoutes = [
   {
     path: Path.ToS,
-    component: TerminosYCondiciones,
+    Component: TerminosYCondiciones,
   },
   {
     path: Path.UploadPolicy,
-    component: PoliticaDeSubida,
+    Component: PoliticaDeSubida,
   },
   {
     path: Path.Privacy,
-    component: Privacidad,
+    Component: Privacidad,
   },
   {
     path: Path.AboutUs,
-    component: AcercaDeNosotros,
+    Component: AcercaDeNosotros,
   }
 ]
 
-const allRoutes = []
-  .concat(dinamicRoutes)
+export const allRoutes = []
   .concat(userRoutes)
   .concat(footerRoutes)
-
-export default allRoutes
+  .concat(dinamicRoutes)
