@@ -23,7 +23,6 @@ const App = () => (
   </Router>
 )
 
-
 export default () => (
   <MainGalleryProvider>
     <UserProvider>

@@ -1,4 +1,7 @@
 import React/*, { useState, useReducer, useContext }*/from 'react'
+
+
+
 //import { Container, Row, Col, Form } from 'react-bootstrap'
 //import { Inputs , Formulario } from './Reutilisable/formulario'
 // import { verificar } from './Reutilisable/Verificador'
@@ -18,14 +21,14 @@ import React/*, { useState, useReducer, useContext }*/from 'react'
       contrasena2:contrasena2,
       tipo       :select,
       termycondi :termycondi
-    }   
+    }
     setMensaje(verificar(parametros))
 
     if(
-      mensaje.usuario    === '' && 
+      mensaje.usuario    === '' &&
       mensaje.nombre     === '' &&
       mensaje.email      === '' &&
-      mensaje.contrasena === '' && 
+      mensaje.contrasena === '' &&
       mensaje.term       === ''
     ){
       fetch(url,{
@@ -42,7 +45,7 @@ import React/*, { useState, useReducer, useContext }*/from 'react'
             alert(datos.msg)
             props.setSesion(datos.usuario)
             props.handleRedirect()
-          }        
+          }
         }
       )
     }
@@ -54,7 +57,17 @@ const reducer = (state, event) => {
   return({...state, [event.name]:event.value})
 }*/
 
+export const SignIn = () => {
+  return(
+    <>
+    <div>
+      Hola
+    </div>
+    </>
+  )
+}
 export default props => {
+
   /*
   const { handleShowModal } = useContext(ModalContext)
   const [formaaa, setFormaaa] = useReducer(reducer, {})
@@ -68,20 +81,14 @@ export default props => {
 
   }
   const handleCambio = (event, set) => set(event.target.value) //Para Actualizar los formularios
-  
+
   if(props.sesion) return <Redirect to='/' />
 */
   return(
     <>
-    {/*   <Container>
-        <h1 className='cartel'>Registro de usuario</h1>
-      </Container>
+    {/*
 
-      <Container>
-        <Row className='justify-content-center'>
-          <Col className='registro'>
-
-            <Form className='formulario' name='myForm'>              
+            <Form className='formulario' name='myForm'>
               {Inputs.map( (formulario, index) =>{
                 return(
                   <Formulario
@@ -95,10 +102,10 @@ export default props => {
 
                 <Form.Label htmlFor='Kind_of_user'>
                   Tipo de Usuario
-                </Form.Label>                
-                <Form.Control 
-                id='tipo' 
-                as='select' 
+                </Form.Label>
+                <Form.Control
+                id='tipo'
+                as='select'
                 custom
                 onChange={ event => handleCambio( event, setSelect )}
                 value={select}
@@ -106,10 +113,10 @@ export default props => {
                   <option value='0'>Ninguno</option>
                   <option value='1'>Artista</option>
                   <option value='2'>Compania</option>
-                </Form.Control>                
+                </Form.Control>
               </Form.Group>
 
-              <Form.Check 
+              <Form.Check
                 type='switch'
                 id='custom-switch'
                 label='Acepto los terminos y condiciones'
@@ -121,19 +128,19 @@ export default props => {
               </Form.Text>
 
               <p>
-                ¿Ya tienes cuenta? 
-                <button 
-                  className='boton-link' 
+                ¿Ya tienes cuenta?
+                <button
+                  className='boton-link'
                   onClick={handleShowModal}
                 >Haz click aqui
-                </button>               
+                </button>
               </p>
               <Form.Group className='text-center' >
-                <button 
+                <button
                   className='btn btn-primary boton-registrarme'>
                   Registrarme
                 </button>
-              </Form.Group>                      
+              </Form.Group>
             </Form>
           </Col>
           <Col className='registro terminos'>
@@ -145,7 +152,7 @@ export default props => {
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo et amet eius. Repellat molestias a, amet repellendus voluptates, laborum nobis sequi atque ab, quasi inventore neque nemo sint pariatur. Iure. Un crack si lees esto
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo et amet eius. Repellat molestias a, amet repellendus voluptates, laborum nobis sequi atque ab, quasi inventore neque nemo sint pariatur. Iure. Un crack si lees esto
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt id quisquam quasi hic. Eum amet vel ullam nesciunt itaque laudantium sunt illo, voluptas temporibus sequi quasi laborum illum, blanditiis nihil!
-            </p>        
+            </p>
           </Col>
         </Row>
       </Container>

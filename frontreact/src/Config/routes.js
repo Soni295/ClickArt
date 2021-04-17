@@ -1,6 +1,6 @@
 import Mensajes from "../Componentes/Mensajes";
 import Upload from "../Componentes/Upload/index";
-import Registrarse from "../Componentes/Registrarse";
+import { SignIn }from "../Pages/SignIn/SignIn";
 import Perfil from "../Componentes/Perfil";
 import Home from '../Pages/Home/Home'
 import {
@@ -21,7 +21,7 @@ const dinamicRoutes = [
   },
   {
     path: Path.SignIn,
-    Component: Registrarse
+    Component: SignIn
   },
   {
     path: Path.Draw,
