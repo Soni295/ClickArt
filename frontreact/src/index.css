@@ -1,22 +1,3 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-
-/*Cuerpo*/
-body{
-  font-family:'Nanum Gothic', sans-serif;
-  background:#333;
-}
 hr{
   border: 1px solid rgba(168, 168, 168, 0.404);  /*le di un toque de estilo al separador*/
 }
@@ -29,20 +10,6 @@ hr{
   background: #000000;                          /*le cambio el color de fondo*/
   padding: 14px 30px;                             /*determino lo interno el padding*/
   margin: 30px 25% 30px 25%;                      /*determino los margenes en proporcion al exterior*/
-}
-.cartel{
-  font-size: 1 em;
-  color: #B172FF;                               
-  text-align: center;
-  border: 2px solid #575757;
-  background: #000000;
-  padding: 14px 30px;
-  margin: 30px 25% 30px 25%;
-}
-@media screen and (max-width: 1020px) {
-  .cartel{
-    display: none;
-  }
 }
 .boton-link{
   border: none;
@@ -83,7 +50,6 @@ hr{
   font-size: 50px
 }
 
-
 /*Index*/
 .form-inline{/*para centrar el boton del buscador*/
   justify-content: center
@@ -105,7 +71,7 @@ hr{
 .dropdown-divider{                                       /*el separador del desplegable*/
   border-top:1px solid #6d7a87;
 }
-  
+
 
 /*Dibujo Galeria*/
 .caja-dibujo{
@@ -116,71 +82,71 @@ hr{
 }
 .dibujo-galeria{
   width: 100%;
-  height: 400px;  
+  height: 400px;
   object-fit: cover;
-  align-content:flex-start;  
+  align-content:flex-start;
 }
 .dibujo-galeria:hover{
   border: black 1.5px solid;
 }
 @media screen and (min-width:300px){
-  .caja-dibujo{    
-    width: 33%;   
+  .caja-dibujo{
+    width: 33%;
   }
   .dibujo-galeria{
-    height: 100px;     
+    height: 100px;
   }
 }
 @media screen and (min-width:400px){
-  .caja-dibujo{    
-    width: 33%;   
+  .caja-dibujo{
+    width: 33%;
   }
   .dibujo-galeria{
-    height: 133px;     
+    height: 133px;
   }
 }
 @media screen and (min-width:500px){
-  .caja-dibujo{    
-    width: 33%;   
+  .caja-dibujo{
+    width: 33%;
   }
   .dibujo-galeria{
-    height: 166.6666px;     
+    height: 166.6666px;
   }
 }
 @media screen and (min-width:600px){
-  .caja-dibujo{    
-    width: 25%;   
+  .caja-dibujo{
+    width: 25%;
   }
   .dibujo-galeria{
-    height: 150px;     
+    height: 150px;
   }
 }
 @media screen and (min-width:1000px){
-  .caja-dibujo{    
-    width: 16.6666%;   
+  .caja-dibujo{
+    width: 16.6666%;
   }
   .dibujo-galeria{
-    height: 166.6666px;     
+    height: 166.6666px;
   }
 }
 @media screen and (min-width:1250px){
   .dibujo-galeria{
-    height: 208px;     
+    height: 208px;
   }
 }
 @media screen and (min-width:1500px){
   .dibujo-galeria{
-    height: 250px;     
+    height: 250px;
   }
 }
 @media screen and (min-width:1750px){
   .dibujo-galeria{
-    height: 291.6666px;     
+    height: 291.6666px;
   }
 }
 @media screen and (min-width:2000px){
   .dibujo-galeria{
-    height: 333px;     
+    height: 333px;
   }
 }
 
@@ -242,7 +208,7 @@ hr{
   .img-perfil{
     width: 80%;
   }
-  .vistas >li > button{    
+  .vistas >li > button{
     font-size: 15px;
   }
   .datos-secundarios{
@@ -267,14 +233,9 @@ hr{
   margin:5px;
   min-width: 400px;
 }
-.formulario{
-  color: #000;
-}
-.formulario label{
-  color: #B172FF;
-}
+
 .boton-registrarme{
-  width: 120px; 
+  width: 120px;
   margin: auto;
 }
 .terminos > h2{
@@ -299,7 +260,7 @@ hr{
 
 .subida-box{
   border: 1px white solid;
-  background: black; 
+  background: black;
   margin-top: 50px;
   margin-bottom: 400px;
 }
@@ -307,7 +268,7 @@ hr{
   columns: white;
   width: 300px;
   border: 1px solid white;
-  height: 300px;  
+  height: 300px;
   margin: auto;
   margin-top: 10px;
   display: flex;
@@ -321,21 +282,21 @@ input[type=file]{
   display: none;
 }
 .form-de-subida{
-  display: flex; 
-  flex-direction:column; 
+  display: flex;
+  flex-direction:column;
   margin: auto;
 }
 #titulo-subida{
   margin: auto;
   width: 200px;
-  height: 60px; 
-  font-size: 30px; 
+  height: 60px;
+  font-size: 30px;
   text-align: center;
 }
 div > textarea{
   margin: auto;
   margin-top: 5px;
-  margin-bottom: 5px; 
+  margin-bottom: 5px;
   float: left;
   width: 100%;
   min-height: 75px;
@@ -343,7 +304,7 @@ div > textarea{
   resize: none;
 }
 .boton-subir{
-  width: 100px; 
+  width: 100px;
   margin: auto;
 }
 @media screen and (max-width: 800px) {
@@ -357,7 +318,7 @@ div > textarea{
 
 /*Perfil Dibujo*/
 
-.dibubo-presentacion{  
+.dibubo-presentacion{
   background:#523f3f;
   border-right:3px black solid
 }
@@ -390,10 +351,10 @@ div > textarea{
 
 /*mensajes*/
 /*
-.caja-contactos{  
+.caja-contactos{
   padding: 0px;
 }
-.contactos-titulo{  
+.contactos-titulo{
   text-align: center;
   font-size: 25px;
   color: white;
@@ -401,7 +362,7 @@ div > textarea{
   border: 2px white solid;
   border-radius: 30px 30px 0px 0px;
 }
-.contactos-titulo > p{ 
+.contactos-titulo > p{
   margin: 0px;
 }
 .contactos{
@@ -409,22 +370,22 @@ div > textarea{
   border: 2px white solid;
   border-top: none;
   border-radius: 0px 0px 30px 30px;
-  padding-top: 15px; 
+  padding-top: 15px;
   font-size: 20px;
   padding-left: 20px;
 }
 
-.chat{ 
-  padding: 0px;  
+.chat{
+  padding: 0px;
 }
-.titulo-chat{  
+.titulo-chat{
   font-size: 20px;
   color: white;
   background: #5359b378;
   border: 2px white solid;
   border-radius: 20px 20px 0px 0px;
 }
-.titulo-chat > p{ 
+.titulo-chat > p{
   margin: 0px;
   margin-left: 10px;
 }
@@ -433,12 +394,12 @@ div > textarea{
   flex-flow: column wrap;
   background: white;
   border: 2px white solid;
-  border-top: none;  
+  border-top: none;
 }
 
 
 .mensaje{
-  display: block;  
+  display: block;
   word-wrap: break-word;
   text-align: center;
   background-color: red;
@@ -446,10 +407,10 @@ div > textarea{
 }
 .receptor{
   justify-content: flex-end;
-  
+
 }
 .emisor{
- 
+
 }
 
 .mensaje > p {
@@ -479,7 +440,7 @@ div > textarea{
   justify-content: flex-end;
   background: #707bad;
 }
-.texto-mensaje{  
+.texto-mensaje{
   word-wrap: break-word;
   margin-top: auto;
   margin-bottom: auto;
@@ -510,7 +471,7 @@ div > textarea{
   color: white;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;  
+  font-size: 16px;
   cursor: pointer;
   border-radius: 0px 30px 30px 0px;
   border: black 2px solid;

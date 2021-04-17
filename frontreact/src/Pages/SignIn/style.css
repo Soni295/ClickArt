@@ -1,0 +1,13 @@
+@import url('../../css/main.css');
+
+.SignInForm {
+  color: var(--color-neon-pink);
+  border: 2px solid var(--color-light-gray);
+  background: var(--color-black);
+  padding: 5px;
+  min-width: 400px;
+}
+
+.SignInForm > form {
+  margin: 30px;
+}

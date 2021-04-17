@@ -1,0 +1,17 @@
+@import url('../../css/main.css');
+
+.welcome {
+  font-size: 1 em;
+  color: var(--color-neon-pink);
+  text-align: center;
+  border: 2px solid var(--color-light-gray);
+  background: var(--color-black);
+  padding: 14px 30px;
+  margin: 30px 25% 30px 25%;
+}
+
+@media screen and (max-width: 1020px) {
+  .welcome {
+    display: none;
+  }
+}
