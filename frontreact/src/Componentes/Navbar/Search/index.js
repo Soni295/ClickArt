@@ -1,43 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Form, FormControl } from 'react-bootstrap'
-import { usePost } from '../../../hooks/useRequests'
+import { MainGalleryContext } from '../../../Context/MainGalleryContext'
 // Search
 export default () => {
+  const { onSubmit } = useContext(MainGalleryContext)
   const [search, setSearch] = useState('')
-  const handleChange = e => setSearch(e.target.value)
-
-
-  const handleSubmit = usePost('/react/Buscador')
-
-  const handleclickBuscador = event => {
-    event.preventDefault()
-
-    const parametros ={
-      method: 'POST',
-      credentials: 'include',
-      body: JSON.stringify({ search }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-
-    const url = 'http://localhost:8888/react/Buscador'
-
-    search !== '' && search !== ' ' ?
-      fetch(url, parametros )
-        .then(r => r.json())
-        .then(datos => {
-          if(datos.msg === 'No se ha encontrado nada') {
-            alert('No se ha encontrado nada')
-          } else {
-            //props.setconjuntoDeDibujos(datos)
-          }
-        })
-      : console.log('')
-  }
 
   return(
-    <Form onSubmit={e => handleSubmit(e, search)}
+    <Form onSubmit={e => onSubmit(e, search)}
       className='m-auto'
     inline>
       <FormControl
@@ -45,7 +15,7 @@ export default () => {
         type='text'
         value={search}
         placeholder='What do you want to see?'
-        onChange={handleChange}
+        onChange={e => setSearch(e.target.value)}
       />
       <input
         type='submit'

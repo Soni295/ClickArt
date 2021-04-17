@@ -1,8 +1,12 @@
 export const URL = 'http://localhost:8888'
 
-export const usePost = endPoint =>
+export const PATHSERVER = {
+  Index: URL + '/react/Index',
+  Search: URL + '/react/Buscador'
+}
 
-  async function (e, form) {
+export const usePost = endPoint =>
+  async (e, form) => {
     e.preventDefault()
     const post = {
       method: 'POST',
@@ -12,9 +16,5 @@ export const usePost = endPoint =>
         'Content-Type': 'application/json'
       }
     }
-    const data = fetch(URL + endPoint , post).then(r => r.json())
-
+    return fetch(URL + endPoint , post).then(r => r.json())
   }
-
-
-

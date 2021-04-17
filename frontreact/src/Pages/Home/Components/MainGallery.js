@@ -7,14 +7,13 @@ export const MainGallery = () => {
 
   return (
     <div className="galeria">
-      {gallery && gallery.map(
-        ({ID_Dibujo, Nombre_del_archivo, titulo}) =>
-          <Draw
-            direccion={ID_Dibujo}
-            nombre={Nombre_del_archivo}
-            titulo={titulo}
-            key={ID_Dibujo}
-          />
+      {gallery && gallery.map( ({ID_Dibujo, Nombre_del_archivo, titulo}) =>
+        <Draw
+          direccion={ID_Dibujo}
+          nombre={Nombre_del_archivo}
+          titulo={titulo}
+          key={ID_Dibujo}
+        />
       )}
     </div>
   )
