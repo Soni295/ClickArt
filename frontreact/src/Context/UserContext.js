@@ -1,24 +1,23 @@
 import React, { createContext, useState } from 'react'
 
 // InitialState
-/*
 const initialUser = {
   user:'',
-  access:'',
-  logIn:false
+  logIn: false
 }
-*/
+/*
 const initialUser = {
-  user:'Juan',
-  access:'user',
+  user: 'Juan',
   logIn: true
 }
+*/
+
 const UserContext = createContext()
 
 export const UserProvider = ({children}) => {
-  const [session, setSession] = useState(initialUser)  
+  const [session, setSession] = useState(initialUser)
 
-  const data = { session, setSession } 
+  const data = { session, setSession }
 
   return(
     <UserContext.Provider value={data}>

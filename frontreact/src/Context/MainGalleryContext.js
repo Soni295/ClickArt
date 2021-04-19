@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react'
-import { PATHSERVER } from '../hooks/useRequests'
+import { PATHSERVER } from '../Config/PATHSERVER'
 
 export const MainGalleryContext = createContext()
 

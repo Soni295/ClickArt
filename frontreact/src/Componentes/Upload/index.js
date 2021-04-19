@@ -13,6 +13,8 @@ export default () => {
   const [dibujo, setDibujo] = useState('')
   const handleCambio = (e, set) => set(e.target.value)
   const handleDibujoCambio = (event, set) => set(event.target.files[0]) //Para actualizar los dibujos
+
+
   const handleEnviar = async (event) => {
     event.preventDefault()
 

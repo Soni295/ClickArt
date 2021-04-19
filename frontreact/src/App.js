@@ -10,6 +10,8 @@ import { MainGalleryProvider } from './Context/MainGalleryContext'
 import { allRoutes } from './Config/routes'
 import { RouteBox } from './Config/Route'
 
+
+
 const App = () => (
   <Router>
     <Navbar />

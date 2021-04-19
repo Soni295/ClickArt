@@ -1,6 +1,7 @@
 import React/*, { useState, useReducer, useContext }*/from 'react'
 import Tos from './Tos/index'
-//import { Container, Row, Col, Form } from 'react-bootstrap'
+
+
 //import { Inputs , Formulario } from './Reutilisable/formulario'
 // import { verificar } from './Reutilisable/Verificador'
 //import { Redirect } from 'react-router-dom'
@@ -19,14 +20,14 @@ import Tos from './Tos/index'
       contrasena2:contrasena2,
       tipo       :select,
       termycondi :termycondi
-    }   
+    }
     setMensaje(verificar(parametros))
 
     if(
-      mensaje.usuario    === '' && 
+      mensaje.usuario    === '' &&
       mensaje.nombre     === '' &&
       mensaje.email      === '' &&
-      mensaje.contrasena === '' && 
+      mensaje.contrasena === '' &&
       mensaje.term       === ''
     ){
       fetch(url,{
@@ -43,7 +44,7 @@ import Tos from './Tos/index'
             alert(datos.msg)
             props.setSesion(datos.usuario)
             props.handleRedirect()
-          }        
+          }
         }
       )
     }
@@ -69,7 +70,7 @@ export default props => {
 
   }
   const handleCambio = (event, set) => set(event.target.value) //Para Actualizar los formularios
-  
+
   if(props.sesion) return <Redirect to='/' />
 */
   return(
@@ -82,7 +83,7 @@ export default props => {
         <Row className='justify-content-center'>
           <Col className='registro'>
 
-            <Form className='formulario' name='myForm'>              
+            <Form className='formulario' name='myForm'>
               {Inputs.map( (formulario, index) =>{
                 return(
                   <Formulario
@@ -96,10 +97,10 @@ export default props => {
 
                 <Form.Label htmlFor='Kind_of_user'>
                   Tipo de Usuario
-                </Form.Label>                
-                <Form.Control 
-                id='tipo' 
-                as='select' 
+                </Form.Label>
+                <Form.Control
+                id='tipo'
+                as='select'
                 custom
                 onChange={ event => handleCambio( event, setSelect )}
                 value={select}
@@ -107,10 +108,10 @@ export default props => {
                   <option value='0'>Ninguno</option>
                   <option value='1'>Artista</option>
                   <option value='2'>Compania</option>
-                </Form.Control>                
+                </Form.Control>
               </Form.Group>
 
-              <Form.Check 
+              <Form.Check
                 type='switch'
                 id='custom-switch'
                 label='Acepto los terminos y condiciones'
@@ -122,19 +123,19 @@ export default props => {
               </Form.Text>
 
               <p>
-                ¿Ya tienes cuenta? 
-                <button 
-                  className='boton-link' 
+                ¿Ya tienes cuenta?
+                <button
+                  className='boton-link'
                   onClick={handleShowModal}
                 >Haz click aqui
-                </button>               
+                </button>
               </p>
               <Form.Group className='text-center' >
-                <button 
+                <button
                   className='btn btn-primary boton-registrarme'>
                   Registrarme
                 </button>
-              </Form.Group>                      
+              </Form.Group>
             </Form>
           </Col><Tos />
         </Row>
