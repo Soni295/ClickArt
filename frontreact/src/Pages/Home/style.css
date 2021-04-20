@@ -29,7 +29,7 @@
   align-content:flex-start;
 }
 .dibujo-galeria:hover{
-  border: black 1.5px solid;
+  border: var(--color-black) 1.5px solid;
 }
 @media screen and (min-width:300px){
   .caja-dibujo{
