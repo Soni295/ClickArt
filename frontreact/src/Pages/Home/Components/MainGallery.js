@@ -1,13 +1,14 @@
 import React, { useContext } from 'react'
+
 import { MainGalleryContext } from '../../../Context/MainGalleryContext'
-import { Draw }from './Draw'
+import { Draw } from './Draw'
 
 export const MainGallery = () => {
   const { gallery } = useContext(MainGalleryContext)
 
   return (
     <div className="galeria">
-      {gallery && gallery.map( ({ID_Dibujo, Nombre_del_archivo, titulo}) =>
+      {gallery && gallery.map(({ID_Dibujo, Nombre_del_archivo, titulo}) =>
         <Draw
           direccion={ID_Dibujo}
           nombre={Nombre_del_archivo}

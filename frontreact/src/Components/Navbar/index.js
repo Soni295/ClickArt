@@ -1,13 +1,14 @@
 import React, { useContext } from 'react'
-import { Nav, Navbar } from 'react-bootstrap'
+import { Nav, Navbar as NavbarBS} from 'react-bootstrap'
 
 import ModalContext from '../../Context/ModalContext'
-import UserContext from '../../Context/UserContext'
+import { UserContext } from '../../Context/UserContext'
 
-import Brand from './Brand/index'
+import { Path } from '../../Config/Path'
+import Brand from './Components/Brand'
 import Conectarse from './LogInModal/index'
-import Search from './Search/index'
-import LinkOption from './LinkOption/index'
+import Search from './Components/Search'
+import LinkOption from './Components/NavBarLink'
 import UserDropdown from './UserDropdown/index'
 
 // Navbar
@@ -23,21 +24,21 @@ export default () => {
   )
 
   return (
-    <Navbar bg='dark' variant='dark' expand='lg'>
+    <NavbarBS bg='dark' variant='dark' expand='lg'>
       <Brand />
-      <Navbar.Toggle />
-      <Navbar.Collapse id='basic-navbar-nav'>
-        {session.logIn && <LinkOption name='Upload' />}
+      <NavbarBS.Toggle />
+      <NavbarBS.Collapse id='basic-navbar-nav'>
+        {session.logIn && <LinkOption name={Path.Upload} />}
         <Search />
 
         <Nav>
           {!session.logIn
-            ? <><LinkOption name='Sign Up'/><LogInModal /></>
+            ? <><LinkOption name={Path.SignIn}/><LogInModal /></>
             : <UserDropdown user={session.user}/>
           }
         </Nav>
 
-      </Navbar.Collapse>
-    </Navbar>
+      </NavbarBS.Collapse>
+    </NavbarBS>
   )
 }

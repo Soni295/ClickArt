@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Row, Col, Tab, Nav, Form, Button } from "react-bootstrap";
-import UserContext from '../Context/UserContext'
+import { UserContext } from '../Context/UserContext'
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 
@@ -27,11 +27,11 @@ export default () => {
       props.setSesion(datos.usuario)
       props.handleCloseMoral()
       props.handleRedirect()
-    }    
+    }
     else{
       props.handleCloseMoral()
       alert(datos.msg)
-    } 
+    }
     */
   };
   return (

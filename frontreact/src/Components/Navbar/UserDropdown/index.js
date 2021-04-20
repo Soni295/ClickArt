@@ -5,19 +5,6 @@ import { Path } from '../../../Config/Path'
 
 
 const LogOut = () => {
-  const url = 'http://localhost:8888/react/CerrarSesion'
-  const parameters = {
-    method: 'DELETE',
-    credentials: 'include'
-  }
-  /*
-  const data = fetch(url, parameters)
-    .then(r => r.json())
-  */
-  const data = {msg:'Success Log Out'}
-  if(data.msg === 'Success Log Out') {
-    alert('Se ha cerrado su sesion')
-  }
 }
 
 const LinkOption = ({text, link}) =>

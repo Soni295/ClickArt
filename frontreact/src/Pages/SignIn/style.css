@@ -1,13 +1,26 @@
 @import url('../../css/main.css');
 
 .SignInForm {
+  display: grid;
   color: var(--color-neon-pink);
   border: 2px solid var(--color-light-gray);
+  border-radius: 20px;
   background: var(--color-black);
   padding: 5px;
   min-width: 400px;
 }
-
 .SignInForm > form {
+  align-self: center;
   margin: 30px;
+}
+#signin-btn {
+  padding: 10px 30px;
+  background: var(--color-purple);
+  border: var(--color-purple);
+  color: var(--color-light-gray3);
+}
+#signin-btn:hover {
+  color: var(--color-white);
+  background: var(--color-light-purple);
+  border: var(--color-light-purple);
 }

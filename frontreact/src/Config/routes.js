@@ -1,4 +1,3 @@
-import Mensajes from "../Componentes/Mensajes";
 import Upload from "../Componentes/Upload/index";
 import { SignIn }from "../Pages/SignIn/SignIn";
 import Perfil from "../Componentes/Perfil";
@@ -41,11 +40,7 @@ const userRoutes = [
   {
     path: Path.Settings,
     Component: ConfiguracionesUsuario
-  },
-  {
-    path: Path.Message,
-    Component: Mensajes
-  },
+  }
 ]
 
 export const footerRoutes = [

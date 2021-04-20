@@ -1,15 +1,18 @@
 import React, { useReducer } from 'react'
-import { Form as FormBoostrap } from 'react-bootstrap'
+
+import { Form as FormBS } from 'react-bootstrap'
+
 import { TextInput } from './TextInput'
 
 const reducer = (state, {name, value}) => ({ ...state , [name]: value})
 
-export const Form = ({inputs, children}) => {
+export const Form = ({inputs, children, onSubmit}) => {
   const init = inputs.reduce((acc, cur) => ({...acc, [cur.name]: ''}) , {})
   const [state, dispatch] = useReducer(reducer, init)
 
+
   return(
-    <FormBoostrap name='myForm'>
+    <FormBS onSubmit={onSubmit}>
       {inputs.map(input =>
         <TextInput
           key={input.name}
@@ -19,6 +22,6 @@ export const Form = ({inputs, children}) => {
         />
       )}
       {children}
-    </FormBoostrap>
+    </FormBS>
   )
 }

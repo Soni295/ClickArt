@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { footerRoutes } from '../../Config/routes'
+import './style.css'
 
 // Replace all _ for ' ' and / for ' '
 // Example '/Terminos_Y_Condiciones' return 'Terminos Y Condiciones '
 const foot = footerRoutes.map(route =>
-  ({path: route.path, text: route.path.replace(/[\_|\/]/g, ' ') })
+  ({path: route.path, text: route.path.replace(/[_|/]/g, ' ')})
 )
 
 // Foot

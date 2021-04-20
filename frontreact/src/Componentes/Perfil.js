@@ -6,7 +6,6 @@ import VentanaPefil from './Reutilisable/VentanaPerfil'
 
 const DatosDePerfil = (props) => {
   const { nombre } = useParams() //Ejemplo12
-  const [reDirect, setReDirect] = useState(false)
 
   useEffect(() => {
     async function peticion() {
@@ -17,7 +16,6 @@ const DatosDePerfil = (props) => {
         .then((datos) => {
           if (datos.msg === 'No existe ese usuario') {
             //props.handleRedirect()
-            setReDirect(true)
           } else {
             props.setInfoDelPerfil({
               nombreCompleto: datos.nombreCompleto,
@@ -38,7 +36,6 @@ const DatosDePerfil = (props) => {
 
   return (
     <>
-    {}
       <Container fluid>
         <Row className='datos-perfil'>
           <Col className='text-center datos'>
@@ -64,7 +61,7 @@ const DatosDePerfil = (props) => {
   )
 }
 
-const Mensaje = (props) => {
+const Mensaje = () => {
   const [mensajePefil, setMensajePefil] = useState('')
 
   function handleSeteo(event) {
@@ -141,15 +138,11 @@ const Vistas = (props) => {
 
 export default () => {
   const [infoDelPerfil, setInfoDelPerfil] = useState('')
-  const  handleRedirect = () => {
-    console.log('Hola')
-  }
   return (
     <>
       <DatosDePerfil
         infoDelPerfil={infoDelPerfil}
         setInfoDelPerfil={setInfoDelPerfil}
-        handleRedirect={handleRedirect}
       />
       <Vistas infoDelPerfil={infoDelPerfil} />
     </>

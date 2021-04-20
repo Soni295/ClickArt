@@ -1,7 +1,10 @@
 import React,{ useContext } from 'react'
 import { Button, Modal } from 'react-bootstrap'
+import { Inputs} from '../../Form/Inputs'
+import { Form } from '../../Form/Form'
+
 import ModalContext from '../../../Context/ModalContext'
-import Forms from './Forms/index'
+
 
 /* revisar
   const handleConectarse = async (value) => {
@@ -16,9 +19,25 @@ import Forms from './Forms/index'
   }
 */
 
+
+
+const inputs = [
+  new Inputs('user', 'User name'),
+  new Inputs('password', 'put your password here', 'password'),
+]
+
+
+
+
 // Modal
-export default () => { 
+export default () => {
   const { showModal, handleCloseModal } = useContext(ModalContext)
+
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+    console.log(e)
+  }
   return<>
     <Modal
       dialogClassName='modal-Sesion'
@@ -30,23 +49,23 @@ export default () => {
       </Modal.Header>
 
       <Modal.Body>
-        <Forms />
-      </Modal.Body>
+        <Form inputs={inputs} onSubmit={onSubmit}>
 
-      <Modal.Footer>
       <span className='mx-auto'>{/*mensaje*/}</span>
-        <Button
+        <input type='button'
           variant='outline-primary'
-        >
-          Sign In
-        </Button>
-        <Button 
-          variant='outline-light' 
+          value='hoas'
+        />
+        <Button
+          variant='outline-light'
           onClick={handleCloseModal}
         >
-          Close 
+          Close
         </Button>
-      </Modal.Footer>
+
+      </Form>
+      </Modal.Body>
+
     </Modal>
   </>
 }

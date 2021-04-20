@@ -1,0 +1,11 @@
+@import url('../../css//main.css');
+
+.pie{
+  text-align: center;
+}
+.pie a,p {
+  color: var(--color-white);
+}
+.pie a:hover {
+  color: var(--color-light-gray2);
+}

@@ -1,6 +1,6 @@
-export const URL = 'http://localhost:8888'
+export const URL = 'http://localhost:8888/react'
 
 export const PATHSERVER = {
-  Index: URL + '/react/Index',
-  Search: URL + '/react/Buscador'
+  Index: URL + '/Index',
+  Search: URL + '/Buscador'
 }

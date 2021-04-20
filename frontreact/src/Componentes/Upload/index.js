@@ -1,8 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Form, Container, Col } from 'react-bootstrap'
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
-import UserContext from '../../Context/UserContext'
+import { UserContext } from '../../Context/UserContext'
 
 // Upload
 export default () => {

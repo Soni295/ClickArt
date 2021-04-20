@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { Form } from 'react-bootstrap'
 
 export const TextInput = ({dispatch, ...rest}) => {
@@ -9,11 +10,9 @@ export const TextInput = ({dispatch, ...rest}) => {
   })
 
   return(
-    <Form.Group>
-      <Form.Control
-        onChange={onChange}
-        {...rest}
-      />
-    </Form.Group>
+    <Form.Control
+      onChange={onChange}
+      {...rest}
+    />
   )
 }
