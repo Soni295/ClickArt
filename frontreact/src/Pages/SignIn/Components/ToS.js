@@ -2,7 +2,7 @@ import React from 'react'
 import { Col } from 'react-bootstrap'
 
 export const ToS = () => (
-  <Col className='registro terminos'>
+  <Col className='sign-up__Tos terminos'>
     <h2 className='text-center'>
       Terminos y condiciones
     </h2>

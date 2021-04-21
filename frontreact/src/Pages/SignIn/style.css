@@ -1,20 +1,23 @@
 @import url('../../css/main.css');
 
-.SignInForm {
+.sign-up , .sign-up__Tos {
   display: grid;
   color: var(--color-neon-pink);
-  border: 2px solid var(--color-light-gray);
-  border-radius: 20px;
+  border: var(--px2) solid var(--color-light-gray);
+  border-radius: var(--px20);
   background: var(--color-black);
-  padding: 5px;
+  padding: var(--px5);
   min-width: 400px;
 }
-.SignInForm > form {
+.sign-up > form {
   align-self: center;
-  margin: 30px;
+  margin: var(--px1) var(--px30);
+}
+.sign-up > form > input {
+  margin: var(--px15) 0rem;
 }
 #signin-btn {
-  padding: 10px 30px;
+  padding:  var(--px10) var(--px30);
   background: var(--color-purple);
   border: var(--color-purple);
   color: var(--color-light-gray3);
@@ -24,3 +27,24 @@
   background: var(--color-light-purple);
   border: var(--color-light-purple);
 }
+/*var(--px) */
+/*Registrarse*/
+
+.sign-up__Tos > h2, p{
+  margin:var(--px11 )  5px;
+}
+.sign-up__Tos > p {
+  overflow: auto;
+  height: 400px;
+  padding: 0px 17px;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+
+@media screen and (max-width: 1020px) {
+  .container{
+    margin-top: 40px;
+  }
+}
+

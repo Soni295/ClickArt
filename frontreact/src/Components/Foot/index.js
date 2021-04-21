@@ -11,12 +11,15 @@ const foot = footerRoutes.map(route =>
 
 // Foot
 export default () => (
-  <p className='pie'>
-    ©2020{' '}
-    {foot.map((route, i) =>
-      <Link key={i} to={route.path}>
-        |{route.text + ' '}
-      </Link>
-    )}
-  </p>
+  <>
+      <hr id='hr-foot' />
+    <p className='foot'>
+      ©2020{' '}
+      {foot.map((route, i) =>
+        <Link key={i} to={route.path}>
+          |{route.text + ' '}
+        </Link>
+      )}
+    </p>
+  </>
 )

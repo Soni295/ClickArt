@@ -1,11 +1,15 @@
 @import url('../../css//main.css');
 
-.pie{
+
+#hr-foot {
+  margin-top: 100vh;
+}
+.foot {
   text-align: center;
 }
-.pie a,p {
+.foot a,p {
   color: var(--color-white);
 }
-.pie a:hover {
+.foot a:hover {
   color: var(--color-light-gray2);
 }

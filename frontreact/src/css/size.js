@@ -1,7 +1,7 @@
 const readline = require('readline')
 const fs = require('fs')
 
-const f = n => `  --px${n}: ${n * 0.0625};\n`
+const f = n => `  --px${n}: ${n * 0.0625}rem;\n`
 const writeStream = fs.createWriteStream('sizes.css')
 
 const rl = readline.createInterface({

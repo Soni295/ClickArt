@@ -19,7 +19,6 @@ const App = () => (
         <RouteBox key={route.path} {...route} />
       )}
     </Switch>
-    <hr />
     <Foot />
   </Router>
 )
