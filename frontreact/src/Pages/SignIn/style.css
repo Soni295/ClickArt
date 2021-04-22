@@ -36,6 +36,20 @@
   margin-bottom: 10px;
   text-align: justify;
 }
+
+
+@media screen and (max-width: var(--bp-mob)) {
+
+}
+@media screen and (max-width: var(--bp-mob-landscape)) {
+}
+@media screen and (max-width: var(--bp-tab-portrait)) {
+}
+@media screen and (max-width: var(--bp-tab-landscape)) {
+}
+@media screen and (max-width: var(--bp-laptop)) {
+}
+
 @media screen and (max-width: 1020px) {
   .container{
     margin-top: 40px;
