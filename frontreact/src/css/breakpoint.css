@@ -9,12 +9,12 @@
 /*
 @media screen and (max-width: var(--bp-mob)) {
 }
-@media screen and (max-width: var(--bp-mob-landscape)) {
+@media screen and (min-width: var(--bp-mob-landscape)) {
 }
-@media screen and (max-width: var(--bp-tab-portrait)) {
+@media screen and (min-width: var(--bp-tab-portrait)) {
 }
-@media screen and (max-width: var(--bp-tab-landscape)) {
+@media screen and (min-width: var(--bp-tab-landscape)) {
 }
-@media screen and (max-width: var(--bp-laptop)) {
+@media screen and (min-width: var(--bp-laptop)) {
 }
 */

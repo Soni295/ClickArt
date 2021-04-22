@@ -7,16 +7,18 @@ export const MainGallery = () => {
   const { gallery } = useContext(MainGalleryContext)
 
   return (
-    <main className="galeria">
+    <>
       <hr />
-      {gallery && gallery.map(({ID_Dibujo, Nombre_del_archivo, titulo}) =>
-        <Draw
-          direccion={ID_Dibujo}
-          nombre={Nombre_del_archivo}
-          titulo={titulo}
-          key={ID_Dibujo}
-        />
-      )}
-    </main>
+      <main className="gallery">
+        {gallery && gallery.map(({ID_Dibujo, Nombre_del_archivo, titulo}) =>
+          <Draw
+            direccion={ID_Dibujo}
+            nombre={Nombre_del_archivo}
+            titulo={titulo}
+            key={ID_Dibujo}
+          />
+        )}
+      </main>
+    </>
   )
 }
