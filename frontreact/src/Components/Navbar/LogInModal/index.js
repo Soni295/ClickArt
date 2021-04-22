@@ -3,8 +3,7 @@ import { Button, Modal } from 'react-bootstrap'
 import { Inputs} from '../../Form/Inputs'
 import { Form } from '../../Form/Form'
 
-import ModalContext from '../../../Context/ModalContext'
-
+import { ModalContext } from '../../../Context/ModalContext'
 
 /* revisar
   const handleConectarse = async (value) => {
@@ -31,18 +30,18 @@ const inputs = [
 
 // Modal
 export default () => {
-  const { showModal, handleCloseModal } = useContext(ModalContext)
-
+  const { showModal, setModal } = useContext(ModalContext)
 
   const onSubmit = (e) => {
     e.preventDefault()
     console.log(e)
   }
-  return<>
+
+  return (
     <Modal
       dialogClassName='modal-Sesion'
       show={showModal}
-      onHide={handleCloseModal}
+      onHide={setModal.disable}
     >
       <Modal.Header closeButton>
         <Modal.Title>Log In</Modal.Title>
@@ -58,7 +57,7 @@ export default () => {
         />
         <Button
           variant='outline-light'
-          onClick={handleCloseModal}
+          onClick={setModal.disable}
         >
           Close
         </Button>
@@ -67,5 +66,5 @@ export default () => {
       </Modal.Body>
 
     </Modal>
-  </>
+  )
 }

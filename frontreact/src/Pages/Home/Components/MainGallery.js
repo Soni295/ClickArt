@@ -7,7 +7,8 @@ export const MainGallery = () => {
   const { gallery } = useContext(MainGalleryContext)
 
   return (
-    <div className="galeria">
+    <main className="galeria">
+      <hr />
       {gallery && gallery.map(({ID_Dibujo, Nombre_del_archivo, titulo}) =>
         <Draw
           direccion={ID_Dibujo}
@@ -16,6 +17,6 @@ export const MainGallery = () => {
           key={ID_Dibujo}
         />
       )}
-    </div>
+    </main>
   )
 }

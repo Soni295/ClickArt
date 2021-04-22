@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
-export const DoYouHaveAccount = () => (
-  <p>
-    ¿Ya tienes cuenta?
-    <button
-      className='boton-link'
-    >Haz click aqui
-    </button>
-  </p>
-)
+import { ModalContext } from './../../../Context/ModalContext'
+
+export const DoYouHaveAccount = () => {
+  const { setModal } = useContext(ModalContext)
+
+  return(
+    <p>
+      Do you have account?
+      <button
+        className='boton-link'
+        onClick={setModal.enable}
+      >
+        Click here
+      </button>
+    </p>
+  )
+}

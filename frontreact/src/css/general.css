@@ -17,3 +17,6 @@ a {
 a:hover {
   text-decoration: none;
 }
+main {
+  min-height: 100vh;
+}

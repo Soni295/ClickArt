@@ -27,11 +27,11 @@ export const SignIn = () => {
   }
 
   return(
-    <>
-      <Title />
+    <main className='sign-up-main'>
       <Container>
         <Row className='justify-content-center'>
-          <Col className='sign-up'>
+          <Col className='sign-up mb-4'>
+            <Title />
             <Form
               inputs={inputs}
               onSubmit={onSubmit}
@@ -44,6 +44,6 @@ export const SignIn = () => {
           <ToS />
         </Row>
       </Container>
-    </>
+    </main>
   )
 }

@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import { Nav, Navbar as NavbarBS} from 'react-bootstrap'
 
-import ModalContext from '../../Context/ModalContext'
+import { ModalContext } from '../../Context/ModalContext'
 import { UserContext } from '../../Context/UserContext'
 
 import { Path } from '../../Config/Path'
+
 import Brand from './Components/Brand'
 import Conectarse from './LogInModal/index'
 import Search from './Components/Search'
@@ -13,12 +14,12 @@ import UserDropdown from './UserDropdown/index'
 
 // Navbar
 export default () => {
-  const { handleShowModal } = useContext(ModalContext)
+  const { setModal } = useContext(ModalContext)
   const { session } = useContext(UserContext)
 
   const LogInModal = () => (
     <>
-      <Nav.Link onClick={handleShowModal}>Conectarse</Nav.Link>
+      <Nav.Link onClick={setModal.enable}>Conectarse</Nav.Link>
       <Conectarse />
     </>
   )

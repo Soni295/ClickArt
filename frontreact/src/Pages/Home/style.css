@@ -10,6 +10,12 @@
   margin: 30px 25% 30px 25%;
 }
 
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 @media screen and (max-width: 1020px) {
   .welcome {
     display: none;
@@ -31,6 +37,8 @@
 .dibujo-galeria:hover{
   border: var(--color-black) 1.5px solid;
 }
+
+
 @media screen and (min-width:300px){
   .caja-dibujo{
     width: 33%;

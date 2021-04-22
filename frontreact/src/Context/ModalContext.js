@@ -1,23 +1,32 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useReducer } from 'react'
 
-const ModalContext = createContext()
+export const ModalContext = createContext()
+
+const ACTIONTYPE = {
+  ENABLE: 'enable',
+  DISABLE: 'disable'
+}
+
+const reducer = (state, action) => {
+  switch(action.type){
+    case ACTIONTYPE.ENABLE: return true
+    case ACTIONTYPE.DISABLE: return false
+    default: return false
+  }
+}
 
 export const ModalProvider = ({children}) => {
+  const [showModal, dispatch] = useReducer(reducer, false)
 
-  const [showModal, setShowModal] = useState(false)
-  
-  const handleCloseModal = () => 
-    setShowModal(false) 
-  
-  const handleShowModal = () => 
-    setShowModal(true) 
-  
-  const data = {showModal, handleShowModal, handleCloseModal}
+  const setModal = {
+    enable: () => dispatch({type: ACTIONTYPE.ENABLE}),
+    disable: () => dispatch({type: ACTIONTYPE.DISABLE})
+  }
+
   return(
-    <ModalContext.Provider value={data}>
+    <ModalContext.Provider value={{showModal, setModal}}>
       {children}
     </ModalContext.Provider>
   )
 }
 
-export default ModalContext

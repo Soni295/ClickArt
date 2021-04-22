@@ -6,7 +6,6 @@ import './style.css'
 export default () => (
   <>
     <Welcome />
-    <hr />
     <MainGallery/>
   </>
 )

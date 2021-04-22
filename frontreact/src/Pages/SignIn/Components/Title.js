@@ -3,6 +3,6 @@ import { Container } from 'react-bootstrap'
 
 export const Title = () => (
   <Container>
-    <h1>Registro de usuario</h1>
+    <h1 className='text-center mt-3'>Sign Up</h1>
   </Container>
 )

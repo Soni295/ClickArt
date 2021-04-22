@@ -1,13 +1,12 @@
 @import url('../../css/main.css');
 
-.sign-up , .sign-up__Tos {
+.sign-up-main > * {
   display: grid;
   color: var(--color-neon-pink);
   border: var(--px2) solid var(--color-light-gray);
-  border-radius: var(--px20);
+  border-radius: var(--px15);
   background: var(--color-black);
   padding: var(--px5);
-  min-width: 400px;
 }
 .sign-up > form {
   align-self: center;
@@ -27,11 +26,8 @@
   background: var(--color-light-purple);
   border: var(--color-light-purple);
 }
-/*var(--px) */
-/*Registrarse*/
-
 .sign-up__Tos > h2, p{
-  margin:var(--px11 )  5px;
+  margin: var(--px11 )  5px;
 }
 .sign-up__Tos > p {
   overflow: auto;
@@ -40,11 +36,12 @@
   margin-bottom: 10px;
   text-align: justify;
 }
-
-
 @media screen and (max-width: 1020px) {
   .container{
     margin-top: 40px;
   }
 }
-
+.sign-up-main{
+  display: grid;
+  align-items: center;
+}

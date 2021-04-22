@@ -2,7 +2,7 @@ export const Path = {
   Home: '/',
   Draw: '/Dibujo/:id',
   UserGallery: '/Usuario/:nombre',
-  SignIn: '/Sing_In',
+  SignIn: '/Sing_Up',
   Upload: '/Upload',
   Settings: '/Configuraciones',
   ToS: '/Terminos_Y_Condiciones',

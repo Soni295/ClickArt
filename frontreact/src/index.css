@@ -10,18 +10,12 @@ hr{
 .boton-link:hover{
   color: #8cc0f8;
 }
-.galeria{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
 
 /*Moral para conectarse*/
 .modal-Sesion > div{
   background-color: #383945 !important;
   color:white
 }
-
 
 /*Info del sitio*/
 .info{
