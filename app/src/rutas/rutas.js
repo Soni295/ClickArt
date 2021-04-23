@@ -1,7 +1,15 @@
-const enrutador = require("express").Router();
+const app = require("express")();
 const react = require("./ctrl_react");
 
-enrutador
+app.use('/User', require('./ctrl_user/index'))
+
+module.exports = app;
+
+
+
+
+
+/*
   .post("/react/SubirDibujo", react.subirDibujo)
   .post(
     "/react/Registrarse",
@@ -16,4 +24,4 @@ enrutador
   .put("/react/Configuracion/Usuario", react.configuracionUsuario)
   .delete("/react/CerrarSesion", react.cerrarSesion);
 
-module.exports = enrutador;
+*/

@@ -3,5 +3,6 @@ export class Inputs {
     this.name = name
     this.placeholder = placeholder
     this.type = type
+    this.required = true
   }
 }

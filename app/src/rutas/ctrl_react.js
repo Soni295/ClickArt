@@ -2,39 +2,10 @@ const path = require("path");
 const pool = require("../basededatos/database.js");
 const bcrypt = require("bcrypt");
 
-const TABLAUSUARIO = "usuarios";
-
-const USUARIO = {
-  usuario: "Usu_Nombre",
-  nombreCompleto: "Nombre_Completo",
-  email: "Usu_Email",
-  tipoDeUsuario: "Usu_tipo",
-  especialidad: "Especialidad",
-  idiomas: "Idiomas",
-  pais: "Pais",
-  contrasena: "Usu_Contrasena",
-  icono: "ID_Dibujo",
-};
-
-const TABLADIBUJO = "dibujo";
-
-const DIBUJO = {
-  id: "ID_Dibujo",
-  titulo: "Titulo",
-  nombreDelArchivo: "Nombre_del_archivo",
-  descripcion: "Descripcion",
-  nombreDelUsuario: "Usu_Nombre",
-};
-
-async function encriptador(contrasena) {
-  const salt = await bcrypt.genSalt(10);
-  const hash = await bcrypt.hash(contrasena, salt);
-  return hash;
-}
 
 async function comparadorDeUsuarios(req, res, next) {
   const peticion = `
-  SELECT ${USUARIO.usuario} 
+  SELECT ${USUARIO.usuario}
   FROM ${TABLAUSUARIO}
   Where ${USUARIO.usuario} = "${req.body.usuario}"`;
   const nombre = await pool.query(peticion);
@@ -45,17 +16,17 @@ async function comparadorDeUsuarios(req, res, next) {
 async function registrarUsuario(req, res) {
   const hash = await encriptador(req.body.contrasena);
 
-  const Insercionsql = ` INSERT INTO ${TABLAUSUARIO}( 
-    ${USUARIO.usuario}, 
-    ${USUARIO.nombreCompleto}, 
-    ${USUARIO.email}, 
-    ${USUARIO.contrasena}, 
+  const Insercionsql = ` INSERT INTO ${TABLAUSUARIO}(
+    ${USUARIO.usuario},
+    ${USUARIO.nombreCompleto},
+    ${USUARIO.email},
+    ${USUARIO.contrasena},
     ${USUARIO.tipoDeUsuario})
     VALUES(
-    '${req.body.usuario}', 
+    '${req.body.usuario}',
     '${req.body.nombre}',
-    '${req.body.email}', 
-    '${hash}', 
+    '${req.body.email}',
+    '${hash}',
      ${req.body.tipo})`;
 
   await pool.query(Insercionsql, (err, result, fields) => {
@@ -75,11 +46,11 @@ async function registrarUsuario(req, res) {
 }
 
 async function iniciarSesion(req, res) {
-  
+
   console.log(req)
-  
+
   const peticion = `
-  SELECT 
+  SELECT
   ${USUARIO.usuario},
   ${USUARIO.contrasena},
   ${USUARIO.tipoDeUsuario}
@@ -149,7 +120,7 @@ async function subirDibujo(req, res) {
 
 async function perfil(req, res) {
   const peticion = `
-  SELECT     
+  SELECT
   ${TABLAUSUARIO}.${USUARIO.nombreCompleto},
   ${TABLAUSUARIO}.${USUARIO.email},
   ${TABLAUSUARIO}.${USUARIO.tipoDeUsuario},
@@ -171,12 +142,12 @@ async function perfil(req, res) {
 
   const peticion2 = `
     SELECT
-    ${DIBUJO.id}, 
+    ${DIBUJO.id},
     ${DIBUJO.titulo},
     ${DIBUJO.nombreDelArchivo}
     FROM
     ${TABLADIBUJO}
-    WHERE ${TABLADIBUJO}.${DIBUJO.nombreDelUsuario} = 
+    WHERE ${TABLADIBUJO}.${DIBUJO.nombreDelUsuario} =
     '${req.params.nombre}'
   `;
 
@@ -227,7 +198,7 @@ async function datosIndex(req, res) {
 
 async function dibujo(req, res) {
   const peticion = `
-  SELECT 
+  SELECT
   ${TABLADIBUJO}.${DIBUJO.titulo},
   ${TABLADIBUJO}.${DIBUJO.nombreDelArchivo},
   ${TABLADIBUJO}.${DIBUJO.descripcion},
@@ -326,7 +297,7 @@ async function configuracionUsuario(req, res) {
   /*
   if(req.body.contrasena){
     console.log('especialidad')
-  }   
+  }
   */
 
   if (req.body.nuevaContrasena) {
@@ -347,4 +318,4 @@ module.exports = {
   dibujo,
   cerrarSesion,
   configuracionUsuario,
-};
+}
