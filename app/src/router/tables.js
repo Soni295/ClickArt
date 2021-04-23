@@ -20,7 +20,4 @@ const DRAW = {
   nombreDelUsuario: 'Usu_Nombre',
 }
 
-module.exports = {
-  USER,
-  DRAW
-}
+module.exports = { USER, DRAW }

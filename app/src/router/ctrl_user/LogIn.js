@@ -11,7 +11,13 @@ const LogIn = async(req, res) => {
     password: req.body.password
   }
 
-  console.log(peticion)
+
+
+  if(req.body.user === 'Ejemplo12' && req.body.password === '123456789') return res.status(200).json({user: 'example'})
+
+  else return res.status(404).json({msg: 'Don\'t exist this User'})
+
+
 }
 
 module.exports = LogIn

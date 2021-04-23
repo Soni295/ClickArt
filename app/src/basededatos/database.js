@@ -1,6 +1,6 @@
 const { promisify } = require("util")
 const mysql = require("mysql")
-const { database } = require("./keys")
+const database = require("./keys")
 
 const pool = mysql.createPool(database)
 
