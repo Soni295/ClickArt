@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, "/../public")));
 app.use(sesion);
 
 //rutas
-app.use(require("./rutas/rutas"))
+app.use(require("./router/router"))
 
 //server
 app.listen(8888, () => {

@@ -11,16 +11,16 @@ const USER = {
   icono: "ID_Dibujo",
 }
 
-const DIBUJO = {
-  tableName: 'dibujo',
-  id: 'ID_Dibujo',
-  titulo: 'Titulo',
-  nombreDelArchivo: 'Nombre_del_archivo',
+const DRAW = {
+  TABLE: 'dibujo',
+  ID: 'ID_Dibujo',
+  TITLE: 'Titulo',
+  FILE_NAME: 'Nombre_del_archivo',
   descripcion: 'Descripcion',
   nombreDelUsuario: 'Usu_Nombre',
 }
 
 module.exports = {
   USER,
-  DIBUJO
+  DRAW
 }

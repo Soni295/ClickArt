@@ -1,9 +1,10 @@
-const app = require("express")();
-const react = require("./ctrl_react");
+const app = require("express")()
 
-app.use('/User', require('./ctrl_user/index'))
+app
+  .use('/User', require('./ctrl_user/index'))
+  .use('/Draw', require('./ctrl_draw/index'))
 
-module.exports = app;
+module.exports = app
 
 
 
