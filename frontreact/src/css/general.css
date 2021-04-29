@@ -1,7 +1,15 @@
 @import url('./main.css');
 
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+  padding: 0;
   font-family:'Nanum Gothic', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -23,6 +31,20 @@ main {
 
 
 
+h1,
+h2,
+h3 {
+  color: #333;
+}
+/* 333 es un buen tono de negro*/
+
+
+.btn,
+.btn:hover,
+.btn:focus {
+  cursor: pointer;
+  text-decoration: none;
+}
 
 hr{
   border: 1px solid rgba(168, 168, 168, 0.404);  /*le di un toque de estilo al separador*/

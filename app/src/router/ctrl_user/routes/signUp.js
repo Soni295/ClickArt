@@ -1,5 +1,5 @@
-const { encript }= require('./bcryptTools')
-const { USER } = require('../tables')
+const { encript }= require('../bcryptTools')
+const { USER } = require('../../tables')
 
 const SignUp = async(req, res) => {
   const hash = await encript(req.body.password);

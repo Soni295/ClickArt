@@ -7,12 +7,8 @@ const encript = async password => {
   return hash
 }
 
-
-const checkPassword = async(password, passwordDB) =>
+const checkPassword = async(password, passwordDB) => (
   bcrypt.compare(password, passwordDB)
+)
 
-
-module.exports = {
-  encript,
-  checkPassword
-}
+module.exports = { encript, checkPassword }

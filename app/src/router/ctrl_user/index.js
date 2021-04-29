@@ -1,8 +1,8 @@
 const route = require('express').Router()
 
 route
-  .post("/SignUp", require('./signUp'))
-  .post("/LogIn", require('./LogIn'))
+  .post("/SignUp", require('./routes/signUp'))
+  .post("/LogIn", require('./routes/LogIn'))
 
 module.exports = route
 

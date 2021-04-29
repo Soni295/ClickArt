@@ -19,7 +19,7 @@ describe('Post /User/LogIn for login', () => {
       .post('/User/LogIn')
       .send({user: 'Mr. NoBody', password: 'mmmmmmmm'})
       .expect('Content-Type', /json/)
-      .expect(404, {msg: 'Don\'t exist this User'})
+      .expect(404, {msg: 'Don\'t exist this User', state: 'fail'})
       .end((err, res) => {
         if (err) return done(err);
         return done();
