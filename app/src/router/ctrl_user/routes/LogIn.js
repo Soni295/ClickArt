@@ -15,10 +15,11 @@ const LogIn = async(req, res) => {
   if(passwordDB === null)
     return res.status(404).json({msg: 'Don\'t exist this User', state: 'fail'})
 
-  if(checkPassword(password,passwordDB))
-    return res.status(200).json({user, state: 'ok'})
-
-  return res.status(200).json({msg: 'wrong password', state: 'fail'})
+  return checkPassword(password, passwordDB)
+    .then(response => response
+      ? res.status(200).json({user, state: 'ok'})
+      : res.status(401).json({msg: 'wrong password', state: 'fail'})
+    )
 }
 
 module.exports = LogIn
