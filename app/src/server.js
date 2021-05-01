@@ -8,8 +8,6 @@ const bodyParser = require('body-parser');
 
 app.use(fileUpload());
 
-//app.use(cors())
-
 app.use(cors({
   credentials: true,
   origin: "http://localhost:3000",

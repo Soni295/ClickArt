@@ -1,7 +1,7 @@
 const route = require('express').Router()
 
 route
-  .post("/SignUp", require('./routes/signUp'))
+  .post("/SignUp", require('./routes/SignUp'))
   .post("/LogIn", require('./routes/LogIn'))
 
 module.exports = route
