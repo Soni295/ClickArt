@@ -1,6 +1,7 @@
 module.exports = {
   host: 'localhost',
-  user: 'example', // 'root' is default
-  password: '1234', // '' is default
-  database: 'midb'
+  user: 'root', // 'root' is default
+  password: 'example', // '' is default
+  database: 'midb',
+  port: '3307'
 }
