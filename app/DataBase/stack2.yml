@@ -11,6 +11,7 @@ services:
     ports:
       - 3307:3306
     environment:
+      MYSQL_DATABASE: midb
       MYSQL_ROOT_PASSWORD: example
     volumes:
       -  "./baseDeDatos/:/var/lib/mysql:rw"
