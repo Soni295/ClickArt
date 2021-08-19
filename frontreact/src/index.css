@@ -1,56 +1,34 @@
+@import url('./style/colors.css');
+@import url('./style//welcome-poster.css');
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family:'Nanum Gothic', sans-serif;
+  background: var(--gray-hard);
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-
-/*Cuerpo*/
-body{
-  font-family:'Nanum Gothic', sans-serif;
-  background:#333;
-}
 hr{
-  border: 1px solid rgba(168, 168, 168, 0.404);  /*le di un toque de estilo al separador*/
+  border: 1px solid var(--light-gray);
 }
 
 .bienvenida{
-  font-size: 1 em;
-  color: #B172FF;                               /*color de la letar*/
-  text-align: center;                             /*Centro el texto*/
-  border: 2px solid #575757;                    /*le pongo*/
-  background: #000000;                          /*le cambio el color de fondo*/
-  padding: 14px 30px;                             /*determino lo interno el padding*/
-  margin: 30px 25% 30px 25%;                      /*determino los margenes en proporcion al exterior*/
-}
-.cartel{
-  font-size: 1 em;
-  color: #B172FF;                               
+  font-size: 1em;
+  color: var(--pink);
+  background: var(--black);
+  border: 2px solid var(--gray);
   text-align: center;
-  border: 2px solid #575757;
-  background: #000000;
   padding: 14px 30px;
   margin: 30px 25% 30px 25%;
-}
-@media screen and (max-width: 1020px) {
-  .cartel{
-    display: none;
-  }
 }
 .boton-link{
   border: none;
   background-color: transparent;
-  color: #448bd8;
+  color: var(--light-blue);
 }
 .boton-link:hover{
-  color: #8cc0f8;
+  color: var(--light-blue2);
 }
 .galeria{
   display: flex;
@@ -60,8 +38,8 @@ hr{
 
 /*Moral para conectarse*/
 .modal-Sesion > div{
-  background-color: #383945 !important;
-  color:white
+  background-color: var(--gray-hard2) !important;
+  color: var(--white);
 }
 
 
@@ -71,11 +49,11 @@ hr{
 }
 .pie a,p {
   text-decoration: none;
-  color: #ffffff;
+  color: var(--white);
 }
 .pie a:hover {
   text-decoration: none;
-  color: #A6A6A6;
+  color: var(--light-gray2);
 }
 
 /*Info del sitio*/
@@ -94,18 +72,19 @@ hr{
 .desplegable > div{/*modal de mi usuario*/
   right: 0px;
   left: auto;
-  background: #343a40;
+  background: var(--gray-hard2);
 }
-.dropdown-item{/*separador del mi usuario*/
-  color: white !important;
+/*separador del mi usuario*/
+.dropdown-item{
+  color: var(--white) !important;
 }
 .dropdown-item:hover{
-  color: black !important;
+  color: var(--black) !important;
 }
 .dropdown-divider{                                       /*el separador del desplegable*/
-  border-top:1px solid #6d7a87;
+  border-top:1px solid var(--light-green);
 }
-  
+
 
 /*Dibujo Galeria*/
 .caja-dibujo{
@@ -116,81 +95,81 @@ hr{
 }
 .dibujo-galeria{
   width: 100%;
-  height: 400px;  
+  height: 400px;
   object-fit: cover;
-  align-content:flex-start;  
+  align-content:flex-start;
 }
 .dibujo-galeria:hover{
-  border: black 1.5px solid;
+  border: var(--black) 1.5px solid;
 }
 @media screen and (min-width:300px){
-  .caja-dibujo{    
-    width: 33%;   
+  .caja-dibujo{
+    width: 33%;
   }
   .dibujo-galeria{
-    height: 100px;     
+    height: 100px;
   }
 }
 @media screen and (min-width:400px){
-  .caja-dibujo{    
-    width: 33%;   
+  .caja-dibujo{
+    width: 33%;
   }
   .dibujo-galeria{
-    height: 133px;     
+    height: 133px;
   }
 }
 @media screen and (min-width:500px){
-  .caja-dibujo{    
-    width: 33%;   
+  .caja-dibujo{
+    width: 33%;
   }
   .dibujo-galeria{
-    height: 166.6666px;     
+    height: 166.6666px;
   }
 }
 @media screen and (min-width:600px){
-  .caja-dibujo{    
-    width: 25%;   
+  .caja-dibujo{
+    width: 25%;
   }
   .dibujo-galeria{
-    height: 150px;     
+    height: 150px;
   }
 }
 @media screen and (min-width:1000px){
-  .caja-dibujo{    
-    width: 16.6666%;   
+  .caja-dibujo{
+    width: 16.6666%;
   }
   .dibujo-galeria{
-    height: 166.6666px;     
+    height: 166.6666px;
   }
 }
 @media screen and (min-width:1250px){
   .dibujo-galeria{
-    height: 208px;     
+    height: 208px;
   }
 }
 @media screen and (min-width:1500px){
   .dibujo-galeria{
-    height: 250px;     
+    height: 250px;
   }
 }
 @media screen and (min-width:1750px){
   .dibujo-galeria{
-    height: 291.6666px;     
+    height: 291.6666px;
   }
 }
 @media screen and (min-width:2000px){
   .dibujo-galeria{
-    height: 333px;     
+    height: 333px;
   }
 }
 
 .error{
-  color: #d33232;
+  color: var(--red);
 }
 
 /*Perfil*/
 .datos{
-  color:white;
+  color: var(--white);
   margin: auto;
 }
 .img-perfil{
@@ -203,7 +182,7 @@ hr{
   margin: auto;
 }
 .dato{
-  color:white;
+  color: var(--white);
   margin: auto;
 }
 
@@ -223,26 +202,25 @@ hr{
   display: flex;
   list-style-type: none;
   justify-content:center;
-  border-top: solid black 1px;
-  border-bottom: solid black 1px;
-  background-color: #718894;
+  border-top: solid var(--black) 1px;
+  border-bottom: solid var(--black) 1px;
+  background-color: var(--light-green);
   border-radius: 30px;
 }
-.vistas >li > button{
-  background: wheat;
+.vistas > li > button{
+  background: var(--white-solf);
   border: none;
   font-size: 20px;
 }
-.vistas >li > button:hover{
-  background: rgb(63, 51, 51);
-  color: white;
+.vistas > li > button:hover{
+  background: var(--gray-hard2);
+  color: var(--white);
 }
-
 @media screen and (max-width: 800px) {
   .img-perfil{
     width: 80%;
   }
-  .vistas >li > button{    
+  .vistas >li > button{
     font-size: 15px;
   }
   .datos-secundarios{
@@ -260,21 +238,21 @@ hr{
 
 /*Registrarse*/
 .registro{
-  color: #B172FF;
-  border: 2px solid #575757;
-  background: #000000;
+  color: var(--pink);
+  border: 2px solid var(--gray);
+  background: var(--black);
   padding: 5px;
   margin:5px;
   min-width: 400px;
 }
 .formulario{
-  color: #000;
+  color: var(--black);
 }
 .formulario label{
-  color: #B172FF;
+  color: var(--pink);
 }
 .boton-registrarme{
-  width: 120px; 
+  width: 120px;
   margin: auto;
 }
 .terminos > h2{
@@ -298,44 +276,44 @@ hr{
 /*Subida*/
 
 .subida-box{
-  border: 1px white solid;
-  background: black; 
+  border: 1px var(--white) solid;
+  background: var(--black);
   margin-top: 50px;
   margin-bottom: 400px;
 }
 .previa{
-  columns: white;
+  columns: var(--white);
   width: 300px;
-  border: 1px solid white;
-  height: 300px;  
+  border: 1px solid var(--white);
+  height: 300px;
   margin: auto;
   margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.previa>p{
-  color: white;
+.previa > p{
+  color:  var(--white);
 }
 input[type=file]{
   display: none;
 }
 .form-de-subida{
-  display: flex; 
-  flex-direction:column; 
+  display: flex;
+  flex-direction:column;
   margin: auto;
 }
 #titulo-subida{
   margin: auto;
   width: 200px;
-  height: 60px; 
-  font-size: 30px; 
+  height: 60px;
+  font-size: 30px;
   text-align: center;
 }
 div > textarea{
   margin: auto;
   margin-top: 5px;
-  margin-bottom: 5px; 
+  margin-bottom: 5px;
   float: left;
   width: 100%;
   min-height: 75px;
@@ -343,7 +321,7 @@ div > textarea{
   resize: none;
 }
 .boton-subir{
-  width: 100px; 
+  width: 100px;
   margin: auto;
 }
 @media screen and (max-width: 800px) {
@@ -353,13 +331,11 @@ div > textarea{
   }
 }
 
-
-
 /*Perfil Dibujo*/
 
-.dibubo-presentacion{  
-  background:#523f3f;
-  border-right:3px black solid
+.dibubo-presentacion{
+  background: var(--gray-hard2);
+  border-right: 3px var(--black) solid
 }
 .dibujo-icono{
   display: block ;
@@ -376,24 +352,12 @@ div > textarea{
   width: 100%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 /*mensajes*/
 /*
-.caja-contactos{  
+.caja-contactos{
   padding: 0px;
 }
-.contactos-titulo{  
+.contactos-titulo{
   text-align: center;
   font-size: 25px;
   color: white;
@@ -401,7 +365,7 @@ div > textarea{
   border: 2px white solid;
   border-radius: 30px 30px 0px 0px;
 }
-.contactos-titulo > p{ 
+.contactos-titulo > p{
   margin: 0px;
 }
 .contactos{
@@ -409,22 +373,22 @@ div > textarea{
   border: 2px white solid;
   border-top: none;
   border-radius: 0px 0px 30px 30px;
-  padding-top: 15px; 
+  padding-top: 15px;
   font-size: 20px;
   padding-left: 20px;
 }
 
-.chat{ 
-  padding: 0px;  
+.chat{
+  padding: 0px;
 }
-.titulo-chat{  
+.titulo-chat{
   font-size: 20px;
   color: white;
   background: #5359b378;
   border: 2px white solid;
   border-radius: 20px 20px 0px 0px;
 }
-.titulo-chat > p{ 
+.titulo-chat > p{
   margin: 0px;
   margin-left: 10px;
 }
@@ -433,12 +397,12 @@ div > textarea{
   flex-flow: column wrap;
   background: white;
   border: 2px white solid;
-  border-top: none;  
+  border-top: none;
 }
 
 
 .mensaje{
-  display: block;  
+  display: block;
   word-wrap: break-word;
   text-align: center;
   background-color: red;
@@ -446,19 +410,15 @@ div > textarea{
 }
 .receptor{
   justify-content: flex-end;
-  
+
 }
 .emisor{
- 
+
 }
 
 .mensaje > p {
   color: black;
 }
-
-
-
-
 /*
 .caja-mensajes{
   border: blanchedalmond 1px solid;
@@ -479,7 +439,7 @@ div > textarea{
   justify-content: flex-end;
   background: #707bad;
 }
-.texto-mensaje{  
+.texto-mensaje{
   word-wrap: break-word;
   margin-top: auto;
   margin-bottom: auto;
@@ -493,9 +453,7 @@ div > textarea{
   height: 30px;
   border: white 2px solid;
   border-radius: 20px 20px 0px 0px;
-
 }
-
 .text-a-enviar{
   margin: 0px;
   border: none;
@@ -510,28 +468,16 @@ div > textarea{
   color: white;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;  
+  font-size: 16px;
   cursor: pointer;
   border-radius: 0px 30px 30px 0px;
   border: black 2px solid;
   border-left: none;
 }
-
 */
-
-
-
-
-
-
-
-
 /*Configuraciones de usuario*/
-
-
 .boton-configuracion{
   display: flex;
   justify-content: center;
   margin-bottom: 3px;
 }
-

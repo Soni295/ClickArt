@@ -1,0 +1,14 @@
+.cartel{
+  font-size: 1 em;
+  color: var(--pink);
+  border: 2px solid var(--gray);
+  background: var(--black);
+  text-align: center;
+  padding: 14px 30px;
+  margin: 30px 25% 30px 25%;
+}
+@media screen and (max-width: 1020px) {
+  .cartel{
+    display: none;
+  }
+}

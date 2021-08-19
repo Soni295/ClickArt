@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import UserContext from "../../Context/UserContext";
 
 // Bienvenida
-export default ( {sesion} ) => 
-  sesion ?
+export default () => {
+  const { session } = useContext(UserContext)
+
+  return (
     <div className="cartel">
-      <h1>Bienvenido/a {sesion[0]}</h1>
+asd
+      { session.user &&
+        <h1>Bienvenido/a {session.user}</h1>
+      }
     </div>
-      :
-    <div style={{ height: "100px" }}></div>
+  )
+}

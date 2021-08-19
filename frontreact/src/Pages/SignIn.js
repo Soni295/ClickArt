@@ -1,19 +1,3 @@
-/*
-        <Route
-          exact
-          path='/Registrarse'
-          children={
-            <Registrarse
-              handleRedirect={handleRedirect}
-              setSesion={setSesion}
-              sesion={sesion}
-            />
-          }
-        />
-
-
-*/
-
 import React/*, { useState, useReducer, useContext }*/from 'react'
 //import { Container, Row, Col, Form } from 'react-bootstrap'
 //import { Inputs , Formulario } from './Reutilisable/formulario'
@@ -89,6 +73,9 @@ export default props => {
 */
   return(
     <>
+      <div>
+        hoal
+      </div>
     {/*   <Container>
         <h1 className='cartel'>Registro de usuario</h1>
       </Container>

@@ -1,11 +1,15 @@
 import React from 'react'
-import Welcome from '../Componentes/Welcome/index'
+import Welcome from '../Componentes/Welcome'
 import Galeria from '../Componentes/Reutilisable/Galeria'
+import { useConjuntoDeDibujos } from '../hooks/useConjuntoDeDibujos'
 
-// Home
-export default ({conjuntoDeDibujos}) => 
-  <>
-    <Welcome />
-    <hr />
-    <Galeria conjuntoDeDibujos={conjuntoDeDibujos} /> 
-  </>
+export default () => {
+  const conjuntoDeDibujos = useConjuntoDeDibujos()
+  return (
+    <>
+      <Welcome />
+      <hr />
+      <Galeria conjuntoDeDibujos={conjuntoDeDibujos} />
+    </>
+  )
+}

@@ -1,9 +1,7 @@
 import React from 'react'
 import Mensajes from "../Componentes/Mensajes";
 import Upload from "../Componentes/Upload/index";
-import Registrarse from "../Componentes/Registrarse";
 import Perfil from "../Componentes/Perfil";
-import Galeria from "../Componentes/Reutilisable/Galeria";
 import {
   TerminosYCondiciones,
   Privacidad,
@@ -14,65 +12,45 @@ import PerfilDibujo from "../Componentes/PerfilDibujo";
 import ConfiguracionesUsuario from "../Componentes/ConfiguracionesUsuario";
 import { Route } from 'react-router-dom'
 
+import Home from "../Pages/Home"
+import SignIn from "../Pages/SignIn"
+
 // routes
 export const RouterBox = route => (
   <Route
     path={route.path}
-    render = { 
+    render = {
       props => <route.component {...props} />
     }
   />
 )
 
+const PATH = {
+  Home: '/',
+  SignIn: '/SignIn',
+}
+
+class Page {
+  constructor(component, path, exact=true){
+    this.component = component
+    this.path = path
+    this.key = path
+    this.exact = exact
+  }
+}
 export default [
-  {
-    path: '/TerminosYCondiciones',
-    component: TerminosYCondiciones,
-    text: ' Terminos Del Servicio '
-  },
-  {
-    path: '/Politicadesubida',
-    component: PoliticaDeSubida,
-    text: ' Politica De Subida  '
-  },
-  {
-    path: '/Privacidad',
-    component: Privacidad,
-    text: ' Privacidad '
-  },
-  {
-    path: '/Acercadenosotros',
-    component: AcercaDeNosotros,
-    text: ' Acerca De Nosotros '
-  },
-  {
-    path: '/Upload',
-    component: Upload
-  },
-  {
-    path: '/Dibujo/:id',
-    component: PerfilDibujo 
-  },
+  new Page(TerminosYCondiciones, '/TerminosYCondiciones'),
+  new Page(PoliticaDeSubida, '/PoliticaDeSubida'),
+  new Page(Privacidad, '/Privacidad'),
+  new Page(AcercaDeNosotros, '/Acercadenosotros'),
+  new Page(Upload, '/Upload'),
+  new Page(PerfilDibujo, '/Dibujo/:id'),
+  new Page(Home, PATH.Home),
+  new Page(SignIn, PATH.SignIn),
 ]
+
 const resto = [
-  {
-    path: '/Usuario/:nombre',
-    component: Perfil
-  },
-  {
-    path: '/Configuraciones',
-    component: ConfiguracionesUsuario
-  },
-  {
-    path: '/Mensajes',
-    component: Mensajes
-  },
-  {
-    path: '/',
-    component: Galeria
-  },
-  {
-    path: '/Registrarse',
-    component: Registrarse// luego tocar
-  },
+  new Page(Perfil, '/Usuario/:nombre'),
+  new Page(ConfiguracionesUsuario, '/Configuraciones'),
+  new Page(Mensajes, '/Mensajes'),
 ]
