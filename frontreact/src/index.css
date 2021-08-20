@@ -1,5 +1,14 @@
+:root {
+  --small: 40rem;
+  --medium: 64rem;
+  --large: 87.5rem;
+}
 @import url('./style/colors.css');
-@import url('./style//welcome-poster.css');
+@import url('./style/welcome-poster.css');
+@import url('./style/footer.css');
+@import url('./style/profile.css');
+@import url('./style/gallery.css');
+
 body {
   margin: 0;
   font-family:'Nanum Gothic', sans-serif;
@@ -11,16 +20,6 @@ code {
 }
 hr{
   border: 1px solid var(--light-gray);
-}
-
-.bienvenida{
-  font-size: 1em;
-  color: var(--pink);
-  background: var(--black);
-  border: 2px solid var(--gray);
-  text-align: center;
-  padding: 14px 30px;
-  margin: 30px 25% 30px 25%;
 }
 .boton-link{
   border: none;
@@ -40,20 +39,6 @@ hr{
 .modal-Sesion > div{
   background-color: var(--gray-hard2) !important;
   color: var(--white);
-}
-
-
-/*Foot*/
-.pie{
-  text-align: center;
-}
-.pie a,p {
-  text-decoration: none;
-  color: var(--white);
-}
-.pie a:hover {
-  text-decoration: none;
-  color: var(--light-gray2);
 }
 
 /*Info del sitio*/
@@ -86,155 +71,10 @@ hr{
 }
 
 
-/*Dibujo Galeria*/
-.caja-dibujo{
-  display: flex;
-  float: left;
-  box-sizing: border-box;
-  padding: 1.5px;
-}
-.dibujo-galeria{
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  align-content:flex-start;
-}
-.dibujo-galeria:hover{
-  border: var(--black) 1.5px solid;
-}
-@media screen and (min-width:300px){
-  .caja-dibujo{
-    width: 33%;
-  }
-  .dibujo-galeria{
-    height: 100px;
-  }
-}
-@media screen and (min-width:400px){
-  .caja-dibujo{
-    width: 33%;
-  }
-  .dibujo-galeria{
-    height: 133px;
-  }
-}
-@media screen and (min-width:500px){
-  .caja-dibujo{
-    width: 33%;
-  }
-  .dibujo-galeria{
-    height: 166.6666px;
-  }
-}
-@media screen and (min-width:600px){
-  .caja-dibujo{
-    width: 25%;
-  }
-  .dibujo-galeria{
-    height: 150px;
-  }
-}
-@media screen and (min-width:1000px){
-  .caja-dibujo{
-    width: 16.6666%;
-  }
-  .dibujo-galeria{
-    height: 166.6666px;
-  }
-}
-@media screen and (min-width:1250px){
-  .dibujo-galeria{
-    height: 208px;
-  }
-}
-@media screen and (min-width:1500px){
-  .dibujo-galeria{
-    height: 250px;
-  }
-}
-@media screen and (min-width:1750px){
-  .dibujo-galeria{
-    height: 291.6666px;
-  }
-}
-@media screen and (min-width:2000px){
-  .dibujo-galeria{
-    height: 333px;
-  }
-}
 
 .error{
   color: var(--red);
 }
-
-/*Perfil*/
-.datos{
-  color: var(--white);
-  margin: auto;
-}
-.img-perfil{
-  height: auto;
-  max-width: 400px;
-  min-width: 40px;
-  width: 100%;
-  border-radius: 50%;
-  display: block;
-  margin: auto;
-}
-.dato{
-  color: var(--white);
-  margin: auto;
-}
-
-#usuario-perfil{
-  font-size: 3vw;
-}
-#especialidad-perfil{
-  font-size: 2.5vw;
-}
-#area{
-  font-size: 30px;
-}
-.datos-secundarios{
-  font-size: 1.9vw;
-}
-.vistas{
-  display: flex;
-  list-style-type: none;
-  justify-content:center;
-  border-top: solid var(--black) 1px;
-  border-bottom: solid var(--black) 1px;
-  background-color: var(--light-green);
-  border-radius: 30px;
-}
-.vistas > li > button{
-  background: var(--white-solf);
-  border: none;
-  font-size: 20px;
-}
-.vistas > li > button:hover{
-  background: var(--gray-hard2);
-  color: var(--white);
-}
-@media screen and (max-width: 800px) {
-  .img-perfil{
-    width: 80%;
-  }
-  .vistas >li > button{
-    font-size: 15px;
-  }
-  .datos-secundarios{
-    display: none !important;
-  }
-  #usuario-perfil{
-    font-size: 6vw;
-  }
-  #especialidad-perfil{
-    font-size: 5vw;
-  }
-}
-
-
 
 /*Registrarse*/
 .registro{
@@ -330,9 +170,7 @@ div > textarea{
     margin-bottom: 30px;
   }
 }
-
 /*Perfil Dibujo*/
-
 .dibubo-presentacion{
   background: var(--gray-hard2);
   border-right: 3px var(--black) solid

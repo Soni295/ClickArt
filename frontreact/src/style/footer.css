@@ -1,0 +1,11 @@
+.pie{
+  text-align: center;
+}
+.pie a,p {
+  text-decoration: none;
+  color: var(--white);
+}
+.pie a:hover {
+  text-decoration: none;
+  color: var(--light-gray2);
+}

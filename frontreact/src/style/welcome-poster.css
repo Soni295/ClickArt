@@ -1,14 +1,68 @@
-.cartel{
-  font-size: 1 em;
-  color: var(--pink);
-  border: 2px solid var(--gray);
-  background: var(--black);
-  text-align: center;
-  padding: 14px 30px;
-  margin: 30px 25% 30px 25%;
+.poster {
+  --margin: 50px 0;
+  --display: grid;
+  --height: 200px;
 }
-@media screen and (max-width: 1020px) {
-  .cartel{
-    display: none;
+.poster > .title {
+  --height: 150px;
+  --width: 50%;
+}
+.poster > .title > h1 {
+  --font-size: 50px;
+}
+.poster {
+  color: var(--pink);
+  height: var(--height);
+  margin: var(--margin);
+  display: var(--display);
+  justify-items: center;
+  align-items: center;
+}
+.poster > .title {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: var(--width);
+  height: var(--height);
+  background: var(--black);
+  border: 2px solid var(--gray);
+  border-radius: 60px;
+}
+.poster > .title > h1 {
+  font-size: var(--font-size);
+  margin: 0;
+}
+@media screen and (max-width: 87.5rem) {
+  .poster {
+    --margin: 20px 0;
+    --height: 175px;
+  }
+  .poster > .title {
+    --height: 100px;
+    --width: 70%;
+  }
+}
+@media screen and (max-width: 64rem) {
+  .poster {
+    --height: 150px;
+  }
+  .poster > .title {
+    --width: 80%;
+  }
+  .poster > .title > h1 {
+    --font-size: 40px;
+  }
+}
+@media screen and (max-width: 40rem) {
+  .poster {
+    --margin: 0;
+    --height: 100px;
+  }
+  .poster > .title {
+    --height: 70px;
+    --width: 90%;
+  }
+  .poster > .title > h1 {
+    --font-size: 26px;
   }
 }

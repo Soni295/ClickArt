@@ -4,13 +4,15 @@ import UserContext from "../../Context/UserContext";
 // Bienvenida
 export default () => {
   const { session } = useContext(UserContext)
+  const welcome = session.user
+    ? `Welcome ${session.user}`
+    : `Welcome to the ClickArt`
 
   return (
-    <div className="cartel">
-asd
-      { session.user &&
-        <h1>Bienvenido/a {session.user}</h1>
-      }
+    <div className="poster">
+      <div className='title'>
+        <h1>{welcome}</h1>
+      </div>
     </div>
   )
 }
