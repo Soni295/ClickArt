@@ -4,7 +4,6 @@
   --large: 87.5rem;
 }
 @import url('./style/colors.css');
-@import url('./style/welcome-poster.css');
 @import url('./style/footer.css');
 @import url('./style/profile.css');
 @import url('./style/gallery.css');

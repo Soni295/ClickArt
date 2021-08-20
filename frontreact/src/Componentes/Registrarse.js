@@ -15,6 +15,9 @@
 */
 
 import React/*, { useState, useReducer, useContext }*/from 'react'
+
+
+
 //import { Container, Row, Col, Form } from 'react-bootstrap'
 //import { Inputs , Formulario } from './Reutilisable/formulario'
 // import { verificar } from './Reutilisable/Verificador'
@@ -70,7 +73,17 @@ const reducer = (state, event) => {
   return({...state, [event.name]:event.value})
 }*/
 
+export const SignIn = () => {
+  return(
+    <>
+    <div>
+      Hola
+    </div>
+    </>
+  )
+}
 export default props => {
+
   /*
   const { handleShowModal } = useContext(ModalContext)
   const [formaaa, setFormaaa] = useReducer(reducer, {})
@@ -89,9 +102,7 @@ export default props => {
 */
   return(
     <>
-    {/*   <Container>
-        <h1 className='cartel'>Registro de usuario</h1>
-      </Container>
+    {/*
 
       <Container>
         <Row className='justify-content-center'>
@@ -152,6 +163,7 @@ export default props => {
               </Form.Group>
             </Form>
           </Col>
+<<<<<<< HEAD
           <Col className='registro terminos'>
             <h2 className='text-center'>
               Terminos y condiciones
@@ -163,6 +175,8 @@ export default props => {
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt id quisquam quasi hic. Eum amet vel ullam nesciunt itaque laudantium sunt illo, voluptas temporibus sequi quasi laborum illum, blanditiis nihil!
             </p>
           </Col>
+=======
+>>>>>>> fix-issues
         </Row>
       </Container>
 */}

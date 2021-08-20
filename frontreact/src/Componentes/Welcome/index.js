@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import UserContext from "../../Context/UserContext";
+import { UserContext } from "../../Context/UserContext";
+import './style.css'
 
-// Bienvenida
 export default () => {
   const { session } = useContext(UserContext)
   const welcome = session.user

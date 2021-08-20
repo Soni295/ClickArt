@@ -1,0 +1,20 @@
+:root {
+  --bp-mob: 40rem; /*640px max*/
+  --bp-mob-landscape: 40.0625; /*641px min*/
+  --bp-tab-portrait: 48rem; /*768px min*/
+  --bp-tab-landscape: 64rem; /*1024px min*/
+  --bp-laptop: 80rem; /*1280px min*/
+}
+
+/*
+@media screen and (max-width: var(--bp-mob)) {
+}
+@media screen and (min-width: var(--bp-mob-landscape)) {
+}
+@media screen and (min-width: var(--bp-tab-portrait)) {
+}
+@media screen and (min-width: var(--bp-tab-landscape)) {
+}
+@media screen and (min-width: var(--bp-laptop)) {
+}
+*/

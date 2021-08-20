@@ -1,5 +1,5 @@
-import React from "react";
-import DibujoGaleria from "./DibujoGaleria";
+import React from "react"
+import DibujoGaleria from "./Draw"
 
 export default ({conjuntoDeDibujos}) => {
   return (
@@ -14,5 +14,5 @@ export default ({conjuntoDeDibujos}) => {
           />
         )}
     </div>
-  );
-};
+  )
+}

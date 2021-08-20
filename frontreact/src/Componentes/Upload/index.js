@@ -1,18 +1,19 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, /* useContext */ } from 'react'
 import { Form, Container, Col } from 'react-bootstrap'
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
-import UserContext from '../../Context/UserContext'
+//import { UserContext } from '../../Context/UserContext'
 
 // Upload
 export default () => {
-  const { session } = useContext(UserContext)
+  //const { session } = useContext(UserContext)
   const [titulo, setTitulo] = useState('')
   const [descripcion, setDescripcion] = useState('')
   const [tags, setTags] = useState('')
   const [dibujo, setDibujo] = useState('')
   const handleCambio = (e, set) => set(e.target.value)
   const handleDibujoCambio = (event, set) => set(event.target.files[0]) //Para actualizar los dibujos
+
+
   const handleEnviar = async (event) => {
     event.preventDefault()
 
@@ -21,7 +22,7 @@ export default () => {
     formData.append('Descripcion', descripcion)
     formData.append('Tags', tags)
     formData.append('Dibujo', dibujo)
-    formData.append('Usuario', session.user)
+   // formData.append('Usuario', session.user)
 
     try {
       const res = await axios.post(
