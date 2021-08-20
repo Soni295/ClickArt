@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import routes from '../../Config/routes'
+//import { Link } from 'react-router-dom'
+//import routes from '../../Config/routes'
 
 //const routesFoot = routes.filter( route => route.text)
 
