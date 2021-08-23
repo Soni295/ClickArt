@@ -1,7 +1,8 @@
-const BASEURL = 'http://localhost:8888/react/'
+const BASEURL = 'http://localhost:8888'
+const DRAW = BASEURL + '/Draw'
+const MainGallery = DRAW + '/MainGallery'
 
-export const getGallery = async() => {
-  const res = await fetch(BASEURL + 'Index')
-  const data = await res.json()
-  return data
-}
+export const getGallery = async() => (
+  fetch(MainGallery)
+    .then(res => res.json())
+)

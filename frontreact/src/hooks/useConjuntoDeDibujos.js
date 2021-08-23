@@ -1,17 +1,18 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { getGallery } from '../Services/MainGallery'
+import { HomeGalleryReducer } from '../reducer/HomeGalleryReducer'
 
 export const useConjuntoDeDibujos = () => {
-  const [conjuntoDeDibujos, setconjuntoDeDibujos] = useState([])
+  const [state, action] = HomeGalleryReducer()
 
   useEffect(() => {
-    const request = async() => {
-      const data = await getGallery()
-      setconjuntoDeDibujos(data)
+    if(state.data.length === 0) {
+      action.fetch()
+      getGallery()
+       .then(r => action.succedded(r))
+       .catch(e => action.failed(e))
     }
+  }, [state])
 
-    if (conjuntoDeDibujos.length === 0) request()
-  }, [conjuntoDeDibujos])
-
-  return conjuntoDeDibujos
+  return state
 }

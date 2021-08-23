@@ -5,7 +5,6 @@
   --bp-tab-landscape: 64rem; /*1024px min*/
   --bp-laptop: 80rem; /*1280px min*/
 }
-
 /*
 @media screen and (max-width: var(--bp-mob)) {
 }
