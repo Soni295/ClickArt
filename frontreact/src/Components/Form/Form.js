@@ -1,12 +1,14 @@
 import React from 'react'
 import { Form as FormBS } from 'react-bootstrap'
-import { TextInput } from './TextInput'
+import { InputForm } from './InputForm'
 
-export const Form = ({inputs, children, onSubmit}) => (
-  <FormBS onSubmit={onSubmit}>
+export const Form = ({inputs, children, ...rest}) => (
+  <FormBS {...rest}>
+
     {inputs.map(input =>
-      <TextInput key={input.name} {...input} />
+      <InputForm {...input} />
     )}
     {children}
+
   </FormBS>
 )

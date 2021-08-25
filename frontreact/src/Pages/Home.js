@@ -5,7 +5,6 @@ import { useConjuntoDeDibujos } from '../hooks/useConjuntoDeDibujos'
 
 export default () => {
   const conjuntoDeDibujos = useConjuntoDeDibujos()
-
   return (
     <>
       <Welcome />

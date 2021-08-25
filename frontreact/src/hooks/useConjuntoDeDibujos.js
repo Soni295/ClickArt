@@ -12,7 +12,7 @@ export const useConjuntoDeDibujos = () => {
        .then(r => action.succedded(r))
        .catch(e => action.failed(e))
     }
-  }, [state])
+  }, [])
 
   return state
 }

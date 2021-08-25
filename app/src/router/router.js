@@ -6,10 +6,6 @@ app
 
 module.exports = app
 
-
-
-
-
 /*
   .post("/react/SubirDibujo", react.subirDibujo)
   .post(

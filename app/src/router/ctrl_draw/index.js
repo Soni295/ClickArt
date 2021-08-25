@@ -1,12 +1,9 @@
 const route = require('express').Router()
 
 route
-  .get('/MainGallery/', require('./MainGallery'))
+  .get('/MainGallery', require('./MainGallery'))
 
 module.exports = route
-
-
-
 
 
 /*

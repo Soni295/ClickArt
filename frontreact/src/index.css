@@ -11,11 +11,15 @@
 body {
   margin: 0;
   font-family:'Nanum Gothic', sans-serif;
-  background: var(--gray-hard);
 }
+
+.layout {
+  background: var(--gray-hard);
+  min-height: 100vh;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro;
 }
 hr{
   border: 1px solid var(--light-gray);
@@ -68,8 +72,6 @@ hr{
 .dropdown-divider{                                       /*el separador del desplegable*/
   border-top:1px solid var(--light-green);
 }
-
-
 
 .error{
   color: var(--red);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from 'react'
+import React, { useState, useEffect, createContext, useContext } from 'react'
 import { PATHSERVER } from '../Config/PATHSERVER'
 
 export const MainGalleryContext = createContext()
@@ -35,3 +35,5 @@ export const MainGalleryProvider = ({children}) => {
     </MainGalleryContext.Provider>
   )
 }
+
+export const useMainGallery = () => useContext(MainGalleryContext)

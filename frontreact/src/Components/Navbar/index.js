@@ -1,4 +1,4 @@
-import React, { useState,  useContext } from 'react'
+import React, { useContext } from 'react'
 import { Nav, Navbar as NavbarBS } from 'react-bootstrap'
 import { UserContext } from '../../Context/UserContext'
 import { Path } from '../../Config/Path'
@@ -8,18 +8,11 @@ import Search from './Components/Search'
 import LinkOption from './Components/NavBarLink'
 import UserDropdown from './UserDropdown/index'
 
-export const useModal = () => {
-  const [modalState, setModalState] = useState(false)
-  const showModal = () => setModalState(true)
-  const hideModal = () => setModalState(false)
-  const changeModal = () => setModalState(!modalState)
-  return[modalState, showModal, hideModal, changeModal]
-}
+import { useModal } from '../../hooks/useModal'
 
 // Navbar
 export default () => {
   const { session } = useContext(UserContext)
-
   const [modalState, showModal, hideModal, changeModal] = useModal()
       //<Nav.Link onClick={setModal.enable}>Conectarse</Nav.Link>
 

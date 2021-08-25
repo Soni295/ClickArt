@@ -9,16 +9,24 @@ import Navbar from './Components/Navbar'
 import Foot from './Componentes/Foot'
 import './index.css'
 
-export const App = () => (
+export const Layout = ({children}) => (
   <UserProvider>
-    <Router>
+    <div className='layout'>
       <Navbar />
-        <Switch>
-          {allRoutes.map( route =>
-            <RouteBox {...route} />
-          )}
-        </Switch>
+        {children}
       <Foot />
-    </Router>
+    </div>
   </UserProvider>
+)
+
+export const App = () => (
+  <Router>
+    <Layout>
+      <Switch>
+        {allRoutes.map( route =>
+          <RouteBox {...route} />
+        )}
+      </Switch>
+    </Layout>
+  </Router>
 )

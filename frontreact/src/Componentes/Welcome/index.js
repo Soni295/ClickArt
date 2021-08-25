@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../Context/UserContext";
+import { Title } from "../../Components/Title";
 import './style.css'
 
 export default () => {
@@ -8,11 +9,5 @@ export default () => {
     ? `Welcome ${session.user}`
     : `Welcome to the ClickArt`
 
-  return (
-    <div className="poster">
-      <div className='title'>
-        <h1>{welcome}</h1>
-      </div>
-    </div>
-  )
+  return <Title text={welcome} />
 }
