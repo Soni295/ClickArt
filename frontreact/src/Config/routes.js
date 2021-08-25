@@ -1,20 +1,13 @@
 // import Upload from "../Componentes/Upload/index";
 // import Perfil from "../Componentes/Perfil";
-
-import {
-  TerminosYCondiciones,
-  Privacidad,
-  PoliticaDeSubida,
-  AcercaDeNosotros,
-} from "../Componentes/Info_del_sitio";
-//import PerfilDibujo from "../Componentes/PerfilDibujo";
-//import ConfiguracionesUsuario from "../Componentes/ConfiguracionesUsuario";
-
+// import PerfilDibujo from "../Componentes/PerfilDibujo";
+// import ConfiguracionesUsuario from "../Componentes/ConfiguracionesUsuario";
 
 import { Path } from './Path'
+
 import Home from "../Pages/Home"
-//import SignIn from "../Pages/SignIn"
 import SignUp from "../Pages/SignUp"
+import { ToS, Privacy, AboutUs, UploadPolicy } from "../Pages/Statics"
 
 class Page {
   constructor(component, path, exact=true){
@@ -27,10 +20,10 @@ class Page {
 
 export default [
   new Page(Home, Path.Home),
-  new Page(TerminosYCondiciones, Path.ToS),
-  new Page(PoliticaDeSubida, Path.UploadPolicy),
-  new Page(Privacidad, Path.Privacy),
-  new Page(AcercaDeNosotros, Path.AboutUs),
+  new Page(ToS, Path.ToS),
+  new Page(UploadPolicy, Path.UploadPolicy),
+  new Page(Privacy, Path.Privacy),
+  new Page(AboutUs, Path.AboutUs),
   new Page(SignUp, Path.Signup),
 ]
 

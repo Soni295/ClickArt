@@ -31,9 +31,9 @@ export default () => {
         <Search />
         {session.logIn && <LinkOption name={Path.Upload} />}
         <Nav>
-          {!session.logIn
-            ? <><LinkOption name={Path.SignIn}/><LogInModal /></>
-            : <UserDropdown user={session.user}/>
+          {session.logIn
+            ? <UserDropdown user={session.user}/>
+            : <><LinkOption name={Path.SignIn}/><LogInModal/></>
           }
         </Nav>
       </NavbarBS.Collapse>

@@ -11,16 +11,21 @@ export const SignUpForm = () => {
   const [agreeTos, handleChange] = useSwitchBox()
 
   const inputs = [
-    useInput('User', 'John_Doe23'),
-    useInput('Name', 'John Doe'),
-    useInput('Password', '********'),
-    useInput('Email', 'Johndoe@gmail.com'),
+    useInput('user', 'John_Doe23'),
+    useInput('name', 'John Doe'),
+    useInput('email', 'Johndoe@gmail.com', 'email'),
+    useInput('password', '********', 'password'),
   ]
 
   const onSubmit = e => {
     e.preventDefault()
     const url = 'http://localhost:8888/react/Registrarse'
+
+    const data = inputs.reduce((acc, {value, name}) =>
+      ({...acc, [name]: value}) , {})
+    console.log(data)
   }
+
 
   return(
     <Form
@@ -36,7 +41,8 @@ export const SignUpForm = () => {
       />
       <FormBS.Group className='text-center' >
         <button
-          className='btn btn-primary boton-registrarme'>
+          className='btn btn-primary boton-registrarme'
+        >
           Registrarme
         </button>
       </FormBS.Group>

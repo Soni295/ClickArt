@@ -1,14 +1,11 @@
 import React from 'react'
-//import { linkToText } from '../../../Config/Path'
-
-import { Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { Navbar } from 'react-bootstrap'
 
-export default ({name}) => (
-  <Link to={name} >
+export default ({name, link}) => (
+  <Link to={link}>
     <Navbar.Text>
+      {name}
     </Navbar.Text>
   </Link>
 )
-
-//      {linkToText(name)}
