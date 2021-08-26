@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar } from 'react-bootstrap'
 
-export default ({name, link}) => (
+export default ({children, link}) => (
   <Link to={link}>
     <Navbar.Text>
-      {name}
+      {children}
     </Navbar.Text>
   </Link>
 )

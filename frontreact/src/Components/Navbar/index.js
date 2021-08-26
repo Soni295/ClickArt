@@ -33,7 +33,13 @@ export default () => {
         <Nav>
           {session.logIn
             ? <UserDropdown user={session.user}/>
-            : <><LinkOption name={Path.SignIn}/><LogInModal/></>
+            : <>
+                <LinkOption link={Path.SignUp}>
+                  Sign Up
+                </LinkOption>
+
+                <LogInModal/>
+              </>
           }
         </Nav>
       </NavbarBS.Collapse>
