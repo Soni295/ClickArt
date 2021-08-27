@@ -11,11 +11,11 @@ export default () => (
     <Container>
       <Row className='justify-content-center'>
 
-        <Col className='registro'>
+        <Col className='main-box'>
           <SignUpForm />
         </Col>
 
-        <Col className='registro terminos'>
+        <Col className='main-box terminos'>
           <h2 className='text-center'>
             Terminos y condiciones
           </h2>

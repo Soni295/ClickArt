@@ -13,7 +13,7 @@ class Page {
   constructor(component, path, exact=true){
     this.component = component
     this.path = path
-    this.key = path
+    this.key = path + 1
     this.exact = exact
   }
 }

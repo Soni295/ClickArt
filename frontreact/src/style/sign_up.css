@@ -1,0 +1,9 @@
+.terminos > h2{
+  margin:5px;
+  margin-right: 20px;
+}
+.terminos > p{
+  margin:5px;
+  margin-right: 20px;
+  overflow: auto;
+}

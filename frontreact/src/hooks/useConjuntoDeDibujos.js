@@ -12,6 +12,7 @@ export const useConjuntoDeDibujos = () => {
        .then(r => action.succedded(r))
        .catch(e => action.failed(e))
     }
+    // eslint-disable-next-line
   }, [])
 
   return state

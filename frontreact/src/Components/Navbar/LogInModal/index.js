@@ -1,7 +1,8 @@
-import React,{ /* useContext */ } from 'react'
+import React from 'react'
+import { Nav, Navbar as NavbarBS } from 'react-bootstrap'
 
-import { Button, Modal } from 'react-bootstrap'
-import { Inputs} from '../../Form/Inputs'
+import { Button, Modal as ModalBS } from 'react-bootstrap'
+import { Inputs } from '../../Form/Inputs'
 import { Form } from '../../Form/Form'
 
 
@@ -26,34 +27,36 @@ const inputs = [
 ]
 
 
-
-
-// Modal
-export default () => {
-  //const { showModal, setModal } = useContext(ModalContext)
-
-  const onSubmit = (e) => {
-    e.preventDefault()
-    console.log(e)
-  }
-
+const Modal = ({modalState, hideModal}) => {
   return (
-    <div>
-    </div>
+    <ModalBS
+      dialogClassName='modal-Sesion'
+      show={modalState}
+      onHide={hideModal}
+    >
+      <ModalBS.Header closeButton>
+        <ModalBS.Title>Log In</ModalBS.Title>
+      </ModalBS.Header>
+
+      <ModalBS.Body>
+      </ModalBS.Body>
+    </ModalBS>
+  )
+}
+
+export const LogInModal = ({modalState, hideModal, showModal}) => {
+  return (
+    <>
+      <Nav.Link onClick={() => showModal()}>Conectarse</Nav.Link>
+      <Modal
+        modalState={modalState}
+        hideModal={hideModal}
+      />
+    </>
   )
 }
 
 /*
-    <Modal
-      dialogClassName='modal-Sesion'
-      show={showModal}
-      onHide={setModal.disable}
-    >
-      <Modal.Header closeButton>
-        <Modal.Title>Log In</Modal.Title>
-      </Modal.Header>
-
-      <Modal.Body>
         <Form inputs={inputs} onSubmit={onSubmit}>
 
       <span className='mx-auto'>{}</span>
@@ -69,8 +72,5 @@ export default () => {
         </Button>
 
       </Form>
-      </Modal.Body>
-
     </Modal>
-
 */

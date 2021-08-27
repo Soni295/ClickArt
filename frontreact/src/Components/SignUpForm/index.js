@@ -6,6 +6,8 @@ import { SwitchBox } from '../Form/SwitchBox'
 
 import { useSwitchBox } from '../../hooks/useSwitchBox'
 import { useInput } from '../../hooks/useInput'
+import { useSubmit } from '../../hooks/useSubmit'
+import { fetchSignUp } from '../../Services/MainGallery'
 
 export const SignUpForm = () => {
   const [agreeTos, handleChange] = useSwitchBox()
@@ -17,21 +19,12 @@ export const SignUpForm = () => {
     useInput('password', '********', 'password'),
   ]
 
-  const onSubmit = e => {
-    e.preventDefault()
-    const url = 'http://localhost:8888/react/Registrarse'
-
-    const data = inputs.reduce((acc, {value, name}) =>
-      ({...acc, [name]: value}) , {})
-    console.log(data)
-  }
-
+  const handleSubmit= useSubmit({values: inputs, onSubmit: fetchSignUp})
 
   return(
     <Form
-      className='formulario'
       inputs={inputs}
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit}
       name='myForm'
     >
       <SwitchBox
@@ -41,7 +34,7 @@ export const SignUpForm = () => {
       />
       <FormBS.Group className='text-center' >
         <button
-          className='btn btn-primary boton-registrarme'
+          className='btn btn-primary'
         >
           Registrarme
         </button>

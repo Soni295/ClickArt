@@ -1,48 +1,45 @@
 import React, { useContext } from 'react'
-import { Nav, Navbar as NavbarBS } from 'react-bootstrap'
-import { UserContext } from '../../Context/UserContext'
-import { Path } from '../../Config/Path'
-import Brand from './Components/Brand'
-import Conectarse from './LogInModal/index'
+import { Nav } from 'react-bootstrap'
+
+import { LogInModal }from './../LogInModal'
+import UserDropdown from './UserDropdown'
+
+import { NavBarLayout }from './NavBarLayout'
 import Search from './Components/Search'
-import LinkOption from './Components/NavBarLink'
-import UserDropdown from './UserDropdown/index'
+import NavBarLink from './Components/NavBarLink'
 
 import { useModal } from '../../hooks/useModal'
+import { UserContext } from '../../Context/UserContext'
+import { Path } from '../../Config/Path'
 
-// Navbar
 export default () => {
   const { session } = useContext(UserContext)
-  const [modalState, showModal, hideModal, changeModal] = useModal()
-      //<Nav.Link onClick={setModal.enable}>Conectarse</Nav.Link>
-
-  const LogInModal = () => (
-    <>
-      <Nav.Link onClick={() => changeModal()}>Conectarse</Nav.Link>
-      <Conectarse />
-    </>
-  )
+  const [modalState, showModal, hideModal] = useModal()
 
   return (
-    <NavbarBS bg='dark' variant='dark' expand='lg'>
-      <Brand />
-      <NavbarBS.Toggle />
-      <NavbarBS.Collapse id='basic-navbar-nav'>
-        <Search />
-        {session.logIn && <LinkOption name={Path.Upload} />}
-        <Nav>
-          {session.logIn
-            ? <UserDropdown user={session.user}/>
-            : <>
-                <LinkOption link={Path.SignUp}>
-                  Sign Up
-                </LinkOption>
+    <NavBarLayout>
+      <Search />
+      {session.logIn &&
+        <NavBarLink link={Path.Upload}>
+          Upload
+        </NavBarLink>
+      }
+      <Nav>
+        {session.logIn
+          ? <UserDropdown user={session.user}/>
+          : <>
+              <NavBarLink link={Path.SignUp}>
+                Sign Up
+              </NavBarLink>
 
-                <LogInModal/>
-              </>
-          }
-        </Nav>
-      </NavbarBS.Collapse>
-    </NavbarBS>
+              <LogInModal
+                modalState={modalState}
+                hideModal={hideModal}
+                showModal={showModal}
+              />
+            </>
+        }
+      </Nav>
+    </NavBarLayout>
   )
 }
