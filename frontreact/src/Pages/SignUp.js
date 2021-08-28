@@ -15,13 +15,13 @@ export default () => (
           <SignUpForm />
         </Col>
 
-        <Col className='main-box terminos'>
+        <Col className='main-box'>
           <h2 className='text-center'>
             Terminos y condiciones
           </h2>
-          <Lorem/>
-          <Lorem/>
-          <Lorem/>
+          {[1, 2, 3, 4, 5].map((n, index) =>
+            <Lorem key={n + index}/>
+          )}
         </Col>
 
       </Row>

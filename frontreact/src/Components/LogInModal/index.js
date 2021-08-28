@@ -1,6 +1,7 @@
 import React from 'react'
-import { Nav, Modal as ModalBS } from 'react-bootstrap'
-
+import { Nav, Modal as ModalBS, Button } from 'react-bootstrap'
+import { Form } from '../Form'
+import { useInput } from '../../hooks/useInput'
 /*
 import { Inputs } from '../Form/Inputs'
 
@@ -10,8 +11,13 @@ const inputs = [
 ]
 */
 
-
 const Modal = ({modalState, hideModal}) => {
+
+  const inputs = [
+    useInput('user', 'User name'),
+    useInput('password', 'put your password here', 'password'),
+  ]
+
   return (
     <ModalBS
       dialogClassName='modal-Sesion'
@@ -23,7 +29,20 @@ const Modal = ({modalState, hideModal}) => {
       </ModalBS.Header>
 
       <ModalBS.Body>
+        <Form
+          inputs={inputs}
+        />
       </ModalBS.Body>
+
+      <ModalBS.Footer>
+        <Button
+          variant="secondary"
+          onClick={hideModal}
+        >
+          Close
+        </Button>
+        <Button variant="primary">Save changes</Button>
+      </ModalBS.Footer>
     </ModalBS>
   )
 }

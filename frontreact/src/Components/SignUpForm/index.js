@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form as FormBS } from 'react-bootstrap'
 
-import { Form } from '../Form/Form'
+import { Form } from '../Form'
 import { SwitchBox } from '../Form/SwitchBox'
 
 import { useSwitchBox } from '../../hooks/useSwitchBox'
