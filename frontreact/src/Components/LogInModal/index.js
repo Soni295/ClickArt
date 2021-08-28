@@ -1,22 +1,25 @@
 import React from 'react'
 import { Nav, Modal as ModalBS, Button } from 'react-bootstrap'
-import { Form } from '../Form'
-import { useInput } from '../../hooks/useInput'
-/*
-import { Inputs } from '../Form/Inputs'
 
-const inputs = [
-  new Inputs('user', 'User name'),
-  new Inputs('password', 'put your password here', 'password'),
-]
-*/
+import { Form } from '../Form'
+
+import { useInput } from '../../hooks/useInput'
+import { useSubmit } from '../../hooks/useSubmit'
+import { fetchLogIn } from '../../Services/MainGallery'
 
 const Modal = ({modalState, hideModal}) => {
+
+  const onSubmit = values => {
+    console.log(values)
+    fetchLogIn(values)
+  }
 
   const inputs = [
     useInput('user', 'User name'),
     useInput('password', 'put your password here', 'password'),
   ]
+
+  const handleSubmit= useSubmit({values: inputs, onSubmit })
 
   return (
     <ModalBS
@@ -31,18 +34,14 @@ const Modal = ({modalState, hideModal}) => {
       <ModalBS.Body>
         <Form
           inputs={inputs}
-        />
+          onSubmit={handleSubmit}
+        >
+          <Button variant="primary" type='submit'>
+            Log in
+          </Button>
+        </Form>
       </ModalBS.Body>
 
-      <ModalBS.Footer>
-        <Button
-          variant="secondary"
-          onClick={hideModal}
-        >
-          Close
-        </Button>
-        <Button variant="primary">Save changes</Button>
-      </ModalBS.Footer>
     </ModalBS>
   )
 }

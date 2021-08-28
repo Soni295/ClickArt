@@ -24,3 +24,9 @@ export const fetchSignUp = async(values) => {
     .then(res => res.json())
     .then(res => console.log(res))
 }
+
+export const fetchLogIn = async(values) => {
+  fetch(PATHSERVER.LogIn, postSet(values))
+    .then(res => res.json())
+    .then(res => console.log(res))
+}
