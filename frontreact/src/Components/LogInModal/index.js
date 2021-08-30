@@ -1,16 +1,16 @@
 import React from 'react'
-import { Nav, Modal as ModalBS, Button } from 'react-bootstrap'
+import { Nav, Button } from 'react-bootstrap'
 
 import { Form } from '../Form'
+import { Modal } from '../Modal'
 
 import { useInput } from '../../hooks/useInput'
 import { useSubmit } from '../../hooks/useSubmit'
 import { fetchLogIn } from '../../Services/MainGallery'
 
-const Modal = ({modalState, hideModal}) => {
+export const LogInModal = ({modalState, hideModal, showModal}) => {
 
   const onSubmit = values => {
-    console.log(values)
     fetchLogIn(values)
   }
 
@@ -22,16 +22,13 @@ const Modal = ({modalState, hideModal}) => {
   const handleSubmit= useSubmit({values: inputs, onSubmit })
 
   return (
-    <ModalBS
-      dialogClassName='modal-Sesion'
-      show={modalState}
-      onHide={hideModal}
-    >
-      <ModalBS.Header closeButton>
-        <ModalBS.Title>Log In</ModalBS.Title>
-      </ModalBS.Header>
-
-      <ModalBS.Body>
+    <>
+      <Nav.Link onClick={showModal}>Conectarse</Nav.Link>
+      <Modal
+        modalState={modalState}
+        hideModal={hideModal}
+        title='Log In'
+      >
         <Form
           inputs={inputs}
           onSubmit={handleSubmit}
@@ -40,20 +37,7 @@ const Modal = ({modalState, hideModal}) => {
             Log in
           </Button>
         </Form>
-      </ModalBS.Body>
-
-    </ModalBS>
-  )
-}
-
-export const LogInModal = ({modalState, hideModal, showModal}) => {
-  return (
-    <>
-      <Nav.Link onClick={showModal}>Conectarse</Nav.Link>
-      <Modal
-        modalState={modalState}
-        hideModal={hideModal}
-      />
+      </Modal>
     </>
   )
 }
