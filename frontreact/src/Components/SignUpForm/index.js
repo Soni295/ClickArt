@@ -13,10 +13,24 @@ export const SignUpForm = () => {
   const [agreeTos, handleChange] = useSwitchBox()
 
   const inputs = [
-    useInput('user', 'John_Doe23'),
-    useInput('name', 'John Doe'),
-    useInput('email', 'Johndoe@gmail.com', 'email'),
-    useInput('password', '********', 'password'),
+    useInput({
+      name: 'user',
+      placeholder: 'User Name'
+    }),
+    useInput({
+      name: 'name',
+      placeholder: 'Full name'
+    }),
+    useInput({
+      name: 'email',
+      placeholder: 'Johndoe@gmail.com',
+      type: 'email'
+    }),
+    useInput({
+      name: 'password',
+      placeholder: '********',
+      type: 'password'
+    })
   ]
 
   const handleSubmit= useSubmit({values: inputs, onSubmit: fetchSignUp})

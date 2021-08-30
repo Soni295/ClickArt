@@ -15,8 +15,12 @@ export const LogInModal = ({modalState, hideModal, showModal}) => {
   }
 
   const inputs = [
-    useInput('user', 'User name'),
-    useInput('password', 'put your password here', 'password'),
+    useInput(
+      {name: 'user', placeholder: 'User name'}
+    ),
+    useInput(
+      {name: 'password', placeholder: 'put your password here', type: 'password'}
+    ),
   ]
 
   const handleSubmit= useSubmit({values: inputs, onSubmit })
