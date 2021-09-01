@@ -3,7 +3,7 @@ import DibujoGaleria from "./Draw"
 
 export default ({conjuntoDeDibujos}) => {
   return (
-    <div className="galeria">
+    <div className="gallery">
       {conjuntoDeDibujos &&
         conjuntoDeDibujos?.map( dibujo =>
           <DibujoGaleria
